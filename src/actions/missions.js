@@ -17,9 +17,15 @@ function requestMissions() {
 }
 
 function receiveMissions(missions) {
+  let missionsById = {}
+  missions.forEach(function (mission) {
+    missionsById[mission.id] = mission
+  });
+
   return {
     type: RECEIVE_MISSIONS,
     missions: missions,
+    missionsById: missionsById,
     receivedAt: Date.now(),
   };
 }
@@ -35,7 +41,7 @@ function fetchMissions() {
 
 function shouldFetchMissions(state) {
   const missions = state.missions;
-  if (!missions) {
+  if (!missions || !missions.missionsById) {
     return true;
   } else if (missions.isFetching) {
     return false;
