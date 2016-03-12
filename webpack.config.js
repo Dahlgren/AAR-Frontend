@@ -1,34 +1,6 @@
-var path = require("path");
+var webpack = require("webpack");
 
 module.exports = {
-  entry: './src/index.jsx',
-  module: {
-    loaders: [
-      {
-        test: /\.css?$/,
-        loader: "style-loader!css-loader!"
-      },
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference
-        query: {
-          presets: ['react', 'es2015']
-        }
-      },
-      {
-        test: /\.png$/,
-        loader: "file-loader"
-      },
-    ],
-  },
-  resolve: {
-    alias: {
-      leaflet_css: __dirname + "/node_modules/leaflet/dist/leaflet.css",
-      react_leaflet: __dirname + "/node_modules/react-leaflet/src",
-    },
-    extensions: ['', '.js', '.jsx']
-  },
   devServer: {
     historyApiFallback: true,
     proxy: {
@@ -42,9 +14,15 @@ module.exports = {
       },
     },
   },
-  output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'build'),
-    publicPath: "/assets/",
-  },
+  devtool: 'eval',
+  entry: [
+    './src/index',
+  ],
+  module: require('./webpack/module'),
+  output: require('./webpack/output'),
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
+  resolve: require('./webpack/resolve'),
 };
