@@ -16,7 +16,7 @@ export default class ArmaMap extends Component {
   render() {
     return (
       <Map id='map' ref='map' center={position} minZoom={0} maxZoom={7} zoom={2}>
-        <TileLayer ref='tileLayer' tms='true' url='http://anzacsquad.com/map/altis/altis/{z}/{x}/{y}.png' />
+        <TileLayer ref='tileLayer' tms='true' noWrap='true' url='http://anzacsquad.com/map/altis/altis/{z}/{x}/{y}.png' />
 
         {this.props.markers.map((marker, i) =>
           <ArmaMarker key={marker.id} position={[marker.x, marker.y]}>
