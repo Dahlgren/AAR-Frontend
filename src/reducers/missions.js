@@ -7,7 +7,8 @@ import {
 export function missions(state = {
   isFetching: false,
   didInvalidate: false,
-  items: []
+  missions: [],
+  missionsById: null,
 }, action) {
   switch (action.type) {
     case INVALIDATE_MISSIONS:
@@ -23,7 +24,8 @@ export function missions(state = {
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: action.missions,
+        missions: action.missions,
+        missionsById: action.missionsById,
         lastUpdated: action.receivedAt,
       });
     default:

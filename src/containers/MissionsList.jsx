@@ -27,7 +27,7 @@ class MissionsList extends Component {
   }
 
   render() {
-    const { items, isFetching, lastUpdated } = this.props;
+    const { missions, isFetching, lastUpdated } = this.props;
     return (
       <div>
         <p>
@@ -44,15 +44,15 @@ class MissionsList extends Component {
             </a>
           }
         </p>
-        {isFetching && items.length === 0 &&
+        {isFetching && missions.length === 0 &&
           <h2>Loading...</h2>
         }
-        {!isFetching && items.length === 0 &&
+        {!isFetching && missions.length === 0 &&
           <h2>Empty.</h2>
         }
-        {items.length > 0 &&
+        {missions.length > 0 &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Missions missions={items} />
+            <Missions missions={missions} />
           </div>
         }
       </div>
@@ -61,25 +61,24 @@ class MissionsList extends Component {
 };
 
 MissionsList.propTypes = {
-  items: PropTypes.array.isRequired,
+  missions: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
   dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
-  const { missions } = state
   const {
     isFetching,
     lastUpdated,
-    items
-  } = missions || {
+    missions
+  } = state.missions || {
     isFetching: true,
-    items: []
+    missions: []
   }
 
   return {
-    items,
+    missions,
     isFetching,
     lastUpdated
   }
