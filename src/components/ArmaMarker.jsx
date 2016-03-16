@@ -6,6 +6,8 @@ export default class ArmaMarker extends Marker {
     super.componentWillMount();
     const { map, position } = this.props;
     this.leafletElement.setLatLng(map.unproject([position[0], position[1]], map.getMaxZoom()));
+    this.leafletElement.setRotationAngle(this.props.rotation);
+    this.leafletElement.setRotationOrigin("center center");
   }
 
   componentDidUpdate(prevProps) {
@@ -15,6 +17,10 @@ export default class ArmaMarker extends Marker {
       var map = this.props.map;
       var position = this.props.position;
       this.leafletElement.setLatLng(map.unproject([position[0], position[1]], map.getMaxZoom()));
+    }
+
+    if (this.props.rotation !== prevProps.rotation) {
+      this.leafletElement.setRotationAngle(this.props.rotation);
     }
   }
 }

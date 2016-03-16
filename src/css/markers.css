@@ -1,0 +1,59 @@
+.marker-hidden {
+  display: none;
+}
+
+.marker-side-west {
+  background-color: #1E90FF;
+}
+
+.marker-side-east {
+  background-color: #DC143C;
+}
+
+.marker-side-guer {
+  background-color: #00CD00;
+}
+
+.marker-side-civ {
+  background-color: #EEEE00;
+}
+
+.marker-simulation-car {
+  -webkit-mask-image: url(../images/marker_car.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-helicopter {
+  -webkit-mask-image: url(../images/marker_helicopter.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-motorcycle {
+  -webkit-mask-image: url(../images/marker_motorcycle.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-parachute {
+  -webkit-mask-image: url(../images/marker_parachute.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-plane {
+  -webkit-mask-image: url(../images/marker_plane.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-ship {
+  -webkit-mask-image: url(../images/marker_ship.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-soldier {
+  -webkit-mask-image: url(../images/marker_soldier.png);
+  -webkit-mask-size: contain;
+}
+
+.marker-simulation-tank {
+  -webkit-mask-image: url(../images/marker_tank.png);
+  -webkit-mask-size: contain;
+}
