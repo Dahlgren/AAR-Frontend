@@ -1,8 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 import { Map, Popup, TileLayer } from 'react-leaflet';
-import { LatLngBounds } from 'leaflet';
+import { LatLngBounds, divIcon } from 'leaflet';
 import ArmaMarker from './ArmaMarker';
+
+const icon = function (className, size) {
+  return divIcon({
+    className: className,
+    iconSize: size,
+  })
+}
 
 export default class ArmaMap extends Component {
   componentDidMount() {
@@ -15,16 +22,13 @@ export default class ArmaMap extends Component {
 
   render() {
     const { markers, world } = this.props;
+
     return (
       <Map id='map' ref='map' center={[0, 0]} minZoom={world.zoom[0]} maxZoom={world.zoom[1]} zoom={world.zoom[0]}>
         <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
 
         {markers.map((marker, i) =>
-          <ArmaMarker key={marker.id} position={[marker.x, marker.y]}>
-            <Popup>
-              <span>{marker.name}</span>
-            </Popup>
-          </ArmaMarker>
+          <ArmaMarker key={marker.id} icon={icon(marker.className, marker.markerSize)} position={[marker.x, marker.y]} rotation={marker.rotation} title={marker.name} />
         )}
       </Map>
     );

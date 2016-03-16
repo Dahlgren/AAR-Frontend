@@ -1,4 +1,6 @@
 import 'leaflet_css';
+import './leaflet/rotated_marker';
+import './css/markers.css';
 import './css/style.css';
 import React from 'react';
 import { render } from 'react-dom';
