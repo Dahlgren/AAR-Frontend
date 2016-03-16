@@ -15,7 +15,7 @@ export default class Runner {
   }
 
   tick() {
-    this.currentTime += 15000;
+    this.currentTime += 10000;
 
     let currentEvent = this.events[this.currentIndex];
     while (this.currentIndex < this.events.length && currentEvent.timestamp.getTime() < this.currentTime) {
