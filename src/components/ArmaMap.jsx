@@ -24,7 +24,7 @@ export default class ArmaMap extends Component {
     const { markers, world } = this.props;
 
     return (
-      <Map id='map' ref='map' center={[0, 0]} minZoom={world.zoom[0]} maxZoom={world.zoom[1]} zoom={world.zoom[0]}>
+      <Map id='map' ref='map' center={[0, 0]} fullscreenControl={true} minZoom={world.zoom[0]} maxZoom={world.zoom[1]} zoom={world.zoom[0]}>
         <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
 
         {markers.map((marker, i) =>
