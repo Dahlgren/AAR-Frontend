@@ -47,6 +47,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/utes/{z}/utes_{x}_{y}.png',
     zoom: [0, 5],
   },
+  vt5: {
+    name: 'Valtatie 5',
+    size: [6015, 6012],
+    tileUrl: 'http://maptiles.anrop.se/vt5/{z}/vt5_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   zargabad: {
     name: 'Zargabad',
     size: [8193, 8196],
