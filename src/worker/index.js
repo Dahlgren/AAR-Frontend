@@ -4,16 +4,26 @@ import { markerSize } from './marker_sizes';
 import Runner from './runner';
 import worlds from './../data/worlds';
 
+const EVENTS_PER_PAGE = 100;
+const loadedEvents = [];
+
 function loadMission(id) {
   fetch('/api/missions/' + id)
     .then(req => req.json())
-    .then(json => loadEvents(id, json.world));
+    .then(json => loadEvents(id, json.world, EVENTS_PER_PAGE, 0));
 }
 
-function loadEvents(id, worldName) {
-  fetch('/api/missions/' + id + '/events')
+function loadEvents(id, worldName, limit, offset) {
+  fetch('/api/missions/' + id + '/events?limit=' + limit + '&offset=' + offset)
     .then(req => req.json())
-    .then(json => computeEvents(json, worldName));
+    .then(function (json) {
+      if (json.length == 0) {
+        computeEvents(loadedEvents, worldName)
+      } else {
+        loadedEvents.push(...json);
+        loadEvents(id, worldName, limit, offset + json.length);
+      }
+    });
 }
 
 function computeEvents(events, worldName) {
