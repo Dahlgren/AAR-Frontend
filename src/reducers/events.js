@@ -8,7 +8,9 @@ import {
 export function events(state = {
   isFetching: false,
   didInvalidate: false,
-  markers: [],
+  projectiles: [],
+  units: [],
+  vehicles: [],
   time: null,
 }, action) {
   switch (action.type) {
@@ -19,12 +21,18 @@ export function events(state = {
     case RECEIVE_EVENTS:
       return Object.assign({}, state, {
         isFetching: false,
-        markers: action.markers,
+        projectiles: action.projectiles,
+        units: action.units,
+        vehicles: action.vehicles,
         time: action.time,
       });
     case STOP_EVENTS:
       return Object.assign({}, state, {
         isFetching: false,
+        projectiles: action.projectiles,
+        units: action.units,
+        vehicles: action.vehicles,
+        time: action.time,
       });
     default:
       return state;

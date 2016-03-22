@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import { projectileColor } from './colors';
 import { unitClassName, vehicleClassName } from './marker_classes';
 import { markerSize } from './marker_sizes';
 import Runner from './runner';
@@ -31,9 +32,23 @@ function computeEvents(events, worldName) {
   const world = worlds[worldName.toLowerCase()];
 
   if (world) {
-    events = events.map(function (event) {
+    var computedEvents = [];
+
+    events.map(function (event) {
+      if (event.projectile) {
+        computedEvents.push({
+          id: event.projectile.id,
+          x: event.projectile.position.x,
+          y: (world.size[1] - event.projectile.position.y),
+          color: projectileColor(event.projectile.side),
+          weight: 1,
+          timestamp: new Date(event.timestamp),
+          type: 'projectiles',
+        });
+      }
+
       if (event.unit) {
-        return {
+        computedEvents.push({
           id: event.unit.id,
           rotation: event.unit.position.dir,
           x: event.unit.position.x,
@@ -42,11 +57,12 @@ function computeEvents(events, worldName) {
           markerSize: [16, 16],
           name: event.unit.name,
           timestamp: new Date(event.timestamp),
-        };
+          type: 'units',
+        });
       }
 
       if (event.vehicle) {
-        return {
+        computedEvents.push({
           id: event.vehicle.id,
           rotation: event.vehicle.position.dir,
           x: event.vehicle.position.x,
@@ -55,23 +71,19 @@ function computeEvents(events, worldName) {
           markerSize: markerSize(event.vehicle.simulation),
           name: event.vehicle.name,
           timestamp: new Date(event.timestamp),
-        };
+          type: 'vehicles',
+        });
       }
 
       return null;
     });
-    events = events.filter(function (event) {
-      return event != null;
-    });
 
-    events.sort(function (e1, e2) {
-      return e1.timestamp - e2.timestamp;
-    })
-
-    runner = new Runner(events, function (events) {
+    runner = new Runner(computedEvents, function (events) {
       self.postMessage({
         type: 'events',
-        markers: events.markers,
+        projectiles: events.projectiles,
+        units: events.units,
+        vehicles: events.vehicles,
         time: events.time,
       })
     });
