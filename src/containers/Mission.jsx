@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import ArmaMap from '../components/ArmaMap';
-import { loadEvents, stopEvents } from '../actions/events';
+import { loadEvents, seekEvents, stopEvents } from '../actions/events';
 import { fetchMissionsIfNeeded } from '../actions/missions';
 import worlds from '../data/worlds';
 
@@ -13,13 +13,14 @@ export default class Mission extends Component {
     dispatch(loadEvents(params.id));
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     const { dispatch } = this.props;
     dispatch(stopEvents());
   }
 
   render() {
-    const { markers, isFetching, lastUpdated, world } = this.props;
+    const { markers, isFetching, lastUpdated, time, world } = this.props;
+
     return (
       <div id="map-container">
         {isFetching && markers.length === 0 &&
@@ -32,17 +33,31 @@ export default class Mission extends Component {
           <h2>Mission World is not defined</h2>
         }
         {markers.length > 0 && world &&
-          <ArmaMap markers={markers} world={world} />
+          <div className="flex">
+            <ArmaMap markers={markers} world={world} />
+            <input
+              type="range"
+              min={time.start}
+              max={time.end}
+              value={time.current}
+              onChange={this.seek.bind(this)}
+            />
+          </div>
         }
       </div>
     )
+  }
+
+  seek(event) {
+    const newCurrentTime = parseInt(event.target.value, 10);
+    seekEvents(newCurrentTime);
   }
 }
 
 Mission.propTypes = {
   markers: PropTypes.array.isRequired,
+  time: PropTypes.object,
   world: PropTypes.object,
-  timestamp: PropTypes.number,
   isFetching: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired
 }
@@ -52,10 +67,11 @@ function mapStateToProps(state, ownProps) {
   const {
     isFetching,
     markers,
-    timestamp,
+    time,
   } = events || {
     isFetching: true,
     markers: [],
+    time: null,
   }
 
   let world = null;
@@ -67,7 +83,7 @@ function mapStateToProps(state, ownProps) {
   return {
     isFetching,
     markers,
-    timestamp,
+    time,
     world,
   }
 }
