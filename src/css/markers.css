@@ -2,6 +2,11 @@
   display: none;
 }
 
+.marker-bullet {
+  -webkit-mask-image: url(../images/marker_bullet.png);
+  -webkit-mask-size: contain;
+}
+
 .marker-side-west {
   background-color: #1E90FF;
 }

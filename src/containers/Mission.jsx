@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
+import { LatLng } from 'leaflet';
 import ArmaMap from '../components/ArmaMap';
 import { loadEvents, seekEvents, stopEvents } from '../actions/events';
 import { fetchMissionsIfNeeded } from '../actions/missions';
@@ -19,22 +20,22 @@ export default class Mission extends Component {
   }
 
   render() {
-    const { markers, isFetching, lastUpdated, time, world } = this.props;
+    const { projectiles, units, vehicles, isFetching, lastUpdated, time, world } = this.props;
 
     return (
       <div id="map-container">
-        {isFetching && markers.length === 0 &&
+        {isFetching &&
           <h2>Loading...</h2>
         }
-        {!isFetching && markers.length === 0 &&
+        {!isFetching && (projectiles.length + units.length + vehicles.length) === 0 &&
           <h2>No events</h2>
         }
         {!isFetching && !world &&
           <h2>Mission World is not defined</h2>
         }
-        {markers.length > 0 && world &&
+        {world && time &&
           <div className="flex">
-            <ArmaMap markers={markers} world={world} />
+            <ArmaMap projectiles={projectiles} units={units} vehicles={vehicles} world={world} />
             <input
               type="range"
               min={time.start}
@@ -55,7 +56,9 @@ export default class Mission extends Component {
 }
 
 Mission.propTypes = {
-  markers: PropTypes.array.isRequired,
+  projectiles: PropTypes.array.isRequired,
+  units: PropTypes.array.isRequired,
+  vehicles: PropTypes.array.isRequired,
   time: PropTypes.object,
   world: PropTypes.object,
   isFetching: PropTypes.bool.isRequired,
@@ -66,11 +69,15 @@ function mapStateToProps(state, ownProps) {
   const { events, missions } = state
   const {
     isFetching,
-    markers,
+    projectiles,
+    units,
+    vehicles,
     time,
   } = events || {
     isFetching: true,
-    markers: [],
+    projectiles: [],
+    units: [],
+    vehicles: [],
     time: null,
   }
 
@@ -82,7 +89,9 @@ function mapStateToProps(state, ownProps) {
 
   return {
     isFetching,
-    markers,
+    projectiles,
+    units,
+    vehicles,
     time,
     world,
   }

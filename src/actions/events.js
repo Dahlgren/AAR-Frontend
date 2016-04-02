@@ -14,7 +14,9 @@ function requestEvents() {
 function receiveEvents(data) {
   return {
     type: RECEIVE_EVENTS,
-    markers: data.markers,
+    projectiles: data.projectiles,
+    units: data.units,
+    vehicles: data.vehicles,
     time: data.time,
   };
 }
@@ -37,7 +39,9 @@ export function stopEvents() {
 
   return {
     type: STOP_EVENTS,
-    markers: [],
+    projectiles: [],
+    units: [],
+    vehicles: [],
     time: null,
   };
 }
