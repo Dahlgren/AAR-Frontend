@@ -11,21 +11,34 @@ function requestEvents() {
   };
 }
 
-function receiveEvents(markers) {
+function receiveEvents(data) {
   return {
     type: RECEIVE_EVENTS,
-    markers: markers,
+    markers: data.markers,
+    time: data.time,
   };
+}
+
+export function seekEvents(seek) {
+  worker.postMessage({
+    type: 'seek',
+    seek: seek,
+  });
 }
 
 export function stopEvents() {
   if (worker) {
+    worker.postMessage({
+      type: 'stop',
+    });
     worker.terminate();
     worker = null;
   }
 
   return {
     type: STOP_EVENTS,
+    markers: [],
+    time: null,
   };
 }
 
@@ -43,7 +56,7 @@ export function loadEvents(id) {
     worker.onmessage = function (msg) {
       switch (msg.data.type) {
         case 'events':
-          dispatch(receiveEvents(msg.data.events));
+          dispatch(receiveEvents(msg.data));
           break;
       }
     };

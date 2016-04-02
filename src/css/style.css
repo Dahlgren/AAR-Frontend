@@ -15,8 +15,8 @@ body, html, #content, #app {
   color: white;
 }
 
-#map-container, #map {
+#map-container, #map, .flex {
   display: flex;
   flex: 1;
-  flex-direction: row;
+  flex-direction: column;
 }

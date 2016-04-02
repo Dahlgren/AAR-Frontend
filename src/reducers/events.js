@@ -1,13 +1,15 @@
 import {
   REQUEST_EVENTS,
   RECEIVE_EVENTS,
+  SEEK_EVENTS,
   STOP_EVENTS,
 } from '../actions/events';
 
 export function events(state = {
   isFetching: false,
   didInvalidate: false,
-  markers: []
+  markers: [],
+  time: null,
 }, action) {
   switch (action.type) {
     case REQUEST_EVENTS:
@@ -18,7 +20,7 @@ export function events(state = {
       return Object.assign({}, state, {
         isFetching: false,
         markers: action.markers,
-        timestamp: action.timestamp,
+        time: action.time,
       });
     case STOP_EVENTS:
       return Object.assign({}, state, {

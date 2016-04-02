@@ -6,6 +6,7 @@ import worlds from './../data/worlds';
 
 const EVENTS_PER_PAGE = 100;
 const loadedEvents = [];
+var runner = null;
 
 function loadMission(id) {
   fetch('/api/missions/' + id)
@@ -67,10 +68,11 @@ function computeEvents(events, worldName) {
       return e1.timestamp - e2.timestamp;
     })
 
-    new Runner(events, function (events) {
+    runner = new Runner(events, function (events) {
       self.postMessage({
         type: 'events',
-        events: events,
+        markers: events.markers,
+        time: events.time,
       })
     });
   } else {
@@ -82,6 +84,12 @@ self.onmessage = function(msg) {
   switch (msg.data.type) {
     case 'load':
       loadMission(msg.data.id);
+      break;
+    case 'seek':
+      runner.seek(msg.data.seek);
+      break;
+    case 'stop':
+      runner.stop();
       break;
     default:
       throw 'no action for type';
