@@ -31,28 +31,28 @@ function computeEvents(events, worldName) {
 
   if (world) {
     events = events.map(function (event) {
-      if (event.data.unit) {
+      if (event.unit) {
         return {
-          id: event.data.unit.id,
-          rotation: event.data.unit.position.dir,
-          x: event.data.unit.position.x,
-          y: (world.size[1] - event.data.unit.position.y),
-          className: unitClassName(event.data.unit),
+          id: event.unit.id,
+          rotation: event.unit.position.dir,
+          x: event.unit.position.x,
+          y: (world.size[1] - event.unit.position.y),
+          className: unitClassName(event.unit),
           markerSize: [16, 16],
-          name: event.data.unit.name,
+          name: event.unit.name,
           timestamp: new Date(event.timestamp),
         };
       }
 
-      if (event.data.vehicle) {
+      if (event.vehicle) {
         return {
-          id: event.data.vehicle.id,
-          rotation: event.data.vehicle.position.dir,
-          x: event.data.vehicle.position.x,
-          y: (world.size[1] - event.data.vehicle.position.y),
-          className: vehicleClassName(event.data.vehicle),
-          markerSize: markerSize(event.data.vehicle.simulation),
-          name: event.data.vehicle.name,
+          id: event.vehicle.id,
+          rotation: event.vehicle.position.dir,
+          x: event.vehicle.position.x,
+          y: (world.size[1] - event.vehicle.position.y),
+          className: vehicleClassName(event.vehicle),
+          markerSize: markerSize(event.vehicle.simulation),
+          name: event.vehicle.name,
           timestamp: new Date(event.timestamp),
         };
       }
