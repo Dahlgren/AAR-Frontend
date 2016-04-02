@@ -35,6 +35,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/stratis/{z}/stratis_{x}_{y}.png',
     zoom: [0, 5],
   },
+  sugarlake: {
+    name: 'Sugarlake',
+    size: [8192, 8195],
+    tileUrl: 'http://maptiles.anrop.se/sugarlake/{z}/sugarlake_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   takistan: {
     name: 'Takistan',
     size: [12801, 12803],
