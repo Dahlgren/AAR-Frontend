@@ -47,6 +47,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/takistan/{z}/takistan_{x}_{y}.png',
     zoom: [0, 6],
   },
+  tilos: {
+    name: 'Tilos',
+    size: [8193, 8193],
+    tileUrl: 'http://maptiles.anrop.se/tilos/{z}/tilos_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   utes: {
     name: 'Utes',
     size: [5120, 5120],
