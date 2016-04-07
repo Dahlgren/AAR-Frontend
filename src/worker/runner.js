@@ -104,7 +104,7 @@ export default class Runner {
     var self = this;
     Object.keys(this.currentState.projectiles).map(function (projectileKey) {
       const projectile = self.currentState.projectiles[projectileKey];
-      if (projectile.timestamp.getTime() < self.currentTime - 20000) {
+      if (projectile.timestamp.getTime() < self.currentTime - 10000) {
         delete self.currentState.projectiles[projectileKey];
       }
     });
