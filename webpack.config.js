@@ -5,7 +5,7 @@ module.exports = {
     historyApiFallback: true,
     proxy: {
       '/api/*': {
-        target: 'https://arma-stats-api.herokuapp.com/',
+        target: 'https://arma-stats-go.herokuapp.com/',
         rewrite: function(req) {
           req.url = req.url.replace(/^\/api/, '');
         },

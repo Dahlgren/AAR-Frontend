@@ -5,27 +5,18 @@ import { markerSize } from './marker_sizes';
 import Runner from './runner';
 import worlds from './../data/worlds';
 
-const EVENTS_PER_PAGE = 100;
-const loadedEvents = [];
 var runner = null;
 
 function loadMission(id) {
   fetch('/api/missions/' + id)
     .then(req => req.json())
-    .then(json => loadEvents(id, json.world, EVENTS_PER_PAGE, 0));
+    .then(json => loadEvents(id, json.world));
 }
 
-function loadEvents(id, worldName, limit, offset) {
-  fetch('/api/missions/' + id + '/events?limit=' + limit + '&offset=' + offset)
+function loadEvents(id, worldName) {
+  fetch('/api/missions/' + id + '/events')
     .then(req => req.json())
-    .then(function (json) {
-      if (json.length == 0) {
-        computeEvents(loadedEvents, worldName)
-      } else {
-        loadedEvents.push(...json);
-        loadEvents(id, worldName, limit, offset + json.length);
-      }
-    });
+    .then((json) => computeEvents(json, worldName));
 }
 
 function computeEvents(events, worldName) {
