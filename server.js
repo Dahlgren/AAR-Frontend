@@ -9,7 +9,7 @@ var staticPath = path.join(__dirname, 'build');
 
 app.use(express.static(staticPath))
 
-app.use('/api', proxy('arma-stats-api.herokuapp.com', {
+app.use('/api', proxy('arma-stats-go.herokuapp.com', {
   forwardPath: function(req, res) {
     return require('url').parse(req.url).path;
   }
