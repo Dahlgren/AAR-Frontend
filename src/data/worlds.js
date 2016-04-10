@@ -29,6 +29,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/sfp_sturko/{z}/sfp_sturko_{x}_{y}.png',
     zoom: [0, 6],
   },
+  sfp_wamako: {
+    name: 'Wamako',
+    size: [25600, 25601],
+    tileUrl: 'http://maptiles.anrop.se/sfp_wamako/{z}/sfp_wamako_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   stratis: {
     name: 'Stratis',
     size: [8193, 8193],
