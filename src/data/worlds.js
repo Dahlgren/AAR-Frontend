@@ -5,6 +5,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/altis/{z}/altis_{x}_{y}.png',
     zoom: [0, 7],
   },
+  bornholm: {
+    name: 'Bornholm',
+    size: [22529, 22529],
+    tileUrl: 'http://maptiles.anrop.se/bornholm/{z}/bornholm_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   chernarus: {
     name: 'Chernarus',
     size: [15361, 15361],
