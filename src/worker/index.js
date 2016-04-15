@@ -3,18 +3,19 @@ import { projectileColor } from './colors';
 import { unitClassName, vehicleClassName } from './marker_classes';
 import { markerSize } from './marker_sizes';
 import Runner from './runner';
+import apiEndpoint from '../data/api';
 import worlds from './../data/worlds';
 
 var runner = null;
 
 function loadMission(id) {
-  fetch('/api/missions/' + id)
+  fetch(apiEndpoint + '/missions/' + id)
     .then(req => req.json())
     .then(json => loadEvents(id, json.world));
 }
 
 function loadEvents(id, worldName) {
-  fetch('/api/missions/' + id + '/events')
+  fetch(apiEndpoint + '/missions/' + id + '/events')
     .then(req => req.json())
     .then((json) => computeEvents(json, worldName));
 }

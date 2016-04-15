@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import apiEndpoint from '../data/api';
 
 export const INVALIDATE_MISSIONS = 'INVALIDATE_MISSIONS';
 export const REQUEST_MISSIONS = 'REQUEST_MISSIONS';
@@ -33,7 +34,7 @@ function receiveMissions(missions) {
 function fetchMissions() {
   return dispatch => {
     dispatch(requestMissions());
-    return fetch('/api/missions')
+    return fetch(apiEndpoint + '/missions')
       .then(req => req.json())
       .then(json => dispatch(receiveMissions(json)));
   };
