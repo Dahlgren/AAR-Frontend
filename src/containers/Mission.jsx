@@ -51,7 +51,7 @@ export default class Mission extends Component {
 
   seek(event) {
     const newCurrentTime = parseInt(event.target.value, 10);
-    seekEvents(newCurrentTime);
+    this.props.dispatch(seekEvents(newCurrentTime));
   }
 }
 

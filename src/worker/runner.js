@@ -1,18 +1,24 @@
+const diff = require('deep-diff').diff;
+
 const RUNNER_STATES = {
   PLAYING: 'PLAYING',
   STOPPED: 'STOPPED',
 }
 
+function diffIgnoreTimestamp(path, key) {
+  return key === 'timestamp';
+};
+
 export default class Runner {
-  constructor(events, emitState) {
+  constructor(events, emitStateDiff) {
     this.events = events;
-    this.emitState = emitState;
+    this.emitStateDiff = emitStateDiff;
 
     this.runnerState = RUNNER_STATES.STOPPED;
     this.resetState();
 
     if (this.events.length > 0) {
-      this.startTime = this.events[0].timestamp.getTime();
+      this.startTime = this.events[0].timestamp;
       this.currentTime = this.startTime;
       this.start();
     }
@@ -60,8 +66,10 @@ export default class Runner {
   }
 
   updateState() {
+    const oldState = JSON.parse(JSON.stringify(this.currentState));
+
     let currentEvent = this.events[this.currentIndex];
-    while (this.currentIndex < this.events.length && currentEvent.timestamp.getTime() < this.currentTime) {
+    while (this.currentIndex < this.events.length && currentEvent.timestamp < this.currentTime) {
       currentEvent = this.events[this.currentIndex];
 
       if (currentEvent.type === "projectiles") {
@@ -88,14 +96,14 @@ export default class Runner {
 
     this.removeOldProjectiles();
 
-    this.emitState({
-      projectiles: this.currentState.projectiles,
-      units: this.currentState.units,
-      vehicles: this.currentState.vehicles,
+    this.emitStateDiff({
+      projectiles: diff(oldState.projectiles, this.currentState.projectiles, diffIgnoreTimestamp) || [],
+      units: diff(oldState.units, this.currentState.units, diffIgnoreTimestamp) || [],
+      vehicles: diff(oldState.vehicles, this.currentState.vehicles, diffIgnoreTimestamp) || [],
       time: {
         start: this.startTime,
         current: this.currentTime,
-        end: this.events[this.events.length - 1].timestamp.getTime(),
+        end: this.events[this.events.length - 1].timestamp,
       }
     });
   }
@@ -104,7 +112,7 @@ export default class Runner {
     var self = this;
     Object.keys(this.currentState.projectiles).map(function (projectileKey) {
       const projectile = self.currentState.projectiles[projectileKey];
-      if (projectile.timestamp.getTime() < self.currentTime - 10000) {
+      if (projectile.timestamp < self.currentTime - 10000) {
         delete self.currentState.projectiles[projectileKey];
       }
     });

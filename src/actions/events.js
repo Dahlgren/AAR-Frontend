@@ -3,6 +3,8 @@ var worker;
 
 export const REQUEST_EVENTS = 'REQUEST_EVENTS';
 export const RECEIVE_EVENTS = 'RECEIVE_EVENTS';
+export const RECEIVE_EVENTS_DIFF = 'RECEIVE_EVENTS_DIFF';
+export const SEEK_EVENTS = 'SEEK_EVENTS';
 export const STOP_EVENTS = 'STOP_EVENTS';
 
 function requestEvents() {
@@ -13,7 +15,7 @@ function requestEvents() {
 
 function receiveEvents(data) {
   return {
-    type: RECEIVE_EVENTS,
+    type: RECEIVE_EVENTS_DIFF,
     projectiles: data.projectiles,
     units: data.units,
     vehicles: data.vehicles,
@@ -26,6 +28,13 @@ export function seekEvents(seek) {
     type: 'seek',
     seek: seek,
   });
+
+  return {
+    type: SEEK_EVENTS,
+    projectiles: {},
+    units: {},
+    vehicles: {},
+  };
 }
 
 export function stopEvents() {

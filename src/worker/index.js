@@ -34,7 +34,7 @@ function computeEvents(events, worldName) {
           y: (world.size[1] - event.projectile.position.y),
           color: projectileColor(event.projectile.side),
           weight: 1,
-          timestamp: new Date(event.timestamp),
+          timestamp: new Date(event.timestamp).getTime(),
           type: 'projectiles',
         });
       }
@@ -48,7 +48,7 @@ function computeEvents(events, worldName) {
           className: unitClassName(event.unit),
           markerSize: [16, 16],
           name: event.unit.name,
-          timestamp: new Date(event.timestamp),
+          timestamp: new Date(event.timestamp).getTime(),
           type: 'units',
         });
       }
@@ -62,7 +62,7 @@ function computeEvents(events, worldName) {
           className: vehicleClassName(event.vehicle),
           markerSize: markerSize(event.vehicle.simulation),
           name: event.vehicle.name,
-          timestamp: new Date(event.timestamp),
+          timestamp: new Date(event.timestamp).getTime(),
           type: 'vehicles',
         });
       }
