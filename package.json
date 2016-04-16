@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "webpack --config ./webpack.production.config.js --progress --colors",
+    "heroku-postbuild": "npm run webpack",
     "start": "webpack-dev-server --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --config ./webpack.production.config.js --progress --colors"
   },
   "author": "",
   "license": "MIT",
