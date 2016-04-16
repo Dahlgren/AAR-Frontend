@@ -46,8 +46,8 @@ export default class ArmaMap extends Component {
 };
 
 ArmaMap.propTypes = {
-  projectiles: PropTypes.array.isRequired,
-  units: PropTypes.array.isRequired,
-  vehicles: PropTypes.array.isRequired,
+  projectiles: PropTypes.object.isRequired,
+  units: PropTypes.object.isRequired,
+  vehicles: PropTypes.object.isRequired,
   world: PropTypes.object.isRequired,
 }

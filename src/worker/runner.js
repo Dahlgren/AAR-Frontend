@@ -89,9 +89,9 @@ export default class Runner {
     this.removeOldProjectiles();
 
     this.emitState({
-      projectiles: Object.keys(this.currentState.projectiles).map((k) => this.currentState.projectiles[k]),
-      units: Object.keys(this.currentState.units).map((k) => this.currentState.units[k]),
-      vehicles: Object.keys(this.currentState.vehicles).map((k) => this.currentState.vehicles[k]),
+      projectiles: this.currentState.projectiles,
+      units: this.currentState.units,
+      vehicles: this.currentState.vehicles,
       time: {
         start: this.startTime,
         current: this.currentTime,

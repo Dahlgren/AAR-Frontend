@@ -71,13 +71,8 @@ function computeEvents(events, worldName) {
     });
 
     runner = new Runner(computedEvents, function (events) {
-      self.postMessage({
-        type: 'events',
-        projectiles: events.projectiles,
-        units: events.units,
-        vehicles: events.vehicles,
-        time: events.time,
-      })
+      events.type = 'events';
+      self.postMessage(events);
     });
   } else {
     console.log('World "' + worldName + '" not found, cannot compute correct positions');

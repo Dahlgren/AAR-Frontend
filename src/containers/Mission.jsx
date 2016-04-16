@@ -56,9 +56,9 @@ export default class Mission extends Component {
 }
 
 Mission.propTypes = {
-  projectiles: PropTypes.array.isRequired,
-  units: PropTypes.array.isRequired,
-  vehicles: PropTypes.array.isRequired,
+  projectiles: PropTypes.object.isRequired,
+  units: PropTypes.object.isRequired,
+  vehicles: PropTypes.object.isRequired,
   time: PropTypes.object,
   world: PropTypes.object,
   isFetching: PropTypes.bool.isRequired,

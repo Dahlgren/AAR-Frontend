@@ -39,9 +39,9 @@ export function stopEvents() {
 
   return {
     type: STOP_EVENTS,
-    projectiles: [],
-    units: [],
-    vehicles: [],
+    projectiles: {},
+    units: {},
+    vehicles: {},
     time: null,
   };
 }

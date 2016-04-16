@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { Polyline } from 'react-leaflet';
 
@@ -13,7 +14,7 @@ const ArmaProjectile = ({ map, positions, color, weight }) => (
 );
 
 export const ArmaProjectiles = ({ map, projectiles }) => {
-  const items = projectiles.map(({ id, ...props }) => (
+  const items = _.valuesIn(projectiles).map(({ id, ...props }) => (
       <ArmaProjectile key={id} map={map} {...props} />
   ));
   return <div style={{display: 'none'}}>{items}</div>;

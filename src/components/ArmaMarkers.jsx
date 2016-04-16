@@ -1,4 +1,5 @@
 import { divIcon } from 'leaflet';
+import _ from 'lodash';
 import React from 'react';
 import { Popup } from 'react-leaflet';
 import RotationMarker from './RotationMarker';
@@ -25,7 +26,7 @@ const ArmaMarker = ({ map, className, markerSize, name, rotation, x, y }) => (
 );
 
 export const ArmaMarkers = ({ map, markers }) => {
-  const items = markers.map(({ id, ...props }) => (
+  const items = _.valuesIn(markers).map(({ id, ...props }) => (
       <ArmaMarker key={id} map={map} {...props} />
   ));
   return <div style={{display: 'none'}}>{items}</div>;

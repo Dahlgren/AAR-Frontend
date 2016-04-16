@@ -8,9 +8,9 @@ import {
 export function events(state = {
   isFetching: false,
   didInvalidate: false,
-  projectiles: [],
-  units: [],
-  vehicles: [],
+  projectiles: {},
+  units: {},
+  vehicles: {},
   time: null,
 }, action) {
   switch (action.type) {
