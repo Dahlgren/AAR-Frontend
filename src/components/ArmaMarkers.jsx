@@ -10,9 +10,10 @@ const icon = function (className, size) {
   })
 }
 
-const ArmaMarker = ({ map, className, markerSize, name, rotation, x, y }) => (
+const ArmaMarker = ({ map, layerContainer, className, markerSize, name, rotation, x, y }) => (
   <RotationMarker
     map={map}
+    layerContainer={layerContainer}
     icon={icon(className, markerSize)}
     position={map.unproject([x, y], map.getMaxZoom())}
     rotation={rotation}
@@ -24,9 +25,9 @@ const ArmaMarker = ({ map, className, markerSize, name, rotation, x, y }) => (
 </RotationMarker>
 );
 
-export const ArmaMarkers = ({ map, markers }) => {
+export const ArmaMarkers = ({ map, layerContainer, markers }) => {
   const items = markers.map(({ id, ...props }) => (
-      <ArmaMarker key={id} map={map} {...props} />
+      <ArmaMarker key={id} map={map} layerContainer={layerContainer} {...props} />
   ));
   return <div style={{display: 'none'}}>{items}</div>;
 };
