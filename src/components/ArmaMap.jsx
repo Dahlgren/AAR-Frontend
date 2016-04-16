@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Map, LayerGroup, TileLayer } from 'react-leaflet';
 import { LatLngBounds } from 'leaflet';
 import { ArmaMarkers } from './ArmaMarkers';
-import ArmaProjectile from './ArmaProjectile';
+import { ArmaProjectiles } from './ArmaProjectiles';
 
 export default class ArmaMap extends Component {
   componentDidMount() {
@@ -21,10 +21,8 @@ export default class ArmaMap extends Component {
       <Map id='map' ref='map' center={[0, 0]} fullscreenControl={true} minZoom={world.zoom[0]} maxZoom={world.zoom[1]} zoom={world.zoom[0]}>
         <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
 
-        <LayerGroup key={"projectiles"}>
-          {projectiles.filter((projectile) => projectile.positions.length >= 2).map((projectile) =>
-            <ArmaProjectile key={projectile.id} color={projectile.color} polylines={projectile.positions} weight={projectiles.weight} />
-          )}
+        <LayerGroup key={'projectiles'}>
+          <ArmaProjectiles projectiles={projectiles} />
         </LayerGroup>
 
         <LayerGroup key={'units'}>
