@@ -1,16 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
-import { Map, Popup, LayerGroup, TileLayer } from 'react-leaflet';
-import { LatLngBounds, divIcon } from 'leaflet';
-import ArmaMarker from './ArmaMarker';
+import { Map, LayerGroup, TileLayer } from 'react-leaflet';
+import { LatLngBounds } from 'leaflet';
+import { ArmaMarkers } from './ArmaMarkers';
 import ArmaProjectile from './ArmaProjectile';
-
-const icon = function (className, size) {
-  return divIcon({
-    className: className,
-    iconSize: size,
-  })
-}
 
 export default class ArmaMap extends Component {
   componentDidMount() {
@@ -34,13 +27,13 @@ export default class ArmaMap extends Component {
           )}
         </LayerGroup>
 
-        {[units, vehicles].map((markers, index) =>
-          <LayerGroup key={"markers_" + index}>
-            {markers.map((marker) =>
-              <ArmaMarker key={marker.id} icon={icon(marker.className, marker.markerSize)} position={[marker.x, marker.y]} rotation={marker.rotation} title={marker.name} />
-            )}
-          </LayerGroup>
-        )}
+        <LayerGroup key={'units'}>
+          <ArmaMarkers markers={units} />
+        </LayerGroup>
+
+        <LayerGroup key={'vehicles'}>
+          <ArmaMarkers markers={vehicles} />
+        </LayerGroup>
       </Map>
     );
   }
