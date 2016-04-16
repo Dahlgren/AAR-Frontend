@@ -53,7 +53,7 @@ function computeEvents(events, worldName) {
         });
       }
 
-      if (event.vehicle) {
+      if (event.vehicle && event.vehicle.name != "Ground" && event.vehicle.simulation != "thingX") {
         computedEvents.push({
           id: event.vehicle.id,
           rotation: event.vehicle.position.dir,
