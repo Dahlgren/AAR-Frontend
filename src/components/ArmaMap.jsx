@@ -1,16 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
-import { Map, Popup, LayerGroup, TileLayer } from 'react-leaflet';
-import { LatLngBounds, divIcon } from 'leaflet';
-import ArmaMarker from './ArmaMarker';
-import ArmaProjectile from './ArmaProjectile';
-
-const icon = function (className, size) {
-  return divIcon({
-    className: className,
-    iconSize: size,
-  })
-}
+import { Map, LayerGroup, TileLayer } from 'react-leaflet';
+import { LatLngBounds } from 'leaflet';
+import { ArmaMarkers } from './ArmaMarkers';
+import { ArmaProjectiles } from './ArmaProjectiles';
 
 export default class ArmaMap extends Component {
   componentDidMount() {
@@ -25,22 +18,28 @@ export default class ArmaMap extends Component {
     const { projectiles, units, vehicles, world } = this.props;
 
     return (
-      <Map id='map' ref='map' center={[0, 0]} fullscreenControl={true} minZoom={world.zoom[0]} maxZoom={world.zoom[1]} zoom={world.zoom[0]}>
+      <Map
+        id='map'
+        ref='map'
+        center={[0, 0]}
+        fullscreenControl={true}
+        minZoom={world.zoom[0]}
+        maxZoom={world.zoom[1]}
+        zoom={world.zoom[0]}
+      >
         <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
 
-        <LayerGroup key={"projectiles"}>
-          {projectiles.filter((projectile) => projectile.positions.length >= 2).map((projectile) =>
-            <ArmaProjectile key={projectile.id} color={projectile.color} polylines={projectile.positions} weight={projectiles.weight} />
-          )}
+        <LayerGroup key={'projectiles'}>
+          <ArmaProjectiles projectiles={projectiles} />
         </LayerGroup>
 
-        {[units, vehicles].map((markers, index) =>
-          <LayerGroup key={"markers_" + index}>
-            {markers.map((marker) =>
-              <ArmaMarker key={marker.id} icon={icon(marker.className, marker.markerSize)} position={[marker.x, marker.y]} rotation={marker.rotation} title={marker.name} />
-            )}
-          </LayerGroup>
-        )}
+        <LayerGroup key={'units'}>
+          <ArmaMarkers markers={units} />
+        </LayerGroup>
+
+        <LayerGroup key={'vehicles'}>
+          <ArmaMarkers markers={vehicles} />
+        </LayerGroup>
       </Map>
     );
   }
