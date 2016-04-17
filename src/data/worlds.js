@@ -17,6 +17,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
     zoom: [0, 6],
   },
+  chernarus_summer: {
+    name: 'Chernarus (Summer)',
+    size: [15361, 15361],
+    tileUrl: 'http://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   desert_e: {
     name: 'Desert',
     size: [2048, 2049],
