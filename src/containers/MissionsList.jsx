@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Grid } from 'react-bootstrap';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { invalidateMissions, fetchMissionsIfNeeded } from '../actions/missions';
@@ -28,22 +29,33 @@ class MissionsList extends Component {
 
   render() {
     const { missions, isFetching, lastUpdated } = this.props;
-    return (
+
+    const refreshHeader = (
       <div>
-        <p>
-          {lastUpdated &&
-            <span>
-              Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
-              {' '}
-            </span>
-          }
-          {!isFetching &&
-            <a href='#'
-               onClick={this.handleRefreshClick}>
-              Refresh
-            </a>
-          }
-        </p>
+        {lastUpdated &&
+          <span>
+            Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
+            {' '}
+          </span>
+        }
+        {!isFetching &&
+          <a href='#'
+             onClick={this.handleRefreshClick}>
+            Refresh
+          </a>
+        }
+      </div>
+    );
+
+    const missionsList = (
+      <div style={{ opacity: isFetching ? 0.5 : 1 }}>
+        <Missions missions={missions} />
+      </div>
+    );
+
+    return (
+      <Grid>
+        {refreshHeader}
         {isFetching && missions.length === 0 &&
           <h2>Loading...</h2>
         }
@@ -51,11 +63,9 @@ class MissionsList extends Component {
           <h2>Empty.</h2>
         }
         {missions.length > 0 &&
-          <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Missions missions={missions} />
-          </div>
+          missionsList
         }
-      </div>
+      </Grid>
     );
   }
 };

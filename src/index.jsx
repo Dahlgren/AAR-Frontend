@@ -2,9 +2,10 @@ import 'leaflet_css';
 import './leaflet/index';
 import './css/markers.css';
 import './css/style.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, Link, browserHistory } from 'react-router';
 import { Provider } from 'react-redux'
 import App from './containers/App';
 import Mission from './containers/Mission';
@@ -17,8 +18,9 @@ render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <Route path="missions" component={MissionsList} />
+        <IndexRoute component={MissionsList}/>
         <Route path="missions/:id" component={Mission}/>
+        <Route path="*" component={MissionsList} />
       </Route>
     </Router>
   </Provider>

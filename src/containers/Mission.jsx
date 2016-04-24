@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Grid } from 'react-bootstrap';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { LatLng } from 'leaflet';
@@ -20,18 +21,24 @@ export default class Mission extends Component {
   }
 
   render() {
-    const { projectiles, units, vehicles, isFetching, lastUpdated, time, world } = this.props;
+    const { mission, projectiles, units, vehicles, isFetching, lastUpdated, time, world } = this.props;
 
     return (
       <div id="map-container">
-        {isFetching &&
-          <h2>Loading...</h2>
+        {mission && !world &&
+          <Grid>
+            <h2>World {mission.world} is not configured</h2>
+          </Grid>
         }
-        {!isFetching && (projectiles.length + units.length + vehicles.length) === 0 &&
-          <h2>No events</h2>
+        {world && isFetching &&
+          <Grid>
+            <h2>Loading...</h2>
+          </Grid>
         }
-        {!isFetching && !world &&
-          <h2>Mission World is not defined</h2>
+        {world && !isFetching && (projectiles.length + units.length + vehicles.length) === 0 &&
+          <Grid>
+            <h2>No events</h2>
+          </Grid>
         }
         {world && time &&
           <div className="flex">
@@ -81,14 +88,16 @@ function mapStateToProps(state, ownProps) {
     time: null,
   }
 
+  let mission = null;
   let world = null;
   if (state.missions.missionsById && state.missions.missionsById[ownProps.params.id]) {
-    const mission = state.missions.missionsById[ownProps.params.id];
+    mission = state.missions.missionsById[ownProps.params.id];
     world = worlds[mission.world.toLowerCase()];
   }
 
   return {
     isFetching,
+    mission,
     projectiles,
     units,
     vehicles,
