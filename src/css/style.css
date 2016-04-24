@@ -10,13 +10,12 @@ body, html, #content, #app {
   flex-direction: column;
 }
 
-#navigation {
-  background: grey;
-  color: white;
-}
-
 #map-container, #map, .flex {
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+#map-container {
+  margin-top: -20px;
 }

@@ -5,6 +5,10 @@ module.exports = {
       loader: "style-loader!css-loader!"
     },
     {
+      test: /\.eot$/,
+      loader: "file-loader",
+    },
+    {
       test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,
       loader: 'babel', // 'babel-loader' is also a legal name to reference
@@ -15,6 +19,17 @@ module.exports = {
     {
       test: /\.png$/,
       loader: "file-loader"
+    },
+    {
+      test: /\.svg$/,
+      loader: "file-loader"
+    },
+    {
+      test: /\.ttf$/,loader: "file-loader"
+    },
+    {
+      test: /\.(woff|woff2)$/,
+      loader: "url-loader?limit=10000&mimetype=application/font-woff"
     },
   ],
 };
