@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
-import { Map, LayerGroup, TileLayer } from 'react-leaflet';
+import { Map, LayersControl, LayerGroup, TileLayer } from 'react-leaflet';
 import { LatLngBounds } from 'leaflet';
 import { ArmaMarkers } from './ArmaMarkers';
 import { ArmaProjectiles } from './ArmaProjectiles';
+
+const { BaseLayer, Overlay } = LayersControl;
 
 export default class ArmaMap extends Component {
   componentDidMount() {
@@ -27,19 +29,29 @@ export default class ArmaMap extends Component {
         maxZoom={world.zoom[1]}
         zoom={world.zoom[0]}
       >
-        <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
+        <LayersControl position='topright'>
+          <BaseLayer checked name={world.name}>
+            <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
+          </BaseLayer>
 
-        <LayerGroup key={'projectiles'}>
-          <ArmaProjectiles projectiles={projectiles} />
-        </LayerGroup>
+          <Overlay checked name='Projectiles'>
+            <LayerGroup key={'projectiles'}>
+              <ArmaProjectiles projectiles={projectiles} />
+            </LayerGroup>
+          </Overlay>
 
-        <LayerGroup key={'units'}>
-          <ArmaMarkers markers={units} />
-        </LayerGroup>
+          <Overlay checked name='Units'>
+            <LayerGroup key={'units'}>
+              <ArmaMarkers markers={units} />
+            </LayerGroup>
+          </Overlay>
 
-        <LayerGroup key={'vehicles'}>
-          <ArmaMarkers markers={vehicles} />
-        </LayerGroup>
+          <Overlay checked name='Vehicles'>
+            <LayerGroup key={'vehicles'}>
+              <ArmaMarkers markers={vehicles} />
+            </LayerGroup>
+          </Overlay>
+        </LayersControl>
       </Map>
     );
   }
