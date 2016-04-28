@@ -29,6 +29,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/desert_e/{z}/desert_e_{x}_{y}.png',
     zoom: [0, 3],
   },
+  mbg_celle2: {
+    name: 'MBG Celle 2',
+    size: [12294, 12300],
+    tileUrl: 'http://maptiles.anrop.se/mbg_celle2/{z}/mbg_celle2_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   provinggrounds_pmc: {
     name: 'Proving Grounds',
     size: [2054, 2049],
