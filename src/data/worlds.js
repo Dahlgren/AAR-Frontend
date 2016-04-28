@@ -41,6 +41,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/provinggrounds_pmc/{z}/provinggrounds_pmc_{x}_{y}.png',
     zoom: [0, 4],
   },
+  sfp_roso: {
+    name: 'Rosö',
+    size: [15361, 15361],
+    tileUrl: 'http://maptiles.anrop.se/sfp_roso/{z}/sfp_roso_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   sfp_sturko: {
     name: 'Sturkö',
     size: [10241, 10242],
