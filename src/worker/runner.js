@@ -1,20 +1,14 @@
-const RUNNER_STATES = {
-  PLAYING: 'PLAYING',
-  STOPPED: 'STOPPED',
-}
-
 export default class Runner {
   constructor(events, emitState) {
     this.events = events;
     this.emitState = emitState;
 
-    this.runnerState = RUNNER_STATES.STOPPED;
     this.resetState();
 
     if (this.events.length > 0) {
       this.startTime = this.events[0].timestamp.getTime();
       this.currentTime = this.startTime;
-      this.start();
+      this.tick(1000);
     }
   }
 
@@ -30,32 +24,13 @@ export default class Runner {
   seek(time) {
     this.resetState();
     this.currentTime = time;
-    this.stop();
-    this.updateState();
-    this.start();
+    this.tick(1000);
   }
 
-  start() {
-    this.runnerState = RUNNER_STATES.PLAYING;
-    this.tick();
-  }
-
-  stop() {
-    this.runnerState = RUNNER_STATES.STOPPED;
-    clearTimeout(this.ticker);
-  }
-
-  tick() {
+  tick(amount) {
     if (this.currentIndex < this.events.length) {
-      this.currentTime += 1000;
+      this.currentTime += amount;
       this.updateState();
-
-      if (this.runnerState === RUNNER_STATES.PLAYING) {
-        var self = this;
-        this.ticker = setTimeout(function(){
-          self.tick();
-        }, 100);
-      }
     }
   }
 

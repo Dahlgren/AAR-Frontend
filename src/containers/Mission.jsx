@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { connect } from 'react-redux';
 import { LatLng } from 'leaflet';
 import ArmaMap from '../components/ArmaMap';
+import EventsTicker from '../components/EventsTicker';
 import { loadEvents, seekEvents, stopEvents } from '../actions/events';
 import { fetchMissionsIfNeeded } from '../actions/missions';
 import worlds from '../data/worlds';
@@ -43,6 +44,7 @@ export default class Mission extends Component {
         {world && time &&
           <div className="flex">
             <ArmaMap projectiles={projectiles} units={units} vehicles={vehicles} world={world} />
+            <EventsTicker />
             <input
               type="range"
               min={time.start}

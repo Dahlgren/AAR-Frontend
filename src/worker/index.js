@@ -92,6 +92,9 @@ self.onmessage = function(msg) {
     case 'seek':
       runner.seek(msg.data.seek);
       break;
+    case 'tick':
+      runner.tick(msg.data.amount);
+      break;
     case 'stop':
       runner.stop();
       break;

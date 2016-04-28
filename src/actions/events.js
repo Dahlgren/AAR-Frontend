@@ -28,6 +28,13 @@ export function seekEvents(seek) {
   });
 }
 
+export function tickEvents(amount) {
+  worker.postMessage({
+    type: 'tick',
+    amount: amount,
+  });
+}
+
 export function stopEvents() {
   if (worker) {
     worker.postMessage({
