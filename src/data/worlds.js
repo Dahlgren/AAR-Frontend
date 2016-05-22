@@ -5,6 +5,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/altis/{z}/altis_{x}_{y}.png',
     zoom: [0, 7],
   },
+  anim_helvantis_v2: {
+    name: 'Helvantis v2',
+    size: [10250, 10251],
+    tileUrl: 'http://maptiles.anrop.se/anim_helvantis_v2/{z}/anim_helvantis_v2_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   bornholm: {
     name: 'Bornholm',
     size: [22529, 22529],
