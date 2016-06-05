@@ -107,6 +107,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/vt5/{z}/vt5_{x}_{y}.png',
     zoom: [0, 5],
   },
+  woodland_acr: {
+    name: 'Bystrica',
+    size: [7683, 7682],
+    tileUrl: 'http://maptiles.anrop.se/woodland_acr/{z}/woodland_acr_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   zargabad: {
     name: 'Zargabad',
     size: [8193, 8196],
