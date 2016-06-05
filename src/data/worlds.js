@@ -35,6 +35,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/desert_e/{z}/desert_e_{x}_{y}.png',
     zoom: [0, 3],
   },
+  dya: {
+    name: 'Diyala',
+    size: [8200, 8199],
+    tileUrl: 'http://maptiles.anrop.se/dya/{z}/dya_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   mbg_celle2: {
     name: 'MBG Celle 2',
     size: [12294, 12300],
