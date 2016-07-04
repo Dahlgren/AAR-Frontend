@@ -14,12 +14,12 @@ export class ArmaMarker extends React.Component {
 
   render() {
     const { className, markerSize, name, rotation, x, y } = this.props
-    const map = this.context.map
+    const { map, world } = this.context
 
     return (
       <RotationMarker
         icon={icon(className, markerSize)}
-        position={map.unproject([x, y], map.getMaxZoom())}
+        position={map.unproject([x, y], world.zoom[1])}
         rotation={rotation}
         title={name}
       >
@@ -33,6 +33,7 @@ export class ArmaMarker extends React.Component {
 
 ArmaMarker.contextTypes = {
   map: React.PropTypes.object.isRequired,
+  world: React.PropTypes.object.isRequired,
 };
 
 export class ArmaMarkers extends React.Component {
