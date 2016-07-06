@@ -89,6 +89,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/takistan/{z}/takistan_{x}_{y}.png',
     zoom: [0, 6],
   },
+  tanoa: {
+    name: 'Tanoa',
+    size: [15361, 15361],
+    tileUrl: 'http://maptiles.anrop.se/tanoa/{z}/tanoa_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   tilos: {
     name: 'Tilos',
     size: [8193, 8193],
