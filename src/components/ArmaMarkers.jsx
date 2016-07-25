@@ -10,24 +10,39 @@ const icon = function (className, size) {
   })
 }
 
-const ArmaMarker = ({ map, layerContainer, className, markerSize, name, rotation, x, y }) => (
-  <RotationMarker
-    map={map}
-    layerContainer={layerContainer}
-    icon={icon(className, markerSize)}
-    position={map.unproject([x, y], map.getMaxZoom())}
-    rotation={rotation}
-    title={name}
-  >
-    <Popup>
-      <span>{name}</span>
-    </Popup>
-</RotationMarker>
-);
+export class ArmaMarker extends React.Component {
 
-export const ArmaMarkers = ({ map, layerContainer, markers }) => {
-  const items = markers.map(({ id, ...props }) => (
-      <ArmaMarker key={id} map={map} layerContainer={layerContainer} {...props} />
-  ));
-  return <div style={{display: 'none'}}>{items}</div>;
+  render() {
+    const { className, markerSize, name, rotation, x, y } = this.props
+    const map = this.context.map
+
+    return (
+      <RotationMarker
+        icon={icon(className, markerSize)}
+        position={map.unproject([x, y], map.getMaxZoom())}
+        rotation={rotation}
+        title={name}
+      >
+        <Popup>
+          <span>{name}</span>
+        </Popup>
+      </RotationMarker>
+    );
+  }
+}
+
+ArmaMarker.contextTypes = {
+  map: React.PropTypes.object.isRequired,
+};
+
+export class ArmaMarkers extends React.Component {
+  render() {
+    const { markers } = this.props
+    const items = markers.map(({ id, ...props }) => (
+        <ArmaMarker key={id} {...props} />
+    ));
+    return (
+      <div style={{display: 'none'}}>{items}</div>
+    );
+  }
 };
