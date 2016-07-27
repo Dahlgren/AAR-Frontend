@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Grid } from 'react-bootstrap';
 import { render } from 'react-dom';
+import FullscreenControl from 'react-leaflet-fullscreen';
 import { connect } from 'react-redux';
 import { LatLng } from 'leaflet';
 import ArmaMap from '../components/ArmaMap';
@@ -43,7 +44,14 @@ export default class Mission extends Component {
         }
         {world && time &&
           <div className="flex">
-            <ArmaMap projectiles={projectiles} units={units} vehicles={vehicles} world={world} />
+            <ArmaMap
+              projectiles={projectiles}
+              units={units}
+              vehicles={vehicles}
+              world={world}
+            >
+              <FullscreenControl position="topleft" />
+            </ArmaMap>
             <EventsTicker />
             <input
               type="range"
