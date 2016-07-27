@@ -26,14 +26,13 @@ export default class ArmaMap extends Component {
   }
 
   render() {
-    const { projectiles, units, vehicles, world } = this.props;
+    const { children, projectiles, units, vehicles, world } = this.props;
 
     return (
       <Map
         id='map'
         ref='map'
         center={[0, 0]}
-        fullscreenControl={true}
         minZoom={world.zoom[0]}
         maxZoom={world.zoom[1] + scaledZoom}
         zoom={world.zoom[0]}
@@ -68,6 +67,8 @@ export default class ArmaMap extends Component {
             </LayerGroup>
           </Overlay>
         </LayersControl>
+
+        {children}
       </Map>
     );
   }
