@@ -1,5 +1,4 @@
 var express = require('express');
-var proxy = require('express-http-proxy');
 var path = require('path');
 var webpack = require('webpack');
 var app = express();
