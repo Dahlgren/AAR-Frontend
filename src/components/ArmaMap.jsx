@@ -10,7 +10,7 @@ const { BaseLayer, Overlay } = LayersControl;
 export default class ArmaMap extends Component {
   componentDidMount() {
     const { world } = this.props;
-    var map = this.refs.map.getLeafletElement();
+    var map = this.refs.map.leafletElement;
     var southWest = map.unproject([0, world.size[0]], map.getMaxZoom());
     var northEast = map.unproject([world.size[1], 0], map.getMaxZoom());
     map.setMaxBounds(new LatLngBounds(southWest, northEast));
