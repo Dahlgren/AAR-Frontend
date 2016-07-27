@@ -4,10 +4,10 @@ import { Polyline } from 'react-leaflet';
 export class ArmaProjectile extends React.Component {
   render() {
     const { positions, color, weight } = this.props
-    const map = this.context.map
+    const { map, world } = this.context
 
     const projectedPositions = positions.map(function (position) {
-      return map.unproject([position.x, position.y], map.getMaxZoom())
+      return map.unproject([position.x, position.y], world.zoom[1])
     })
 
     return (
@@ -22,6 +22,7 @@ export class ArmaProjectile extends React.Component {
 
 ArmaProjectile.contextTypes = {
   map: React.PropTypes.object.isRequired,
+  world: React.PropTypes.object.isRequired,
 };
 
 export class ArmaProjectiles extends React.Component {

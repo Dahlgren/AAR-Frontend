@@ -6,14 +6,23 @@ import { ArmaMarkers } from './ArmaMarkers';
 import { ArmaProjectiles } from './ArmaProjectiles';
 
 const { BaseLayer, Overlay } = LayersControl;
+const scaledZoom = 2;
 
 export default class ArmaMap extends Component {
   componentDidMount() {
     const { world } = this.props;
     var map = this.refs.map.leafletElement;
-    var southWest = map.unproject([0, world.size[0]], map.getMaxZoom());
-    var northEast = map.unproject([world.size[1], 0], map.getMaxZoom());
+    var southWest = map.unproject([0, world.size[0]], world.zoom[1]);
+    var northEast = map.unproject([world.size[1], 0], world.zoom[1]);
     map.setMaxBounds(new LatLngBounds(southWest, northEast));
+  }
+
+  getChildContext() {
+    const { world } = this.props;
+
+    return {
+      world: world
+    };
   }
 
   render() {
@@ -26,12 +35,19 @@ export default class ArmaMap extends Component {
         center={[0, 0]}
         fullscreenControl={true}
         minZoom={world.zoom[0]}
-        maxZoom={world.zoom[1]}
+        maxZoom={world.zoom[1] + scaledZoom}
         zoom={world.zoom[0]}
       >
         <LayersControl position='topright'>
           <BaseLayer checked name={world.name}>
-            <TileLayer ref='tileLayer' noWrap='true' url={world.tileUrl} />
+            <TileLayer
+              ref='tileLayer'
+              noWrap='true'
+              url={world.tileUrl}
+              minZoom={world.zoom[0]}
+              maxNativeZoom={world.zoom[1]}
+              maxZoom={world.zoom[1] + scaledZoom}
+            />
           </BaseLayer>
 
           <Overlay checked name='Projectiles'>
@@ -55,6 +71,10 @@ export default class ArmaMap extends Component {
       </Map>
     );
   }
+};
+
+ArmaMap.childContextTypes = {
+  world: PropTypes.object.isRequired
 };
 
 ArmaMap.propTypes = {
