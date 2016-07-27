@@ -6,12 +6,19 @@ import rootReducer from './reducers'
 const loggerMiddleware = createLogger()
 
 export default function configureStore(initialState) {
+  let middleware = [
+    thunkMiddleware,
+  ]
+
+  if (process.env.NODE_ENV !== 'production') {
+    middleware.push(loggerMiddleware);
+  }
+
   return createStore(
     rootReducer,
     initialState,
     applyMiddleware(
-      thunkMiddleware,
-      loggerMiddleware
+      ...middleware
     )
   )
 }
