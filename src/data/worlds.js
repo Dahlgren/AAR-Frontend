@@ -1,4 +1,10 @@
 export default {
+  abel: {
+    name: 'Malden',
+    size: [12800, 12801],
+    tileUrl: 'http://maptiles.anrop.se/abel/{z}/abel_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   altis: {
     name: 'Altis',
     size: [30721, 30720],
@@ -16,6 +22,12 @@ export default {
     size: [22529, 22529],
     tileUrl: 'http://maptiles.anrop.se/bornholm/{z}/bornholm_{x}_{y}.png',
     zoom: [0, 7],
+  },
+  cain: {
+    name: 'Kolgujev',
+    size: [12800, 12800],
+    tileUrl: 'http://maptiles.anrop.se/cain/{z}/cain_{x}_{y}.png',
+    zoom: [0, 6],
   },
   chernarus: {
     name: 'Chernarus',
@@ -35,16 +47,34 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/desert_e/{z}/desert_e_{x}_{y}.png',
     zoom: [0, 3],
   },
+  desert_island: {
+    name: 'Desert Island',
+    size: [12800, 12800],
+    tileUrl: 'http://maptiles.anrop.se/desert_island/{z}/desert_island_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   dya: {
     name: 'Diyala',
     size: [8200, 8199],
     tileUrl: 'http://maptiles.anrop.se/dya/{z}/dya_{x}_{y}.png',
     zoom: [0, 5],
   },
+  eden: {
+    name: 'Everon',
+    size: [12801, 12801],
+    tileUrl: 'http://maptiles.anrop.se/eden/{z}/eden_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   mbg_celle2: {
     name: 'MBG Celle 2',
     size: [12294, 12300],
     tileUrl: 'http://maptiles.anrop.se/mbg_celle2/{z}/mbg_celle2_{x}_{y}.png',
+    zoom: [0, 6],
+  },
+  noe: {
+    name: 'Nogova',
+    size: [12801, 12801],
+    tileUrl: 'http://maptiles.anrop.se/noe/{z}/noe_{x}_{y}.png',
     zoom: [0, 6],
   },
   provinggrounds_pmc: {
