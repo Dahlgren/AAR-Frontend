@@ -1,3 +1,5 @@
+import moment from 'moment';
+import 'moment-duration-format';
 import React, { Component, PropTypes } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router';
@@ -11,6 +13,7 @@ export default class Missions extends Component {
         <tr>
           <th>Mission</th>
           <th>World</th>
+          <th>Length</th>
           <th>Date</th>
         </tr>
       </thead>
@@ -28,7 +31,10 @@ export default class Missions extends Component {
                 }
               </td>
               <td>
-                {new Date(mission.created_at).toLocaleString() }
+                { moment.duration(mission.length, 'seconds').format('h[h] mm[m]') }
+              </td>
+              <td>
+                { moment(mission.created_at).format('YYYY-MM-DD HH:mm') }
               </td>
             </tr>
           )}
