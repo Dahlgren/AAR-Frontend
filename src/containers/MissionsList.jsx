@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { invalidateMissions, fetchMissionsIfNeeded } from '../actions/missions';
 import Missions from '../components/Missions';
 
+const REQUIRED_MISSION_LENGTH = 60;
+
 class MissionsList extends Component {
   constructor(props) {
     super(props)
@@ -49,7 +51,7 @@ class MissionsList extends Component {
 
     const missionsList = (
       <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-        <Missions missions={missions} />
+        <Missions missions={missions.filter(mission => mission.length > REQUIRED_MISSION_LENGTH)} />
       </div>
     );
 
