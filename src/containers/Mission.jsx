@@ -10,7 +10,7 @@ import { loadEvents, seekEvents, stopEvents } from '../actions/events';
 import { fetchMissionsIfNeeded } from '../actions/missions';
 import worlds from '../data/worlds';
 
-export default class Mission extends Component {
+class Mission extends Component {
   componentDidMount() {
     const { dispatch, params } = this.props;
     dispatch(fetchMissionsIfNeeded());
