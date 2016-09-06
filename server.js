@@ -1,4 +1,5 @@
 var express = require('express');
+var favicon = require('serve-favicon');
 var path = require('path');
 var webpack = require('webpack');
 var app = express();
@@ -6,6 +7,7 @@ var app = express();
 var isDevelopment = (process.env.NODE_ENV !== 'production');
 var staticPath = path.join(__dirname, 'build');
 
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.use(express.static(staticPath))
 
 app.get('/*', function (req, res) {
