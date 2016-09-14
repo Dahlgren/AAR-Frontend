@@ -1,3 +1,5 @@
+const TICK_RATE = 1000;
+
 export default class Runner {
   constructor(events, emitState) {
     this.events = events;
@@ -8,7 +10,7 @@ export default class Runner {
     if (this.events.length > 0) {
       this.startTime = this.events[0].timestamp.getTime();
       this.currentTime = this.startTime;
-      this.tick(1000);
+      this.tick(TICK_RATE);
     }
   }
 
@@ -24,7 +26,7 @@ export default class Runner {
   seek(time) {
     this.resetState();
     this.currentTime = time;
-    this.tick(1000);
+    this.tick(TICK_RATE);
   }
 
   tick(amount) {
@@ -79,7 +81,7 @@ export default class Runner {
     var self = this;
     Object.keys(this.currentState.projectiles).map(function (projectileKey) {
       const projectile = self.currentState.projectiles[projectileKey];
-      if (projectile.timestamp.getTime() < self.currentTime - 10000) {
+      if (projectile.timestamp.getTime() < self.currentTime - TICK_RATE) {
         delete self.currentState.projectiles[projectileKey];
       }
     });
