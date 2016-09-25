@@ -41,6 +41,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
     zoom: [0, 6],
   },
+  clafghan: {
+    name: 'Clafghan',
+    size: [20491, 20491],
+    tileUrl: 'http://maptiles.anrop.se/clafghan/{z}/clafghan_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   desert_e: {
     name: 'Desert',
     size: [2048, 2049],
