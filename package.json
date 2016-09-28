@@ -7,7 +7,7 @@
     "heroku-postbuild": "npm run webpack",
     "start": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --config ./webpack.production.config.js --progress --colors"
+    "webpack": "webpack --config ./webpack.production.config.js --progress --colors --bail"
   },
   "author": "",
   "license": "MIT",
