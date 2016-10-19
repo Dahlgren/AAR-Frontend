@@ -4,25 +4,58 @@ import Runner from './runner';
 import apiEndpoint from '../data/api';
 import worlds from './../data/worlds';
 
+const LOAD_MORE_EVENTS_TIMEOUT = 1000;
+const LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT = 10000;
+
+var mission = null;
 var runner = null;
+var world = null;
+
+const limit = 10000;
+var offset = 0;
+
+function eventsUrl(limit, offset) {
+  return apiEndpoint + '/missions/' + mission.id + '/events?limit=' + limit + '&offset=' + offset;
+}
 
 function loadMission(id) {
   fetch(apiEndpoint + '/missions/' + id)
     .then(req => req.json())
-    .then(mission => loadEvents(mission));
+    .then(json => {
+      mission = json;
+      world = worlds[mission.world.toLowerCase()]
+      loadEvents();
+    });
 }
 
-function loadEvents(mission) {
-  fetch(apiEndpoint + '/missions/' + mission.id + '/events')
+function loadEvents() {
+  fetch(eventsUrl(limit, offset))
     .then(req => req.json())
     .then((json) => {
-      const world = worlds[mission.world.toLowerCase()];
+      offset = json.length;
 
       if (world) {
         const events = processEvents(json, world);
         createRunner(events);
+        loadMoreEvents();
       } else {
         console.log('World "' + mission.world + '" not found, cannot compute correct positions');
+      }
+    });
+}
+
+function loadMoreEvents() {
+  fetch(eventsUrl(limit, offset))
+    .then(req => req.json())
+    .then((json) => {
+      if (runner) {
+        if (json.length > 0) {
+          offset = offset + json.length;
+          runner.addEvents(processEvents(json, world));
+          setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_TIMEOUT);
+        } else {
+          setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT);
+        }
       }
     });
 }
@@ -52,6 +85,7 @@ self.onmessage = function(msg) {
       break;
     case 'stop':
       runner.stop();
+      runner = null;
       break;
     default:
       throw 'no action for type';
