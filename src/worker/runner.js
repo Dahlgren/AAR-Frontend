@@ -14,6 +14,10 @@ export default class Runner {
     }
   }
 
+  addEvents(events) {
+    this.events = this.events.concat(events);
+  }
+
   resetState() {
     this.currentIndex = 0;
     this.currentState = {
