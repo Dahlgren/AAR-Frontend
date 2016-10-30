@@ -77,6 +77,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/eden/{z}/eden_{x}_{y}.png',
     zoom: [0, 6],
   },
+  intro: {
+    name: 'Rahmadi',
+    size: [5121, 5121],
+    tileUrl: 'http://maptiles.anrop.se/intro/{z}/intro_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   mbg_celle2: {
     name: 'MBG Celle 2',
     size: [12294, 12300],
@@ -89,11 +95,35 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/noe/{z}/noe_{x}_{y}.png',
     zoom: [0, 6],
   },
+  porto: {
+    name: 'Porto',
+    size: [5121, 5121],
+    tileUrl: 'http://maptiles.anrop.se/porto/{z}/porto_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   provinggrounds_pmc: {
     name: 'Proving Grounds',
     size: [2054, 2049],
     tileUrl: 'http://maptiles.anrop.se/provinggrounds_pmc/{z}/provinggrounds_pmc_{x}_{y}.png',
     zoom: [0, 4],
+  },
+  sara: {
+    name: 'Sahrani',
+    size: [20481, 20481],
+    tileUrl: 'http://maptiles.anrop.se/sara/{z}/sara_{x}_{y}.png',
+    zoom: [0, 7],
+  },
+  sara_dbe1: {
+    name: 'United Sahrani',
+    size: [20481, 20481],
+    tileUrl: 'http://maptiles.anrop.se/sara_dbe1/{z}/sara_dbe1_{x}_{y}.png',
+    zoom: [0, 7],
+  },
+  saralite: {
+    name: 'Southern Sahrani',
+    size: [10241, 10241],
+    tileUrl: 'http://maptiles.anrop.se/saralite/{z}/saralite_{x}_{y}.png',
+    zoom: [0, 6],
   },
   sfp_roso: {
     name: 'Rosö',
