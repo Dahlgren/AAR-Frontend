@@ -11,6 +11,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/altis/{z}/altis_{x}_{y}.png',
     zoom: [0, 7],
   },
+  angel: {
+    name: 'VTR Angel',
+    size: [4097, 4096],
+    tileUrl: 'http://maptiles.anrop.se/angel/{z}/angel_{x}_{y}.png',
+    zoom: [0, 4],
+  },
   anim_helvantis_v2: {
     name: 'Helvantis v2',
     size: [10250, 10251],
