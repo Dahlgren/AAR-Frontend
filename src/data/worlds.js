@@ -233,6 +233,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/utes/{z}/utes_{x}_{y}.png',
     zoom: [0, 5],
   },
+  vr: {
+    name: 'Virtual Reality',
+    size: [8192, 11839],
+    tileUrl: 'http://maptiles.anrop.se/vr/{z}/vr_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   vt5: {
     name: 'Valtatie 5',
     size: [6015, 6012],
