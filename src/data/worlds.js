@@ -23,6 +23,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/anim_helvantis_v2/{z}/anim_helvantis_v2_{x}_{y}.png',
     zoom: [0, 6],
   },
+  baranow: {
+    name: 'Baranow',
+    size: [8204, 8210],
+    tileUrl: 'http://maptiles.anrop.se/baranow/{z}/baranow_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   bootcamp_acr: {
     name: 'Bootcamp',
     size: [3843, 3847],
@@ -59,6 +65,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/clafghan/{z}/clafghan_{x}_{y}.png',
     zoom: [0, 7],
   },
+  colleville: {
+    name: 'Omaha Beach',
+    size: [5133, 5125],
+    tileUrl: 'http://maptiles.anrop.se/colleville/{z}/colleville_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   desert_e: {
     name: 'Desert',
     size: [2048, 2049],
@@ -89,6 +101,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/intro/{z}/intro_{x}_{y}.png',
     zoom: [0, 5],
   },
+  ivachev: {
+    name: 'Ivachev',
+    size: [641, 648],
+    tileUrl: 'http://maptiles.anrop.se/ivachev/{z}/ivachev_{x}_{y}.png',
+    zoom: [0, 1],
+  },
   mbg_celle2: {
     name: 'MBG Celle 2',
     size: [12294, 12300],
@@ -106,6 +124,12 @@ export default {
     size: [12801, 12801],
     tileUrl: 'http://maptiles.anrop.se/noe/{z}/noe_{x}_{y}.png',
     zoom: [0, 6],
+  },
+  panovo: {
+    name: 'Panovo',
+    size: [5126, 5121],
+    tileUrl: 'http://maptiles.anrop.se/panovo/{z}/panovo_{x}_{y}.png',
+    zoom: [0, 5],
   },
   porto: {
     name: 'Porto',
@@ -160,6 +184,12 @@ export default {
     size: [2049, 2049],
     tileUrl: 'http://maptiles.anrop.se/shapur_baf/{z}/shapur_baf_{x}_{y}.png',
     zoom: [0, 3],
+  },
+  staszow: {
+    name: 'Staszow',
+    size: [16407, 16398],
+    tileUrl: 'http://maptiles.anrop.se/staszow/{z}/staszow_{x}_{y}.png',
+    zoom: [0, 6],
   },
   stratis: {
     name: 'Stratis',
