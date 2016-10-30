@@ -5,6 +5,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/abel/{z}/abel_{x}_{y}.png',
     zoom: [0, 6],
   },
+  abramia: {
+    name: 'Abramia',
+    size: [10241, 10241],
+    tileUrl: 'http://maptiles.anrop.se/abramia/{z}/abramia_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   altis: {
     name: 'Altis',
     size: [30721, 30720],
