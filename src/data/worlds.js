@@ -95,6 +95,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/eden/{z}/eden_{x}_{y}.png',
     zoom: [0, 6],
   },
+  fallujah: {
+    name: 'Fallujah',
+    size: [10249, 10251],
+    tileUrl: 'http://maptiles.anrop.se/fallujah/{z}/fallujah_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   intro: {
     name: 'Rahmadi',
     size: [5121, 5121],
