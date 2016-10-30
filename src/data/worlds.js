@@ -23,6 +23,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/anim_helvantis_v2/{z}/anim_helvantis_v2_{x}_{y}.png',
     zoom: [0, 6],
   },
+  bootcamp_acr: {
+    name: 'Bootcamp',
+    size: [3843, 3847],
+    tileUrl: 'http://maptiles.anrop.se/bootcamp_acr/{z}/bootcamp_acr_{x}_{y}.png',
+    zoom: [0, 4],
+  },
   bornholm: {
     name: 'Bornholm',
     size: [22529, 22529],
@@ -89,6 +95,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/mbg_celle2/{z}/mbg_celle2_{x}_{y}.png',
     zoom: [0, 6],
   },
+  mountains_acr: {
+    name: 'Takistan Mountains',
+    size: [6410, 11835],
+    tileUrl: 'http://maptiles.anrop.se/mountains_acr/{z}/mountains_acr_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   noe: {
     name: 'Nogova',
     size: [12801, 12801],
@@ -105,7 +117,7 @@ export default {
     name: 'Proving Grounds',
     size: [2054, 2049],
     tileUrl: 'http://maptiles.anrop.se/provinggrounds_pmc/{z}/provinggrounds_pmc_{x}_{y}.png',
-    zoom: [0, 4],
+    zoom: [0, 3],
   },
   sara: {
     name: 'Sahrani',
@@ -142,6 +154,12 @@ export default {
     size: [25600, 25601],
     tileUrl: 'http://maptiles.anrop.se/sfp_wamako/{z}/sfp_wamako_{x}_{y}.png',
     zoom: [0, 7],
+  },
+  shapur_baf: {
+    name: 'Shapur',
+    size: [2049, 2049],
+    tileUrl: 'http://maptiles.anrop.se/shapur_baf/{z}/shapur_baf_{x}_{y}.png',
+    zoom: [0, 3],
   },
   stratis: {
     name: 'Stratis',
