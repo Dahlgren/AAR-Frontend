@@ -12,8 +12,8 @@ export default class ArmaMap extends Component {
   componentDidMount() {
     const { world } = this.props;
     var map = this.refs.map.leafletElement;
-    var southWest = map.unproject([0, world.size[0]], world.zoom[1]);
-    var northEast = map.unproject([world.size[1], 0], world.zoom[1]);
+    var southWest = map.unproject([0, 0], world.zoom[1]);
+    var northEast = map.unproject([world.size[0], world.size[1]], world.zoom[1]);
     map.setMaxBounds(new LatLngBounds(southWest, northEast));
   }
 
