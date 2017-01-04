@@ -65,6 +65,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
     zoom: [0, 6],
   },
+  chernarus_winter: {
+    name: 'Chernarus (Winter)',
+    size: [15361, 15361],
+    tileUrl: 'http://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   clafghan: {
     name: 'Clafghan',
     size: [20491, 20491],
