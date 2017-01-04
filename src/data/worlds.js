@@ -83,6 +83,24 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/colleville/{z}/colleville_{x}_{y}.png',
     zoom: [0, 5],
   },
+  csj_lowlands: {
+    name: 'Lowlands, Quang Ngai, Vietnam',
+    size: [10241, 10241],
+    tileUrl: 'http://maptiles.anrop.se/csj_lowlands/{z}/csj_lowlands_{x}_{y}.png',
+    zoom: [0, 6],
+  },
+  csj_sea: {
+    name: 'SEA, Lam Dong, Vietnam',
+    size: [10241, 10241],
+    tileUrl: 'http://maptiles.anrop.se/csj_sea/{z}/csj_sea_{x}_{y}.png',
+    zoom: [0, 6],
+  },
+  dakrong: {
+    name: 'Da Krong, Quang Tri, Vietnam',
+    size: [5132, 5132],
+    tileUrl: 'http://maptiles.anrop.se/dakrong/{z}/dakrong_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   desert_e: {
     name: 'Desert',
     size: [2048, 2049],
@@ -131,6 +149,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/ivachev/{z}/ivachev_{x}_{y}.png',
     zoom: [0, 1],
   },
+  khe_sanh: {
+    name: 'Khe Sanh, Quang Tri, Vietnam',
+    size: [20489, 20488],
+    tileUrl: 'http://maptiles.anrop.se/khe_sanh/{z}/khe_sanh_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   mbg_celle2: {
     name: 'MBG Celle 2',
     size: [12294, 12300],
@@ -155,6 +179,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/panovo/{z}/panovo_{x}_{y}.png',
     zoom: [0, 5],
   },
+  phu_bai: {
+    name: 'Phu Bai, Hue, Vietnam',
+    size: [4847, 11839],
+    tileUrl: 'http://maptiles.anrop.se/phu_bai/{z}/phu_bai_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   porto: {
     name: 'Porto',
     size: [5121, 5121],
@@ -166,6 +196,12 @@ export default {
     size: [2054, 2049],
     tileUrl: 'http://maptiles.anrop.se/provinggrounds_pmc/{z}/provinggrounds_pmc_{x}_{y}.png',
     zoom: [0, 3],
+  },
+  rungsat: {
+    name: 'Doung Island, Rung Sat, Vietnam',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/rungsat/{z}/rungsat_{x}_{y}.png',
+    zoom: [0, 5],
   },
   sara: {
     name: 'Sahrani',
@@ -244,6 +280,30 @@ export default {
     size: [8193, 8193],
     tileUrl: 'http://maptiles.anrop.se/tilos/{z}/tilos_{x}_{y}.png',
     zoom: [0, 5],
+  },
+  uns_dong_ha: {
+    name: 'Dong Ha, Quang Tri, Vietnam',
+    size: [10240, 10241],
+    tileUrl: 'http://maptiles.anrop.se/uns_dong_ha/{z}/uns_dong_ha_{x}_{y}.png',
+    zoom: [0, 6],
+  },
+  uns_idv: {
+    name: 'Ia Drang, Gia Li, Vietnam',
+    size: [25600, 25601],
+    tileUrl: 'http://maptiles.anrop.se/uns_idv/{z}/uns_idv_{x}_{y}.png',
+    zoom: [0, 7],
+  },
+  uns_ptv: {
+    name: 'Plei Trap, Kon Tum, Vietnam',
+    size: [20481, 20481],
+    tileUrl: 'http://maptiles.anrop.se/uns_ptv/{z}/uns_ptv_{x}_{y}.png',
+    zoom: [0, 7],
+  },
+  us101_cao_bang: {
+    name: 'Cao Bang, Vietnam',
+    size: [10241, 10240],
+    tileUrl: 'http://maptiles.anrop.se/us101_cao_bang/{z}/us101_cao_bang_{x}_{y}.png',
+    zoom: [0, 6],
   },
   utes: {
     name: 'Utes',
