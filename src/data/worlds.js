@@ -107,6 +107,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/fallujah/{z}/fallujah_{x}_{y}.png',
     zoom: [0, 6],
   },
+  gridlock_optre: {
+    name: 'Gridlock',
+    size: [1024, 1030],
+    tileUrl: 'http://maptiles.anrop.se/gridlock_optre/{z}/gridlock_optre_{x}_{y}.png',
+    zoom: [0, 2],
+  },
   intro: {
     name: 'Rahmadi',
     size: [5121, 5121],
