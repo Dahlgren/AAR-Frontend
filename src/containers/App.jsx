@@ -14,6 +14,7 @@ export default class App extends Component {
               <Navbar.Brand>
                 <Link to="/">AAR</Link>
               </Navbar.Brand>
+              <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>
               <Nav>
