@@ -323,6 +323,18 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/vt5/{z}/vt5_{x}_{y}.png',
     zoom: [0, 5],
   },
+  wl_route191: {
+    name: 'Schwemlitz, Germany',
+    size: [5135, 5154],
+    tileUrl: 'http://maptiles.anrop.se/wl_route191/{z}/wl_route191_{x}_{y}.png',
+    zoom: [0, 5],
+  },
+  wl_wroute191: {
+    name: 'Schwemlitz, Germany (Winter)',
+    size: [5137, 5154],
+    tileUrl: 'http://maptiles.anrop.se/wl_wroute191/{z}/wl_wroute191_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   woodland_acr: {
     name: 'Bystrica',
     size: [7683, 7682],
