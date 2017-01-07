@@ -41,7 +41,6 @@ export default class ArmaMap extends Component {
           <BaseLayer checked name={world.name}>
             <TileLayer
               ref='tileLayer'
-              noWrap='true'
               url={world.tileUrl}
               minZoom={world.zoom[0]}
               maxNativeZoom={world.zoom[1]}

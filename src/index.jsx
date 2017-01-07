@@ -3,7 +3,7 @@ import './leaflet/index';
 import './css/markers.css';
 import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'react-leaflet-fullscreen/lib/index.css'
+import 'react-leaflet-fullscreen/dist/styles.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Redirect, IndexRedirect, Link, browserHistory } from 'react-router';
