@@ -1,7 +1,8 @@
 import {
   INVALIDATE_MISSIONS,
   REQUEST_MISSIONS,
-  RECEIVE_MISSIONS
+  RECEIVE_MISSIONS,
+  SET_MISSIONS_PAGE,
 } from '../actions/missions';
 
 export function missions(state = {
@@ -9,6 +10,7 @@ export function missions(state = {
   didInvalidate: false,
   missions: [],
   missionsById: null,
+  page: 1,
 }, action) {
   switch (action.type) {
     case INVALIDATE_MISSIONS:
@@ -26,7 +28,12 @@ export function missions(state = {
         didInvalidate: false,
         missions: action.missions,
         missionsById: action.missionsById,
+        page: 1,
         lastUpdated: action.receivedAt,
+      });
+    case SET_MISSIONS_PAGE:
+      return Object.assign({}, state, {
+        page: action.page,
       });
     default:
       return state;
