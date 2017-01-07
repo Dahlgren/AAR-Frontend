@@ -4,6 +4,7 @@ import apiEndpoint from '../data/api';
 export const INVALIDATE_MISSIONS = 'INVALIDATE_MISSIONS';
 export const REQUEST_MISSIONS = 'REQUEST_MISSIONS';
 export const RECEIVE_MISSIONS = 'RECEIVE_MISSIONS';
+export const SET_MISSIONS_PAGE = 'SET_MISSIONS_PAGE';
 
 export function invalidateMissions() {
   return {
@@ -51,10 +52,17 @@ function shouldFetchMissions(state) {
   }
 }
 
-export function fetchMissionsIfNeeded(subreddit) {
+export function fetchMissionsIfNeeded() {
   return (dispatch, getState) => {
     if (shouldFetchMissions(getState())) {
       return dispatch(fetchMissions());
     }
+  };
+}
+
+export function setMissionsPage(page) {
+  return {
+    type: SET_MISSIONS_PAGE,
+    page: page,
   };
 }
