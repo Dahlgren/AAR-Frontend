@@ -1,0 +1,23 @@
+.leaflet-control-slider {
+  background-color: white;
+  padding: 5px 15px;
+}
+
+.leaflet-control-slider .slider .slider-handle {
+  background: black;
+  background-image: -webkit-linear-gradient(top, #555 0%, #000 100%);
+  background-image: -o-linear-gradient(top, #555 0%, #000 100%);
+  background-image: linear-gradient(to bottom, #555 0%, #000 100%);
+}
+
+@media only screen and (min-width: 600px) {
+  .leaflet-control-slider .slider {
+    width: 400px !important;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .leaflet-control-slider .slider {
+    width: 600px !important;
+  }
+}

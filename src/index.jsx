@@ -1,8 +1,10 @@
 import 'leaflet_css';
 import './leaflet/index';
 import './css/markers.css';
+import './css/slider.css';
 import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-slider/dist/css/bootstrap-slider.css'
 import 'react-leaflet-fullscreen/dist/styles.css';
 import React from 'react';
 import { render } from 'react-dom';
