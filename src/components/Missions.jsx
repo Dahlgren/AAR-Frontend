@@ -1,7 +1,7 @@
 import moment from 'moment';
 import 'moment-duration-format';
 import React, { Component, PropTypes } from 'react';
-import { Table } from 'react-bootstrap';
+import { Glyphicon, Table } from 'react-bootstrap';
 import { Link } from 'react-router';
 import worlds from '../data/worlds';
 
@@ -26,8 +26,14 @@ export default class Missions extends Component {
                 </Link>
               </td>
               <td>
-                { worlds[mission.world] ?
-                  worlds[mission.world].name : mission.world
+                { worlds[mission.world.toLowerCase()] ?
+                  worlds[mission.world.toLowerCase()].name
+                  :
+                  <div>
+                    <span>{ mission.world }</span>
+                    &nbsp;
+                    <Glyphicon className="text-danger" glyph="warning-sign" />
+                  </div>
                 }
               </td>
               <td>
