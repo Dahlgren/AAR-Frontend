@@ -155,6 +155,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/khe_sanh/{z}/khe_sanh_{x}_{y}.png',
     zoom: [0, 7],
   },
+  kidal: {
+    name: 'Kidal, Mali',
+    size: [61441, 61441],
+    tileUrl: 'http://maptiles.anrop.se/kidal/{z}/kidal_{x}_{y}.png',
+    zoom: [0, 8],
+  },
   mbg_celle2: {
     name: 'MBG Celle 2',
     size: [12294, 12300],
