@@ -131,6 +131,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/fallujah/{z}/fallujah_{x}_{y}.png',
     zoom: [0, 6],
   },
+  fata: {
+    name: 'Federally Administred Tribal Areas, Pakistan',
+    size: [10242, 10240],
+    tileUrl: 'http://maptiles.anrop.se/fata/{z}/fata_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   gridlock_optre: {
     name: 'Gridlock',
     size: [1024, 1030],
