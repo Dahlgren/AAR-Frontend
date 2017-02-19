@@ -11,10 +11,10 @@ export const markerTypes = [
 
 export function normalizeSimulation(simulation) {
   for (var markerType of markerTypes) {
-    if (simulation.includes(markerType)) {
+    if (simulation.toLowerCase().includes(markerType)) {
       return markerType;
     }
   };
 
-  return simulation;
+  return null;
 }
