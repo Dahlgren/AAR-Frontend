@@ -1,14 +1,6 @@
-import { divIcon } from 'leaflet';
 import React from 'react';
 import { Popup } from 'react-leaflet';
 import RotationMarker from './RotationMarker';
-
-const icon = function (className, size) {
-  return divIcon({
-    className: className,
-    iconSize: size,
-  })
-}
 
 export class ArmaMarker extends React.Component {
 
@@ -18,7 +10,8 @@ export class ArmaMarker extends React.Component {
 
     return (
       <RotationMarker
-        icon={icon(className, markerSize)}
+        className={className}
+        markerSize={markerSize}
         position={map.unproject([x, y], world.zoom[1])}
         rotation={rotation}
         title={name}
