@@ -1,6 +1,7 @@
 import { projectileColor } from './colors';
 import { unitClassName, vehicleClassName } from './marker_classes';
 import { markerSize } from './marker_sizes';
+import { normalizeSimulation } from './marker_types';
 
 module.exports = function (events, world) {
   var processedEvents = [];
@@ -32,7 +33,7 @@ module.exports = function (events, world) {
       });
     }
 
-    if (event.vehicle && event.vehicle.name != "Ground" && event.vehicle.simulation != "thingX") {
+    if (event.vehicle && normalizeSimulation(event.vehicle.simulation)) {
       processedEvents.push({
         id: event.vehicle.id,
         rotation: event.vehicle.position.dir,
