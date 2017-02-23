@@ -143,6 +143,30 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/gridlock_optre/{z}/gridlock_optre_{x}_{y}.png',
     zoom: [0, 2],
   },
+  i44_merderet: {
+    name: 'Merderet River',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/i44_merderet/{z}/i44_merderet_{x}_{y}.png',
+    zoom: [0, 5],
+  },
+  i44_merderet_v2: {
+    name: 'Merderet River (V2)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/i44_merderet_v2/{z}/i44_merderet_v2_{x}_{y}.png',
+    zoom: [0, 5],
+  },
+  i44_merderet_winter: {
+    name: 'Merderet River (Winter)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/i44_merderet_winter/{z}/i44_merderet_winter_{x}_{y}.png',
+    zoom: [0, 5],
+  },
+  i44_omaha_v2: {
+    name: 'Omaha Beach',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/i44_omaha_v2/{z}/i44_omaha_v2_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   intro: {
     name: 'Rahmadi',
     size: [5121, 5121],
@@ -173,6 +197,18 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/mbg_celle2/{z}/mbg_celle2_{x}_{y}.png',
     zoom: [0, 6],
   },
+  mcn_neaville: {
+    name: 'Neaville',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/mcn_neaville/{z}/mcn_neaville_{x}_{y}.png',
+    zoom: [0, 5],
+  },
+  mcn_neaville_winter: {
+    name: 'Neaville (Winter)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/mcn_neaville_winter/{z}/mcn_neaville_winter_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   mountains_acr: {
     name: 'Takistan Mountains',
     size: [6410, 11835],
@@ -196,6 +232,12 @@ export default {
     size: [4847, 11839],
     tileUrl: 'http://maptiles.anrop.se/phu_bai/{z}/phu_bai_{x}_{y}.png',
     zoom: [0, 6],
+  },
+  plr_bulge: {
+    name: 'Battle of the Bulge',
+    size: [1024, 1024],
+    tileUrl: 'http://maptiles.anrop.se/plr_bulge/{z}/plr_bulge_{x}_{y}.png',
+    zoom: [0, 2],
   },
   porto: {
     name: 'Porto',
