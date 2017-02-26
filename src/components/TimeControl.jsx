@@ -11,7 +11,7 @@ export default class TimeControl extends Component {
   render() {
     const { isPlaying, mission, seek, speed, time } = this.props;
     const duration = (time.current - time.start) / 1000;
-    const length = mission.length;
+    const length = Math.max(mission.length, (time.end - time.start) / 1000);
     const playButtonGlyph = isPlaying ? 'pause' : 'play';
 
     return (
