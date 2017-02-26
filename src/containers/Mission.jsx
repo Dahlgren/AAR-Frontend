@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { Grid } from 'react-bootstrap';
-import ReactBootstrapSlider from 'react-bootstrap-slider';
 import { render } from 'react-dom';
 import Control from 'react-leaflet-control';
 import FullscreenControl from 'react-leaflet-fullscreen';
 import { connect } from 'react-redux';
 import { LatLng } from 'leaflet';
 import ArmaMap from '../components/ArmaMap';
+import TimeControl from '../components/TimeControl';
 import EventsTicker from '../components/EventsTicker';
 import { loadEvents, seekEvents, stopEvents } from '../actions/events';
 import { fetchMissionsIfNeeded } from '../actions/missions';
@@ -54,15 +54,11 @@ class Mission extends Component {
             >
               <FullscreenControl position="topleft" />
               <Control className="leaflet-bar leaflet-control-slider" position="bottomleft">
-                <ReactBootstrapSlider
-                  value={time.current}
-                  slideStop={this.seek.bind(this)}
-                  step={1}
-                  max={Math.max(time.start + mission.length * 1000, time.end)}
-                  min={time.start}
-                  rangeHighlights={[{start: time.start, end: time.end}]}
-                  tooltip={'hide'}
-                />
+                <TimeControl
+                  mission={mission}
+                  seek={this.seek.bind(this)}
+                  time={time}
+                  />
               </Control>
             </ArmaMap>
             <EventsTicker />
