@@ -5,16 +5,19 @@ import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 import { render } from 'react-dom';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 
+const speeds = [1, 10, 100];
+
 export default class TimeControl extends Component {
   render() {
-    const { mission, time, seek } = this.props;
+    const { isPlaying, mission, seek, speed, time } = this.props;
     const duration = (time.current - time.start) / 1000;
     const length = mission.length;
+    const playButtonGlyph = isPlaying ? 'pause' : 'play';
 
     return (
       <div>
         <div>
-          <dl className="pull-left">
+          <dl className="pull-left" style={{marginBottom: 0}}>
             <dt>
               Mission
             </dt>
@@ -22,7 +25,7 @@ export default class TimeControl extends Component {
               {mission.name}
             </dd>
           </dl>
-          <dl className="pull-right">
+          <dl className="pull-right" style={{marginBottom: 0}}>
             <dt>
               Total Time
             </dt>
@@ -30,7 +33,7 @@ export default class TimeControl extends Component {
               { moment.duration(length, 'seconds').format('h[h] mm[m] s[s]') }
             </dd>
           </dl>
-          <dl className="pull-right" style={{marginRight: '10px'}}>
+          <dl className="pull-right" style={{marginBottom: 0, marginRight: '10px'}}>
             <dt>
               Current Time
             </dt>
@@ -38,6 +41,23 @@ export default class TimeControl extends Component {
               { moment.duration(duration, 'seconds').format('h[h] mm[m] s[s]') }
             </dd>
           </dl>
+          <div className="pull-right" style={{marginRight: '10px'}}>
+            <Button bsSize="small">
+              <Glyphicon glyph={playButtonGlyph} onClick={this.props.togglePlaying.bind(this)} />
+            </Button>
+            &nbsp;
+            <ButtonGroup>
+              {speeds.map((desiredSpeed) => {
+                return (
+                  <Button
+                    active={desiredSpeed == speed}
+                    bsSize="small"
+                    onClick={this.props.setSpeed.bind(this, desiredSpeed)}
+                    key={desiredSpeed}>{desiredSpeed}x</Button>
+                );
+              })}
+            </ButtonGroup>
+          </div>
         </div>
         <div>
           <ReactBootstrapSlider
@@ -57,6 +77,10 @@ export default class TimeControl extends Component {
 
 TimeControl.propTypes = {
   mission: PropTypes.object.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
   seek: PropTypes.func.isRequired,
+  setSpeed: PropTypes.func.isRequired,
+  speed: PropTypes.number.isRequired,
   time: PropTypes.object.isRequired,
+  togglePlaying: PropTypes.func.isRequired,
 }

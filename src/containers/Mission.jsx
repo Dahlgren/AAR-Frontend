@@ -13,6 +13,15 @@ import { fetchMissionsIfNeeded } from '../actions/missions';
 import worlds from '../data/worlds';
 
 class Mission extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isPlaying: true,
+      speed: 10,
+    };
+  }
+
   componentDidMount() {
     const { dispatch, params } = this.props;
     dispatch(fetchMissionsIfNeeded());
@@ -26,6 +35,7 @@ class Mission extends Component {
 
   render() {
     const { mission, projectiles, units, vehicles, isFetching, lastUpdated, time, world } = this.props;
+    const { isPlaying, speed } = this.state;
 
     return (
       <div id="map-container">
@@ -55,17 +65,33 @@ class Mission extends Component {
               <FullscreenControl position="topleft" />
               <Control className="leaflet-bar leaflet-control-slider" position="bottomleft">
                 <TimeControl
+                  isPlaying={isPlaying}
                   mission={mission}
                   seek={this.seek.bind(this)}
+                  setSpeed={this.setSpeed.bind(this)}
+                  speed={speed}
                   time={time}
+                  togglePlaying={this.togglePlaying.bind(this)}
                   />
               </Control>
             </ArmaMap>
-            <EventsTicker />
+            <EventsTicker
+              isPlaying={isPlaying}
+              speed={speed}
+              />
           </div>
         }
       </div>
     )
+  }
+
+  setSpeed(speed) {
+    this.setState({speed: speed});
+  }
+
+  togglePlaying() {
+    const { isPlaying } = this.state;
+    this.setState({isPlaying: !isPlaying});
   }
 
   seek(event) {
