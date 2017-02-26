@@ -329,6 +329,18 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/tanoa/{z}/tanoa_{x}_{y}.png',
     zoom: [0, 6],
   },
+  thirsk: {
+    name: 'Thirsk',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/thirsk/{z}/thirsk_{x}_{y}.png',
+    zoom: [0, 5],
+  },
+  thirskw: {
+    name: 'Thirsk (Winter)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/thirskw/{z}/thirskw_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   tilos: {
     name: 'Tilos',
     size: [8193, 8193],
