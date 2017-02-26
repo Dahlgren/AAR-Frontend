@@ -137,6 +137,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/fata/{z}/fata_{x}_{y}.png',
     zoom: [0, 6],
   },
+  fow_map_tarawa: {
+    name: 'Tarawa Betio',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/fow_map_tarawa/{z}/fow_map_tarawa_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   gridlock_optre: {
     name: 'Gridlock',
     size: [1024, 1030],
