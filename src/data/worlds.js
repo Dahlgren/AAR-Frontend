@@ -137,6 +137,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/fata/{z}/fata_{x}_{y}.png',
     zoom: [0, 6],
   },
+  fdf_isle1_a: {
+    name: 'Podagorsk',
+    size: [20480, 20480],
+    tileUrl: 'http://maptiles.anrop.se/fdf_isle1_a/{z}/fdf_isle1_a_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   fow_map_tarawa: {
     name: 'Tarawa Betio',
     size: [5120, 5120],
