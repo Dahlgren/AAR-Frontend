@@ -6,6 +6,7 @@ import { ArmaMarkers } from './ArmaMarkers';
 import { ArmaProjectiles } from './ArmaProjectiles';
 
 const { BaseLayer, Overlay } = LayersControl;
+const tileLayerbounds = new LatLngBounds([-180, -180], [180, 180])
 const scaledZoom = 2;
 
 export default class ArmaMap extends Component {
@@ -42,6 +43,9 @@ export default class ArmaMap extends Component {
             <TileLayer
               ref='tileLayer'
               url={world.tileUrl}
+              bounds={tileLayerbounds}
+              continuousWorld={true}
+              noWrap={true}
               minZoom={world.zoom[0]}
               maxNativeZoom={world.zoom[1]}
               maxZoom={world.zoom[1] + scaledZoom}
