@@ -35,6 +35,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/baranow/{z}/baranow_{x}_{y}.png',
     zoom: [0, 5],
   },
+  beketov: {
+    name: 'Beketov',
+    size: [20480, 20480],
+    tileUrl: 'http://maptiles.anrop.se/beketov/{z}/beketov_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   bootcamp_acr: {
     name: 'Bootcamp',
     size: [3843, 3847],
