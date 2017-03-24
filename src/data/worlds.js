@@ -251,6 +251,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/phu_bai/{z}/phu_bai_{x}_{y}.png',
     zoom: [0, 6],
   },
+  pja314: {
+    name: 'Leskovets',
+    size: [20480, 20480],
+    tileUrl: 'http://maptiles.anrop.se/pja314/{z}/pja314_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   plr_bulge: {
     name: 'Battle of the Bulge',
     size: [1024, 1024],
