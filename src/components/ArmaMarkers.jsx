@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Popup } from 'react-leaflet';
 import RotationMarker from './RotationMarker';
@@ -25,8 +26,8 @@ export class ArmaMarker extends React.Component {
 }
 
 ArmaMarker.contextTypes = {
-  map: React.PropTypes.object.isRequired,
-  world: React.PropTypes.object.isRequired,
+  map: PropTypes.object.isRequired,
+  world: PropTypes.object.isRequired,
 };
 
 export class ArmaMarkers extends React.Component {

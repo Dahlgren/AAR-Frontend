@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Polyline } from 'react-leaflet';
 
@@ -21,8 +22,8 @@ export class ArmaProjectile extends React.Component {
 }
 
 ArmaProjectile.contextTypes = {
-  map: React.PropTypes.object.isRequired,
-  world: React.PropTypes.object.isRequired,
+  map: PropTypes.object.isRequired,
+  world: PropTypes.object.isRequired,
 };
 
 export class ArmaProjectiles extends React.Component {

@@ -1,6 +1,7 @@
 import moment from 'moment';
 import 'moment-duration-format';
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 import { render } from 'react-dom';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
