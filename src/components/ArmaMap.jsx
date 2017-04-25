@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Map, LayersControl, LayerGroup, TileLayer } from 'react-leaflet';
 import { LatLngBounds } from 'leaflet';

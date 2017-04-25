@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 import { render } from 'react-dom';
 import Worlds from '../components/Worlds';

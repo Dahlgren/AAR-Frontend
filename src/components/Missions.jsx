@@ -1,6 +1,7 @@
 import moment from 'moment';
 import 'moment-duration-format';
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { Glyphicon, Table } from 'react-bootstrap';
 import { Link } from 'react-router';
 import worlds from '../data/worlds';
