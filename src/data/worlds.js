@@ -431,6 +431,18 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/woodland_acr/{z}/woodland_acr_{x}_{y}.png',
     zoom: [0, 5],
   },
+  xcam_prototype: {
+    name: 'X-Cam Prototype Map',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/xcam_prototype/{z}/xcam_prototype_{x}_{y}.png',
+    zoom: [0, 6],
+  },
+  xcam_taunus: {
+    name: 'X-Cam Taunus',
+    size: [20480, 20480],
+    tileUrl: 'http://maptiles.anrop.se/xcam_taunus/{z}/xcam_taunus_{x}_{y}.png',
+    zoom: [0, 7],
+  },
   zargabad: {
     name: 'Zargabad',
     size: [8193, 8196],
