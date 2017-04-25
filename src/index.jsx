@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-slider/dist/css/bootstrap-slider.css'
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, Redirect, IndexRedirect, browserHistory } from 'react-router'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import App from './containers/App'
 import Mission from './containers/Mission'
@@ -20,15 +20,16 @@ let store = configureStore()
 
 render((
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path='/' component={App}>
-        <IndexRedirect to='missions' />
-        <Route path='missions' component={MissionsList} />
-        <Route path='missions/:id' component={Mission} />
-        <Route path='worlds' component={WorldsList} />
-        <Route path='worlds/:id' component={World} />
-        <Redirect from='*' to='missions' />
-      </Route>
-    </Router>
+    <BrowserRouter>
+      <App>
+        <Switch>
+          <Route exact path='/missions' component={MissionsList} />
+          <Route exact path='/missions/:id' component={Mission} />
+          <Route exact path='/worlds' component={WorldsList} />
+          <Route exact path='/worlds/:id' component={World} />
+          <Redirect path='*' to='/missions' />
+        </Switch>
+      </App>
+    </BrowserRouter>
   </Provider>
 ), document.getElementById('content'))
