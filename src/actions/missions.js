@@ -4,6 +4,7 @@ import apiEndpoint from '../data/api';
 export const INVALIDATE_MISSIONS = 'INVALIDATE_MISSIONS';
 export const REQUEST_MISSIONS = 'REQUEST_MISSIONS';
 export const RECEIVE_MISSIONS = 'RECEIVE_MISSIONS';
+export const SET_MISSIONS_FILTER = 'SET_MISSIONS_FILTER';
 export const SET_MISSIONS_PAGE = 'SET_MISSIONS_PAGE';
 
 export function invalidateMissions() {
@@ -57,6 +58,13 @@ export function fetchMissionsIfNeeded() {
     if (shouldFetchMissions(getState())) {
       return dispatch(fetchMissions());
     }
+  };
+}
+
+export function setMissionsFilter(filter) {
+  return {
+    type: SET_MISSIONS_FILTER,
+    filter: filter,
   };
 }
 
