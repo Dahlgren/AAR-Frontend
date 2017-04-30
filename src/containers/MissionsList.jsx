@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { Grid, Pagination } from 'react-bootstrap';
 import { render } from 'react-dom';
 import { connect } from 'react-redux';
-import { invalidateMissions, fetchMissionsIfNeeded, setMissionsPage } from '../actions/missions';
+import { invalidateMissions, fetchMissionsIfNeeded, setMissionsFilter, setMissionsPage } from '../actions/missions';
+import MissionsFilter from '../components/MissionsFilter';
 import Missions from '../components/Missions';
 
-const REQUIRED_MISSION_LENGTH = 60;
 const MISSIONS_PER_PAGE = 20;
 
 class MissionsList extends Component {
@@ -37,8 +37,13 @@ class MissionsList extends Component {
     dispatch(setMissionsPage(page));
   }
 
+  setFilter(filter) {
+    const { dispatch } = this.props
+    dispatch(setMissionsFilter(filter))
+  }
+
   render() {
-    const { missions, page, isFetching, lastUpdated } = this.props;
+    const { filter, filteredMissions, page, isFetching, lastUpdated } = this.props;
 
     const refreshHeader = (
       <div>
@@ -57,7 +62,13 @@ class MissionsList extends Component {
       </div>
     );
 
-    const filteredMissions = missions.filter(mission => mission.length > REQUIRED_MISSION_LENGTH);
+    const missionsFilter = (
+      <div>
+        <h4>Filter</h4>
+        <MissionsFilter setFilter={this.setFilter.bind(this)} {...filter} />
+      </div>
+    )
+
     const pages = Math.ceil(filteredMissions.length / MISSIONS_PER_PAGE);
     const paginatedMissions = filteredMissions.slice((page - 1) * MISSIONS_PER_PAGE, page * MISSIONS_PER_PAGE);
     const missionsList = (
@@ -77,14 +88,15 @@ class MissionsList extends Component {
 
     return (
       <Grid>
+        {missionsFilter}
         {refreshHeader}
-        {isFetching && missions.length === 0 &&
+        {isFetching && filteredMissions.length === 0 &&
           <h2>Loading...</h2>
         }
-        {!isFetching && missions.length === 0 &&
+        {!isFetching && filteredMissions.length === 0 &&
           <h2>Empty.</h2>
         }
-        {missions.length > 0 &&
+        {filteredMissions.length > 0 &&
           missionsList
         }
       </Grid>
@@ -93,7 +105,7 @@ class MissionsList extends Component {
 };
 
 MissionsList.propTypes = {
-  missions: PropTypes.array.isRequired,
+  filteredMissions: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
   dispatch: PropTypes.func.isRequired
@@ -103,16 +115,19 @@ function mapStateToProps(state) {
   const {
     isFetching,
     lastUpdated,
-    missions,
+    filter,
+    filteredMissions,
     page,
   } = state.missions || {
     isFetching: true,
-    missions: [],
+    filter: {},
+    filteredMissions: [],
     page: 1
   }
 
   return {
-    missions,
+    filter,
+    filteredMissions,
     isFetching,
     lastUpdated,
     page,
