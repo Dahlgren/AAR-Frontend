@@ -2,6 +2,7 @@ import { projectileColor } from './colors';
 import { unitClassName, vehicleClassName } from './marker_classes';
 import { markerSize } from './marker_sizes';
 import { normalizeSimulation } from './marker_types';
+import { projectileWeight } from './projectile_weight';
 
 module.exports = function (events, world) {
   var processedEvents = [];
@@ -13,7 +14,7 @@ module.exports = function (events, world) {
         x: event.projectile.position.x,
         y: (world.size[1] - event.projectile.position.y),
         color: projectileColor(event.projectile.side),
-        weight: 1,
+        weight: projectileWeight(event.projectile),
         timestamp: new Date(event.timestamp),
         type: 'projectiles',
       });
