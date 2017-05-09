@@ -7,16 +7,16 @@ import worlds from '../data/worldsList';
 
 const FILTER_LENGTH = [
   {
-    title: '1 hour',
-    value: 3600,
+    title: 'All',
+    value: 0,
   },
   {
     title: '1 minute',
     value: 60,
   },
   {
-    title: 'All',
-    value: 0,
+    title: '1 hour',
+    value: 3600,
   }
 ]
 
