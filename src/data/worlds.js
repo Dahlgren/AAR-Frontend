@@ -209,6 +209,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/kidal/{z}/kidal_{x}_{y}.png',
     zoom: [0, 8],
   },
+  malden: {
+    name: 'Malden',
+    size: [12800, 12800],
+    tileUrl: 'http://maptiles.anrop.se/malden/{z}/malden_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   malvinas: {
     name: 'Malvinas',
     size: [20480, 20480],
