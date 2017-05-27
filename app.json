@@ -1,5 +1,6 @@
 {
   "name": "AAR-Frontend",
+  "stack": "heroku-16",
   "env": {
   },
   "formation": {
