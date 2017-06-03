@@ -41,6 +41,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/beketov/{z}/beketov_{x}_{y}.png',
     zoom: [0, 7],
   },
+  blud_cordelia: {
+    name: 'Suonkomar Sahav',
+    size: [8192, 8192],
+    tileUrl: 'http://maptiles.anrop.se/blud_cordelia/{z}/blud_cordelia_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   bootcamp_acr: {
     name: 'Bootcamp',
     size: [3843, 3847],
