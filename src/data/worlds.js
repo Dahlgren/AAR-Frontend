@@ -7,7 +7,7 @@ export default {
   },
   abramia: {
     name: 'Abramia',
-    size: [10241, 10241],
+    size: [10240, 10240],
     tileUrl: 'http://maptiles.anrop.se/abramia/{z}/abramia_{x}_{y}.png',
     zoom: [0, 6],
   },
@@ -125,6 +125,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/desert_island/{z}/desert_island_{x}_{y}.png',
     zoom: [0, 6],
   },
+  dingor: {
+    name: 'Dingor',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/dingor/{z}/dingor_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   dya: {
     name: 'Diyala',
     size: [8200, 8199],
@@ -197,6 +203,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/intro/{z}/intro_{x}_{y}.png',
     zoom: [0, 5],
   },
+  isladuala3: {
+    name: 'Isla Duala',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/isladuala3/{z}/isladuala3_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   ivachev: {
     name: 'Ivachev',
     size: [641, 648],
@@ -214,6 +226,12 @@ export default {
     size: [61441, 61441],
     tileUrl: 'http://maptiles.anrop.se/kidal/{z}/kidal_{x}_{y}.png',
     zoom: [0, 8],
+  },
+  lingor3: {
+    name: 'Lingor',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/lingor3/{z}/lingor3_{x}_{y}.png',
+    zoom: [0, 6],
   },
   malden: {
     name: 'Malden',
@@ -262,6 +280,12 @@ export default {
     size: [5126, 5121],
     tileUrl: 'http://maptiles.anrop.se/panovo/{z}/panovo_{x}_{y}.png',
     zoom: [0, 5],
+  },
+  panthera3: {
+    name: 'Panthera',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/panthera3/{z}/panthera3_{x}_{y}.png',
+    zoom: [0, 6],
   },
   phu_bai: {
     name: 'Phu Bai, Hue, Vietnam',
@@ -430,6 +454,12 @@ export default {
     size: [6015, 6012],
     tileUrl: 'http://maptiles.anrop.se/vt5/{z}/vt5_{x}_{y}.png',
     zoom: [0, 5],
+  },
+  winthera3: {
+    name: 'Winthera',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/winthera3/{z}/winthera3_{x}_{y}.png',
+    zoom: [0, 6],
   },
   wl_route191: {
     name: 'Schwemlitz, Germany',
