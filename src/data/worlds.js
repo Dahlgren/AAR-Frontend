@@ -65,6 +65,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/cain/{z}/cain_{x}_{y}.png',
     zoom: [0, 6],
   },
+  carraigdubh: {
+    name: 'Carraigdubh',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/carraigdubh/{z}/carraigdubh_{x}_{y}.png',
+    zoom: [0, 5],
+  },
   chernarus: {
     name: 'Chernarus',
     size: [15361, 15361],
