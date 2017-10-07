@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 import { render } from 'react-dom';
-import FullscreenControl from 'react-leaflet-fullscreen';
 import { connect } from 'react-redux';
 import { LatLng } from 'leaflet';
 import ArmaMap from '../components/ArmaMap';
@@ -26,9 +25,7 @@ class World extends Component {
               units={[]}
               vehicles={[]}
               world={world}
-            >
-              <FullscreenControl position="topleft" />
-            </ArmaMap>
+            />
           </div>
         }
       </div>

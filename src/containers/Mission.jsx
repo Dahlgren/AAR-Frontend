@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Grid } from 'react-bootstrap';
 import { render } from 'react-dom';
 import Control from 'react-leaflet-control';
-import FullscreenControl from 'react-leaflet-fullscreen';
 import { connect } from 'react-redux';
 import { LatLng } from 'leaflet';
 import ArmaMap from '../components/ArmaMap';
@@ -63,7 +62,6 @@ class Mission extends Component {
               vehicles={vehicles}
               world={world}
             >
-              <FullscreenControl position="topleft" />
               <Control className="leaflet-bar leaflet-control-slider" position="bottomleft">
                 <TimeControl
                   isPlaying={isPlaying}
