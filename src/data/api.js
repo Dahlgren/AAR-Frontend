@@ -1,1 +1,1 @@
-module.exports = "https://arma-stats-go.herokuapp.com";
+module.exports = "https://api.aar.anrop.se";
