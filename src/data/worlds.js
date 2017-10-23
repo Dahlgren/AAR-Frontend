@@ -149,6 +149,12 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/eden/{z}/eden_{x}_{y}.png',
     zoom: [0, 6],
   },
+  esseker: {
+    name: 'Esseker',
+    size: [12288, 12288],
+    tileUrl: 'http://maptiles.anrop.se/esseker/{z}/esseker_{x}_{y}.png',
+    zoom: [0, 6],
+  },
   fallujah: {
     name: 'Fallujah',
     size: [10249, 10251],
