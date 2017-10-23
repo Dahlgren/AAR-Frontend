@@ -1,93 +1,95 @@
-import fetch from 'isomorphic-fetch';
-import processEvents from './process_events';
-import Runner from './runner';
-import apiEndpoint from '../data/api';
-import worlds from './../data/worlds';
+/* global self */
 
-const LOAD_MORE_EVENTS_TIMEOUT = 1000;
-const LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT = 10000;
+import fetch from 'isomorphic-fetch'
+import processEvents from './process_events'
+import Runner from './runner'
+import apiEndpoint from '../data/api'
+import worlds from './../data/worlds'
 
-var mission = null;
-var runner = null;
-var world = null;
+const LOAD_MORE_EVENTS_TIMEOUT = 1000
+const LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT = 10000
 
-const limit = 10000;
-var offset = 0;
+var mission = null
+var runner = null
+var world = null
 
-function eventsUrl(limit, offset) {
-  return apiEndpoint + '/missions/' + mission.id + '/events?limit=' + limit + '&offset=' + offset;
+const limit = 10000
+var offset = 0
+
+function eventsUrl (limit, offset) {
+  return apiEndpoint + '/missions/' + mission.id + '/events?limit=' + limit + '&offset=' + offset
 }
 
-function loadMission(id) {
+function loadMission (id) {
   fetch(apiEndpoint + '/missions/' + id)
     .then(req => req.json())
     .then(json => {
-      mission = json;
+      mission = json
       world = worlds[mission.world.toLowerCase()]
-      loadEvents();
-    });
+      loadEvents()
+    })
 }
 
-function loadEvents() {
+function loadEvents () {
   fetch(eventsUrl(limit, offset))
     .then(req => req.json())
     .then((json) => {
-      offset = json.length;
+      offset = json.length
 
       if (world) {
-        const events = processEvents(json, world);
-        createRunner(events);
-        loadMoreEvents();
+        const events = processEvents(json, world)
+        createRunner(events)
+        loadMoreEvents()
       } else {
-        console.log('World "' + mission.world + '" not found, cannot compute correct positions');
+        console.log('World "' + mission.world + '" not found, cannot compute correct positions')
       }
-    });
+    })
 }
 
-function loadMoreEvents() {
+function loadMoreEvents () {
   fetch(eventsUrl(limit, offset))
     .then(req => req.json())
     .then((json) => {
       if (runner) {
         if (json.length > 0) {
-          offset = offset + json.length;
-          runner.addEvents(processEvents(json, world));
-          setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_TIMEOUT);
+          offset = offset + json.length
+          runner.addEvents(processEvents(json, world))
+          setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_TIMEOUT)
         } else {
-          setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT);
+          setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT)
         }
       }
-    });
+    })
 }
 
-function createRunner(events) {
+function createRunner (events) {
   runner = new Runner(events, function (events) {
     self.postMessage({
       type: 'events',
       projectiles: events.projectiles,
       units: events.units,
       vehicles: events.vehicles,
-      time: events.time,
+      time: events.time
     })
-  });
+  })
 }
 
-self.onmessage = function(msg) {
+self.onmessage = function (msg) {
   switch (msg.data.type) {
     case 'load':
-      loadMission(msg.data.id);
-      break;
+      loadMission(msg.data.id)
+      break
     case 'seek':
-      runner.seek(msg.data.seek);
-      break;
+      runner.seek(msg.data.seek)
+      break
     case 'tick':
-      runner.tick(msg.data.amount);
-      break;
+      runner.tick(msg.data.amount)
+      break
     case 'stop':
-      runner.stop();
-      runner = null;
-      break;
+      runner.stop()
+      runner = null
+      break
     default:
-      throw 'no action for type';
+      throw new Error('no action for type')
   }
 }

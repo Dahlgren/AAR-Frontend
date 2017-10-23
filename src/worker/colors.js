@@ -3,12 +3,12 @@ const SIDES = {
   east: '#DC143C',
   guer: '#00CD00',
   civ: '#EEEE00'
-};
+}
 
-export function projectileColor(side) {
+export function projectileColor (side) {
   if (SIDES[side.toLowerCase()]) {
-    return SIDES[side.toLowerCase()];
+    return SIDES[side.toLowerCase()]
   }
 
-  return SIDES.civ;
+  return SIDES.civ
 }

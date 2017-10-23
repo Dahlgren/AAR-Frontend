@@ -1,12 +1,12 @@
-var webpack = require("webpack");
+var webpack = require('webpack')
 
 module.exports = {
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   devtool: 'eval',
   entry: [
-    './src/index',
+    './src/index'
   ],
   module: require('./webpack/module'),
   output: require('./webpack/output'),
@@ -14,5 +14,5 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
-  resolve: require('./webpack/resolve'),
-};
+  resolve: require('./webpack/resolve')
+}

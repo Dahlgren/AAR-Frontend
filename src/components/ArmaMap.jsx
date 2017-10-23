@@ -1,34 +1,33 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import { Map, LayersControl, LayerGroup, TileLayer } from 'react-leaflet';
-import { LatLngBounds } from 'leaflet';
-import { ArmaMarkers } from './ArmaMarkers';
-import { ArmaProjectiles } from './ArmaProjectiles';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Map, LayersControl, LayerGroup, TileLayer } from 'react-leaflet'
+import { LatLngBounds } from 'leaflet'
+import { ArmaMarkers } from './ArmaMarkers'
+import { ArmaProjectiles } from './ArmaProjectiles'
 
-const { BaseLayer, Overlay } = LayersControl;
+const { BaseLayer, Overlay } = LayersControl
 const tileLayerbounds = new LatLngBounds([-180, -180], [180, 180])
-const scaledZoom = 2;
+const scaledZoom = 2
 
 export default class ArmaMap extends Component {
-  componentDidMount() {
-    const { world } = this.props;
-    var map = this.refs.map.leafletElement;
-    var southWest = map.unproject([0, 0], world.zoom[1]);
-    var northEast = map.unproject([world.size[0], world.size[1]], world.zoom[1]);
-    map.setMaxBounds(new LatLngBounds(southWest, northEast));
+  componentDidMount () {
+    const { world } = this.props
+    var map = this.refs.map.leafletElement
+    var southWest = map.unproject([0, 0], world.zoom[1])
+    var northEast = map.unproject([world.size[0], world.size[1]], world.zoom[1])
+    map.setMaxBounds(new LatLngBounds(southWest, northEast))
   }
 
-  getChildContext() {
-    const { world } = this.props;
+  getChildContext () {
+    const { world } = this.props
 
     return {
       world: world
-    };
+    }
   }
 
-  render() {
-    const { children, projectiles, units, vehicles, world } = this.props;
+  render () {
+    const { children, projectiles, units, vehicles, world } = this.props
 
     return (
       <Map
@@ -45,8 +44,8 @@ export default class ArmaMap extends Component {
               ref='tileLayer'
               url={world.tileUrl}
               bounds={tileLayerbounds}
-              continuousWorld={true}
-              noWrap={true}
+              continuousWorld
+              noWrap
               minZoom={world.zoom[0]}
               maxNativeZoom={world.zoom[1]}
               maxZoom={world.zoom[1] + scaledZoom}
@@ -74,17 +73,17 @@ export default class ArmaMap extends Component {
 
         {children}
       </Map>
-    );
+    )
   }
 };
 
 ArmaMap.childContextTypes = {
   world: PropTypes.object.isRequired
-};
+}
 
 ArmaMap.propTypes = {
   projectiles: PropTypes.array.isRequired,
   units: PropTypes.array.isRequired,
   vehicles: PropTypes.array.isRequired,
-  world: PropTypes.object.isRequired,
+  world: PropTypes.object.isRequired
 }

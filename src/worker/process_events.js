@@ -1,11 +1,11 @@
-import { projectileColor } from './colors';
-import { unitClassName, vehicleClassName } from './marker_classes';
-import { markerSize } from './marker_sizes';
-import { normalizeSimulation } from './marker_types';
-import { projectileWeight } from './projectile_weight';
+import { projectileColor } from './colors'
+import { unitClassName, vehicleClassName } from './marker_classes'
+import { markerSize } from './marker_sizes'
+import { normalizeSimulation } from './marker_types'
+import { projectileWeight } from './projectile_weight'
 
 module.exports = function (events, world) {
-  var processedEvents = [];
+  var processedEvents = []
 
   events.forEach(function (event) {
     if (event.projectile) {
@@ -16,8 +16,8 @@ module.exports = function (events, world) {
         color: projectileColor(event.projectile.side),
         weight: projectileWeight(event.projectile),
         timestamp: new Date(event.timestamp),
-        type: 'projectiles',
-      });
+        type: 'projectiles'
+      })
     }
 
     if (event.unit) {
@@ -30,8 +30,8 @@ module.exports = function (events, world) {
         markerSize: [16, 16],
         name: event.unit.name,
         timestamp: new Date(event.timestamp),
-        type: 'units',
-      });
+        type: 'units'
+      })
     }
 
     if (event.vehicle && normalizeSimulation(event.vehicle.simulation)) {
@@ -44,10 +44,10 @@ module.exports = function (events, world) {
         markerSize: markerSize(event.vehicle.simulation),
         name: event.vehicle.name,
         timestamp: new Date(event.timestamp),
-        type: 'vehicles',
-      });
+        type: 'vehicles'
+      })
     }
-  });
+  })
 
-  return processedEvents;
-};
+  return processedEvents
+}

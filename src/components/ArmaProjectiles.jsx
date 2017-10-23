@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Polyline } from 'react-leaflet';
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Polyline } from 'react-leaflet'
 
 export class ArmaProjectile extends React.Component {
-  render() {
+  render () {
     const { positions, color, weight } = this.props
     const { map, world } = this.context
 
@@ -16,24 +16,24 @@ export class ArmaProjectile extends React.Component {
         color={color}
         positions={projectedPositions}
         weight={weight}
-      ></Polyline>
+       />
     )
   }
 }
 
 ArmaProjectile.contextTypes = {
   map: PropTypes.object.isRequired,
-  world: PropTypes.object.isRequired,
-};
+  world: PropTypes.object.isRequired
+}
 
 export class ArmaProjectiles extends React.Component {
-  render() {
+  render () {
     const { projectiles } = this.props
 
     const items = projectiles.map(({ id, ...props }) => (
-        <ArmaProjectile key={id} {...props} />
-    ));
+      <ArmaProjectile key={id} {...props} />
+    ))
 
-    return <div style={{display: 'none'}}>{items}</div>;
+    return <div style={{display: 'none'}}>{items}</div>
   }
 }
