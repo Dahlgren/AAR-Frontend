@@ -1,1 +1,1 @@
-module.exports = "https://api.aar.anrop.se";
+module.exports = 'https://api.aar.anrop.se'

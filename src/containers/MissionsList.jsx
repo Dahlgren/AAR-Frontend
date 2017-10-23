@@ -1,49 +1,48 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { Grid, Pagination } from 'react-bootstrap';
-import { render } from 'react-dom';
-import { connect } from 'react-redux';
-import { invalidateMissions, fetchMissionsIfNeeded, setMissionsFilter, setMissionsPage } from '../actions/missions';
-import MissionsFilter from '../components/MissionsFilter';
-import Missions from '../components/Missions';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Grid, Pagination } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { invalidateMissions, fetchMissionsIfNeeded, setMissionsFilter, setMissionsPage } from '../actions/missions'
+import MissionsFilter from '../components/MissionsFilter'
+import Missions from '../components/Missions'
 
-const MISSIONS_PER_PAGE = 20;
+const MISSIONS_PER_PAGE = 20
 
 class MissionsList extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.handleRefreshClick = this.handleRefreshClick.bind(this)
     this.handlePageSelect = this.handlePageSelect.bind(this)
   }
 
-  componentDidMount() {
-    this.invalidate();
+  componentDidMount () {
+    this.invalidate()
   }
 
-  handleRefreshClick(e) {
-    e.preventDefault();
+  handleRefreshClick (e) {
+    e.preventDefault()
 
-    this.invalidate();
+    this.invalidate()
   }
 
-  invalidate() {
+  invalidate () {
     const { dispatch } = this.props
-    dispatch(invalidateMissions());
-    dispatch(fetchMissionsIfNeeded());
+    dispatch(invalidateMissions())
+    dispatch(fetchMissionsIfNeeded())
   }
 
-  handlePageSelect(page) {
+  handlePageSelect (page) {
     const { dispatch } = this.props
-    dispatch(setMissionsPage(page));
+    dispatch(setMissionsPage(page))
   }
 
-  setFilter(filter) {
+  setFilter (filter) {
     const { dispatch } = this.props
     dispatch(setMissionsFilter(filter))
   }
 
-  render() {
-    const { filter, filteredMissions, page, isFetching, lastUpdated } = this.props;
+  render () {
+    const { filter, filteredMissions, page, isFetching, lastUpdated } = this.props
 
     const refreshHeader = (
       <div>
@@ -55,12 +54,12 @@ class MissionsList extends Component {
         }
         {!isFetching &&
           <a href='#'
-             onClick={this.handleRefreshClick}>
+            onClick={this.handleRefreshClick}>
             Refresh
           </a>
         }
       </div>
-    );
+    )
 
     const missionsFilter = (
       <div>
@@ -69,22 +68,22 @@ class MissionsList extends Component {
       </div>
     )
 
-    const pages = Math.ceil(filteredMissions.length / MISSIONS_PER_PAGE);
-    const paginatedMissions = filteredMissions.slice((page - 1) * MISSIONS_PER_PAGE, page * MISSIONS_PER_PAGE);
+    const pages = Math.ceil(filteredMissions.length / MISSIONS_PER_PAGE)
+    const paginatedMissions = filteredMissions.slice((page - 1) * MISSIONS_PER_PAGE, page * MISSIONS_PER_PAGE)
     const missionsList = (
       <div style={{ opacity: isFetching ? 0.5 : 1 }}>
         <Missions missions={paginatedMissions} />
 
-        <div className="text-center">
+        <div className='text-center'>
           <Pagination
             items={pages}
             activePage={page}
-            boundaryLinks={true}
+            boundaryLinks
             maxButtons={10}
             onSelect={this.handlePageSelect} />
         </div>
       </div>
-    );
+    )
 
     return (
       <Grid>
@@ -100,7 +99,7 @@ class MissionsList extends Component {
           missionsList
         }
       </Grid>
-    );
+    )
   }
 };
 
@@ -111,13 +110,13 @@ MissionsList.propTypes = {
   dispatch: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   const {
     isFetching,
     lastUpdated,
     filter,
     filteredMissions,
-    page,
+    page
   } = state.missions || {
     isFetching: true,
     filter: {},
@@ -130,7 +129,7 @@ function mapStateToProps(state) {
     filteredMissions,
     isFetching,
     lastUpdated,
-    page,
+    page
   }
 }
 

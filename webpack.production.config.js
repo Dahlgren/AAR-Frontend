@@ -1,21 +1,21 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/index',
+    './src/index'
   ],
   module: require('./webpack/module'),
   output: require('./webpack/output'),
   plugins: [
     new HtmlWebpackPlugin({
       inject: false,
-      template: 'index.html',
+      template: 'index.html'
     }),
     new webpack.DefinePlugin({
-      "process.env": {
-        "NODE_ENV": JSON.stringify("production")
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
       }
     }),
     new webpack.optimize.DedupePlugin(),
@@ -26,5 +26,5 @@ module.exports = {
       }
     })
   ],
-  resolve: require('./webpack/resolve'),
+  resolve: require('./webpack/resolve')
 }

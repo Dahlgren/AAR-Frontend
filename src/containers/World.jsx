@@ -1,25 +1,23 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { Grid } from 'react-bootstrap';
-import { render } from 'react-dom';
-import { connect } from 'react-redux';
-import { LatLng } from 'leaflet';
-import ArmaMap from '../components/ArmaMap';
-import worlds from '../data/worlds';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Grid } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import ArmaMap from '../components/ArmaMap'
+import worlds from '../data/worlds'
 
 class World extends Component {
-  render() {
-    const { params, world } = this.props;
+  render () {
+    const { params, world } = this.props
 
     return (
-      <div id="map-container">
+      <div id='map-container'>
         {!world &&
           <Grid>
             <h2>World {params.id} is not configured</h2>
           </Grid>
         }
         {world &&
-          <div className="flex">
+          <div className='flex'>
             <ArmaMap
               projectiles={[]}
               units={[]}
@@ -33,15 +31,15 @@ class World extends Component {
   }
 }
 
-World .propTypes = {
-  world: PropTypes.object,
+World.propTypes = {
+  world: PropTypes.object
 }
 
-function mapStateToProps(state, ownProps) {
-  const world = worlds[ownProps.params.id];
+function mapStateToProps (state, ownProps) {
+  const world = worlds[ownProps.params.id]
 
   return {
-    world,
+    world
   }
 }
 

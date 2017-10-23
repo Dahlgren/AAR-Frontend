@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { Table } from 'react-bootstrap';
-import { Link } from 'react-router';
-import worlds from '../data/worlds';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Table } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 export default class Worlds extends Component {
-  render() {
+  render () {
     return (
       <Table striped>
         <thead>
@@ -17,7 +16,7 @@ export default class Worlds extends Component {
           {this.props.worlds.map((world, i) =>
             <tr key={world.id}>
               <td>
-                <Link to={"/worlds/" + world.id}>
+                <Link to={'/worlds/' + world.id}>
                   {world.name}
                 </Link>
               </td>
@@ -25,7 +24,7 @@ export default class Worlds extends Component {
           )}
         </tbody>
       </Table>
-    );
+    )
   }
 }
 

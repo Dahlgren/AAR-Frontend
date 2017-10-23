@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-import { events } from './events';
-import { missions } from './missions';
+import { events } from './events'
+import { missions } from './missions'
 
 const rootReducer = combineReducers({
   events,
-  missions,
-});
+  missions
+})
 
-export default rootReducer;
+export default rootReducer

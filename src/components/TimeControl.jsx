@@ -1,24 +1,23 @@
-import moment from 'moment';
-import 'moment-duration-format';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
-import { render } from 'react-dom';
-import ReactBootstrapSlider from 'react-bootstrap-slider';
+import moment from 'moment'
+import 'moment-duration-format'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap'
+import ReactBootstrapSlider from 'react-bootstrap-slider'
 
-const speeds = [1, 10, 100];
+const speeds = [1, 10, 100]
 
 export default class TimeControl extends Component {
-  render() {
-    const { isPlaying, mission, seek, speed, time } = this.props;
-    const duration = (time.current - time.start) / 1000;
-    const length = Math.max(mission.length, (time.end - time.start) / 1000);
-    const playButtonGlyph = isPlaying ? 'pause' : 'play';
+  render () {
+    const { isPlaying, mission, seek, speed, time } = this.props
+    const duration = (time.current - time.start) / 1000
+    const length = Math.max(mission.length, (time.end - time.start) / 1000)
+    const playButtonGlyph = isPlaying ? 'pause' : 'play'
 
     return (
       <div>
         <div>
-          <dl className="pull-left" style={{marginBottom: 0}}>
+          <dl className='pull-left' style={{marginBottom: 0}}>
             <dt>
               Mission
             </dt>
@@ -26,7 +25,7 @@ export default class TimeControl extends Component {
               {mission.name}
             </dd>
           </dl>
-          <dl className="pull-right" style={{marginBottom: 0}}>
+          <dl className='pull-right' style={{marginBottom: 0}}>
             <dt>
               Total Time
             </dt>
@@ -34,7 +33,7 @@ export default class TimeControl extends Component {
               { moment.duration(length, 'seconds').format('h[h] mm[m] s[s]') }
             </dd>
           </dl>
-          <dl className="pull-right" style={{marginBottom: 0, marginRight: '10px'}}>
+          <dl className='pull-right' style={{marginBottom: 0, marginRight: '10px'}}>
             <dt>
               Current Time
             </dt>
@@ -42,8 +41,8 @@ export default class TimeControl extends Component {
               { moment.duration(duration, 'seconds').format('h[h] mm[m] s[s]') }
             </dd>
           </dl>
-          <div className="pull-right" style={{marginRight: '10px'}}>
-            <Button bsSize="small">
+          <div className='pull-right' style={{marginRight: '10px'}}>
+            <Button bsSize='small'>
               <Glyphicon glyph={playButtonGlyph} onClick={this.props.togglePlaying.bind(this)} />
             </Button>
             &nbsp;
@@ -51,11 +50,11 @@ export default class TimeControl extends Component {
               {speeds.map((desiredSpeed) => {
                 return (
                   <Button
-                    active={desiredSpeed == speed}
-                    bsSize="small"
+                    active={desiredSpeed === speed}
+                    bsSize='small'
                     onClick={this.props.setSpeed.bind(this, desiredSpeed)}
                     key={desiredSpeed}>{desiredSpeed}x</Button>
-                );
+                )
               })}
             </ButtonGroup>
           </div>
@@ -72,7 +71,7 @@ export default class TimeControl extends Component {
           />
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -83,5 +82,5 @@ TimeControl.propTypes = {
   setSpeed: PropTypes.func.isRequired,
   speed: PropTypes.number.isRequired,
   time: PropTypes.object.isRequired,
-  togglePlaying: PropTypes.func.isRequired,
+  togglePlaying: PropTypes.func.isRequired
 }

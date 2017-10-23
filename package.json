@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npm run webpack",
+    "lint": "standard --verbose",
     "start": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --config ./webpack.production.config.js --progress --colors --bail"
@@ -48,6 +49,7 @@
     "worker-loader": "^0.7.0"
   },
   "devDependencies": {
+    "standard": "^10.0.3",
     "webpack-dev-server": "^1.14.1"
   }
 }

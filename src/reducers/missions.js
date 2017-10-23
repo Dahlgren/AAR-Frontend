@@ -3,34 +3,34 @@ import {
   REQUEST_MISSIONS,
   RECEIVE_MISSIONS,
   SET_MISSIONS_FILTER,
-  SET_MISSIONS_PAGE,
-} from '../actions/missions';
+  SET_MISSIONS_PAGE
+} from '../actions/missions'
 
 import filterMissions from '../utils/filterMissions'
 
-export function missions(state = {
+export function missions (state = {
   isFetching: false,
   didInvalidate: false,
   filter: {
     length: 0,
     name: '',
-    world: '',
+    world: ''
   },
   filteredMissions: [],
   missions: [],
   missionsById: null,
-  page: 1,
+  page: 1
 }, action) {
   switch (action.type) {
     case INVALIDATE_MISSIONS:
       return Object.assign({}, state, {
-        didInvalidate: true,
-      });
+        didInvalidate: true
+      })
     case REQUEST_MISSIONS:
       return Object.assign({}, state, {
         isFetching: true,
-        didInvalidate: false,
-      });
+        didInvalidate: false
+      })
     case RECEIVE_MISSIONS:
       return Object.assign({}, state, {
         isFetching: false,
@@ -39,19 +39,19 @@ export function missions(state = {
         missions: action.missions,
         missionsById: action.missionsById,
         page: 1,
-        lastUpdated: action.receivedAt,
-      });
+        lastUpdated: action.receivedAt
+      })
     case SET_MISSIONS_FILTER:
       return Object.assign({}, state, {
         filter: action.filter,
         filteredMissions: filterMissions(state.missions, action.filter),
-        page: 1,
-      });
+        page: 1
+      })
     case SET_MISSIONS_PAGE:
       return Object.assign({}, state, {
-        page: action.page,
-      });
+        page: action.page
+      })
     default:
-      return state;
+      return state
   }
 }
