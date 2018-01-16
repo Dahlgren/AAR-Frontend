@@ -30,9 +30,15 @@ export default {
     zoom: [0, 6]
   },
   baranow: {
-    name: 'Baranow',
-    size: [8204, 8210],
+    name: 'Baranow, Poland',
+    size: [8192, 8192],
     tileUrl: 'http://maptiles.anrop.se/baranow/{z}/baranow_{x}_{y}.png',
+    zoom: [0, 5]
+  },
+  baranowwindter: {
+    name: 'Baranow, Poland (Winter)',
+    size: [8192, 8192],
+    tileUrl: 'http://maptiles.anrop.se/baranowwinter/{z}/baranowwinter_{x}_{y}.png',
     zoom: [0, 5]
   },
   beketov: {
@@ -96,9 +102,15 @@ export default {
     zoom: [0, 7]
   },
   colleville: {
-    name: 'Omaha Beach',
-    size: [5133, 5125],
+    name: 'Colleville, France',
+    size: [5120, 5120],
     tileUrl: 'http://maptiles.anrop.se/colleville/{z}/colleville_{x}_{y}.png',
+    zoom: [0, 5]
+  },
+  collevillewinter: {
+    name: 'Colleville, France (Winter)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/collevillewinter/{z}/collevillewinter_{x}_{y}.png',
     zoom: [0, 5]
   },
   csj_lowlands: {
@@ -185,26 +197,38 @@ export default {
     tileUrl: 'http://maptiles.anrop.se/gridlock_optre/{z}/gridlock_optre_{x}_{y}.png',
     zoom: [0, 2]
   },
+  hyde_sark: {
+    name: 'Sark, Channel Islands',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/hyde_sark/{z}/hyde_sark_{x}_{y}.png',
+    zoom: [0, 5]
+  },
   i44_merderet: {
-    name: 'Merderet River',
+    name: 'Merderet River, France',
     size: [5120, 5120],
     tileUrl: 'http://maptiles.anrop.se/i44_merderet/{z}/i44_merderet_{x}_{y}.png',
     zoom: [0, 5]
   },
   i44_merderet_v2: {
-    name: 'Merderet River (V2)',
+    name: 'Merderet River, France (V2)',
     size: [5120, 5120],
     tileUrl: 'http://maptiles.anrop.se/i44_merderet_v2/{z}/i44_merderet_v2_{x}_{y}.png',
     zoom: [0, 5]
   },
+  i44_merderet_v3: {
+    name: 'Merderet River, France (V3)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/i44_merderet_v3/{z}/i44_merderet_v3_{x}_{y}.png',
+    zoom: [0, 5]
+  },
   i44_merderet_winter: {
-    name: 'Merderet River (Winter)',
+    name: 'Merderet River, France (Winter)',
     size: [5120, 5120],
     tileUrl: 'http://maptiles.anrop.se/i44_merderet_winter/{z}/i44_merderet_winter_{x}_{y}.png',
     zoom: [0, 5]
   },
   i44_omaha_v2: {
-    name: 'Omaha Beach',
+    name: 'Omaha',
     size: [5120, 5120],
     tileUrl: 'http://maptiles.anrop.se/i44_omaha_v2/{z}/i44_omaha_v2_{x}_{y}.png',
     zoom: [0, 5]
@@ -222,9 +246,15 @@ export default {
     zoom: [0, 6]
   },
   ivachev: {
-    name: 'Ivachev',
-    size: [641, 648],
+    name: 'Ivachev, Ukraine',
+    size: [641, 641],
     tileUrl: 'http://maptiles.anrop.se/ivachev/{z}/ivachev_{x}_{y}.png',
+    zoom: [0, 1]
+  },
+  ivachevwinter: {
+    name: 'Ivachev, Ukraine (Winter)',
+    size: [641, 641],
+    tileUrl: 'http://maptiles.anrop.se/ivachevwinter/{z}/ivachevwinter_{x}_{y}.png',
     zoom: [0, 1]
   },
   khe_sanh: {
@@ -288,9 +318,15 @@ export default {
     zoom: [0, 6]
   },
   panovo: {
-    name: 'Panovo',
-    size: [5126, 5121],
+    name: 'Panovo, Ukraine',
+    size: [5120, 5120],
     tileUrl: 'http://maptiles.anrop.se/panovo/{z}/panovo_{x}_{y}.png',
+    zoom: [0, 5]
+  },
+  panovowinter: {
+    name: 'Panovo, Ukraine (Winter)',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/panovowinter/{z}/panovowinter_{x}_{y}.png',
     zoom: [0, 5]
   },
   panthera3: {
@@ -378,9 +414,15 @@ export default {
     zoom: [0, 3]
   },
   staszow: {
-    name: 'Staszow',
-    size: [16407, 16398],
+    name: 'Staszow, Poland',
+    size: [16384, 16384],
     tileUrl: 'http://maptiles.anrop.se/staszow/{z}/staszow_{x}_{y}.png',
+    zoom: [0, 6]
+  },
+  staszowwinter: {
+    name: 'Staszow, Poland (Winter)',
+    size: [16384, 16384],
+    tileUrl: 'http://maptiles.anrop.se/staszowwinter/{z}/staszowwinter_{x}_{y}.png',
     zoom: [0, 6]
   },
   stratis: {
@@ -393,6 +435,30 @@ export default {
     name: 'Sugarlake',
     size: [8192, 8195],
     tileUrl: 'http://maptiles.anrop.se/sugarlake/{z}/sugarlake_{x}_{y}.png',
+    zoom: [0, 5]
+  },
+  swu_ardennes_1940: {
+    name: 'Montherme, Ardennes',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/swu_ardennes_1940/{z}/swu_ardennes_1940_{x}_{y}.png',
+    zoom: [0, 6]
+  },
+  swu_ardennes_1944_winter: {
+    name: 'Montherme, Ardennes (Winter)',
+    size: [10240, 10240],
+    tileUrl: 'http://maptiles.anrop.se/swu_ardennes_1944_winter/{z}/swu_ardennes_1944_winter_{x}_{y}.png',
+    zoom: [0, 6]
+  },
+  swu_dunkirk_bray_dunes_1940: {
+    name: 'Bray-Dunes, France',
+    size: [5120, 5120],
+    tileUrl: 'http://maptiles.anrop.se/swu_dunkirk_bray_dunes_1940/{z}/swu_dunkirk_bray_dunes_1940_{x}_{y}.png',
+    zoom: [0, 5]
+  },
+  swu_russia_volkhov_forest: {
+    name: 'Volhov Forest, Russia',
+    size: [6144, 6144],
+    tileUrl: 'http://maptiles.anrop.se/swu_russia_volkhov_forest/{z}/swu_russia_volkhov_forest_{x}_{y}.png',
     zoom: [0, 5]
   },
   takistan: {
