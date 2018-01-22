@@ -4,7 +4,13 @@ export default class Runner {
   constructor (events, emitState) {
     this.events = events
     this.emitState = emitState
+  }
 
+  addEvents (events) {
+    this.events = this.events.concat(events)
+  }
+
+  start () {
     this.resetState()
 
     if (this.events.length > 0) {
@@ -12,10 +18,6 @@ export default class Runner {
       this.currentTime = this.startTime
       this.tick(TICK_RATE)
     }
-  }
-
-  addEvents (events) {
-    this.events = this.events.concat(events)
   }
 
   resetState () {
