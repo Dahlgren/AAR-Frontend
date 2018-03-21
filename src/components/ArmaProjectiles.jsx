@@ -16,7 +16,7 @@ export class ArmaProjectile extends React.Component {
         color={color}
         positions={projectedPositions}
         weight={weight}
-       />
+      />
     )
   }
 }

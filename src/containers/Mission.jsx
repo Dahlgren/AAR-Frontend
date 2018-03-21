@@ -69,13 +69,13 @@ class Mission extends Component {
                   speed={speed}
                   time={time}
                   togglePlaying={this.togglePlaying.bind(this)}
-                  />
+                />
               </Control>
             </ArmaMap>
             <EventsTicker
               isPlaying={isPlaying}
               speed={speed}
-              />
+            />
           </div>
         }
       </div>

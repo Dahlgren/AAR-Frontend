@@ -31,10 +31,10 @@ L.Marker.include({
       this._icon.style[L.DomUtil.TRANSFORM + 'Origin'] = this.options.rotationOrigin
 
       if (oldIE) {
-                // for IE 9, use the 2D rotation
+        // for IE 9, use the 2D rotation
         this._icon.style[L.DomUtil.TRANSFORM] = 'rotate(' + this.options.rotationAngle + 'deg)'
       } else {
-                // for modern browsers, prefer the 3D accelerated version
+        // for modern browsers, prefer the 3D accelerated version
         this._icon.style[L.DomUtil.TRANSFORM] += ' rotateZ(' + this.options.rotationAngle + 'deg)'
       }
     }
