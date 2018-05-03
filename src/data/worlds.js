@@ -275,6 +275,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/lingor3/{z}/lingor3_{x}_{y}.png',
     zoom: [0, 6]
   },
+  lythium: {
+    name: 'Lythium',
+    size: [20480, 20480],
+    tileUrl: 'https://maptiles.anrop.se/lythium/{z}/lythium_{x}_{y}.png',
+    zoom: [0, 7]
+  },
   malden: {
     name: 'Malden',
     size: [12800, 12800],
