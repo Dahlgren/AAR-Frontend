@@ -7,13 +7,13 @@ import worlds from '../data/worlds'
 
 class World extends Component {
   render () {
-    const { params, world } = this.props
+    const { match, world } = this.props
 
     return (
       <div id='map-container'>
         {!world &&
           <Grid>
-            <h2>World {params.id} is not configured</h2>
+            <h2>World {match.params.id} is not configured</h2>
           </Grid>
         }
         {world &&
@@ -36,7 +36,7 @@ World.propTypes = {
 }
 
 function mapStateToProps (state, ownProps) {
-  const world = worlds[ownProps.params.id]
+  const world = worlds[ownProps.match.params.id]
 
   return {
     world

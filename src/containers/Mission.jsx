@@ -21,9 +21,9 @@ class Mission extends Component {
   }
 
   componentDidMount () {
-    const { dispatch, params } = this.props
+    const { dispatch, match } = this.props
     dispatch(fetchMissionsIfNeeded())
-    dispatch(loadEvents(params.id))
+    dispatch(loadEvents(match.params.id))
   }
 
   componentWillUnmount () {
@@ -124,10 +124,11 @@ function mapStateToProps (state, ownProps) {
     time: null
   }
 
+  const id = ownProps.match.params.id
   let mission = null
   let world = null
-  if (state.missions.missionsById && state.missions.missionsById[ownProps.params.id]) {
-    mission = state.missions.missionsById[ownProps.params.id]
+  if (state.missions.missionsById && state.missions.missionsById[id]) {
+    mission = state.missions.missionsById[id]
     world = worlds[mission.world.toLowerCase()]
   }
 

@@ -3,7 +3,7 @@ import 'moment-duration-format'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Glyphicon, Table } from 'react-bootstrap'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import worlds from '../data/worlds'
 
 export default class Missions extends Component {
