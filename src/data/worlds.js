@@ -197,6 +197,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/gridlock_optre/{z}/gridlock_optre_{x}_{y}.png',
     zoom: [0, 2]
   },
+  hellanmaa: {
+    name: 'Hellanmaa',
+    size: [8192, 8192],
+    tileUrl: 'https://maptiles.anrop.se/hellanmaa/{z}/hellanmaa_{x}_{y}.png',
+    zoom: [0, 5]
+  },
   hyde_sark: {
     name: 'Sark, Channel Islands',
     size: [5120, 5120],
