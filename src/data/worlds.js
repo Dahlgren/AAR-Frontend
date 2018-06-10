@@ -377,6 +377,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/provinggrounds_pmc/{z}/provinggrounds_pmc_{x}_{y}.png',
     zoom: [0, 3]
   },
+  ruha: {
+    name: 'Ruha',
+    size: [8192, 8192],
+    tileUrl: 'https://maptiles.anrop.se/ruha/{z}/ruha_{x}_{y}.png',
+    zoom: [0, 5]
+  },
   rungsat: {
     name: 'Doung Island, Rung Sat, Vietnam',
     size: [5120, 5120],
