@@ -323,6 +323,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/mountains_acr/{z}/mountains_acr_{x}_{y}.png',
     zoom: [0, 6]
   },
+  namalsk: {
+    name: 'Namalsk',
+    size: [12800, 12800],
+    tileUrl: 'https://maptiles.anrop.se/namalsk/{z}/namalsk_{x}_{y}.png',
+    zoom: [0, 6]
+  },
   noe: {
     name: 'Nogova',
     size: [12801, 12801],
