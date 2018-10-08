@@ -269,6 +269,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/ivachevwinter/{z}/ivachevwinter_{x}_{y}.png',
     zoom: [0, 1]
   },
+  kerama: {
+    name: 'Kerama Islands',
+    size: [20480, 20480],
+    tileUrl: 'https://maptiles.anrop.se/kerama/{z}/kerama_{x}_{y}.png',
+    zoom: [0, 7]
+  },
   khe_sanh: {
     name: 'Khe Sanh, Quang Tri, Vietnam',
     size: [20489, 20488],
