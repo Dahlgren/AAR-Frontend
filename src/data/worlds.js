@@ -575,6 +575,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/winthera3/{z}/winthera3_{x}_{y}.png',
     zoom: [0, 6]
   },
+  wl_rosche: {
+    name: 'Rosche',
+    size: [15360, 15360],
+    tileUrl: 'https://maptiles.anrop.se/wl_rosche/{z}/wl_rosche_{x}_{y}.png',
+    zoom: [0, 6]
+  },
   wl_route191: {
     name: 'Schwemlitz, Germany',
     size: [5135, 5154],
