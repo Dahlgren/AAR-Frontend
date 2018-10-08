@@ -65,6 +65,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/bornholm/{z}/bornholm_{x}_{y}.png',
     zoom: [0, 7]
   },
+  bozcaada: {
+    name: 'Bozcaada',
+    size: [20480, 20480],
+    tileUrl: 'https://maptiles.anrop.se/bozcaada/{z}/bozcaada_{x}_{y}.png',
+    zoom: [0, 7]
+  },
   cain: {
     name: 'Kolgujev',
     size: [12800, 12800],
