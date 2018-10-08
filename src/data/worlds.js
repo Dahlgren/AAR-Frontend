@@ -497,6 +497,18 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/tanoa/{z}/tanoa_{x}_{y}.png',
     zoom: [0, 6]
   },
+  tem_ihantala: {
+    name: 'Ihantala',
+    size: [4096, 4096],
+    tileUrl: 'https://maptiles.anrop.se/tem_ihantala/{z}/tem_ihantala_{x}_{y}.png',
+    zoom: [0, 4]
+  },
+  tem_ihantalaw: {
+    name: 'Ihantala (Winter)',
+    size: [4096, 4096],
+    tileUrl: 'https://maptiles.anrop.se/tem_ihantalaw/{z}/tem_ihantalaw_{x}_{y}.png',
+    zoom: [0, 4]
+  },
   thirsk: {
     name: 'Thirsk',
     size: [5120, 5120],
