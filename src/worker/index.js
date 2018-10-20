@@ -15,6 +15,7 @@ var world = null
 
 const limit = 10000
 var offset = 0
+var request = 0
 
 function eventsUrl (limit, offset) {
   return apiEndpoint + '/missions/' + mission.id + '/events?limit=' + limit + '&offset=' + offset
@@ -69,7 +70,8 @@ function createRunner (events) {
       projectiles: events.projectiles,
       units: events.units,
       vehicles: events.vehicles,
-      time: events.time
+      time: events.time,
+      request: request
     })
   })
 }
@@ -80,9 +82,11 @@ self.onmessage = function (msg) {
       loadMission(msg.data.id)
       break
     case 'seek':
+      request = msg.data.request
       runner.seek(msg.data.seek)
       break
     case 'tick':
+      request = msg.data.request
       runner.tick(msg.data.amount)
       break
     case 'stop':

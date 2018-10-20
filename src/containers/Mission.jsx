@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import ArmaMap from '../components/ArmaMap'
 import TimeControl from '../components/TimeControl'
 import EventsTicker from '../components/EventsTicker'
-import { loadEvents, seekEvents, stopEvents } from '../actions/events'
+import { loadEvents, seekEvents, stopEvents, tickEvents } from '../actions/events'
 import { fetchMissionsIfNeeded } from '../actions/missions'
 import worlds from '../data/worlds'
 
@@ -75,6 +75,8 @@ class Mission extends Component {
             <EventsTicker
               isPlaying={isPlaying}
               speed={speed}
+              tick={this.tick.bind(this)}
+              time={time}
             />
           </div>
         }
@@ -92,9 +94,17 @@ class Mission extends Component {
   }
 
   seek (event) {
-    const { time } = this.props
+    const { dispatch, time } = this.props
     const newCurrentTime = Math.min(parseInt(event.target.value, 10), time.end)
-    seekEvents(newCurrentTime)
+    dispatch(seekEvents(newCurrentTime))
+  }
+
+  tick () {
+    const { dispatch } = this.props
+    const { isPlaying } = this.state
+    if (isPlaying) {
+      dispatch(tickEvents(1000, this.props.time.current))
+    }
   }
 }
 

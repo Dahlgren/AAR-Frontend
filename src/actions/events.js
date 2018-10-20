@@ -6,9 +6,10 @@ export const REQUEST_EVENTS = 'REQUEST_EVENTS'
 export const RECEIVE_EVENTS = 'RECEIVE_EVENTS'
 export const STOP_EVENTS = 'STOP_EVENTS'
 
-function requestEvents () {
+function requestEvents (request) {
   return {
-    type: REQUEST_EVENTS
+    type: REQUEST_EVENTS,
+    request: request
   }
 }
 
@@ -18,22 +19,29 @@ function receiveEvents (data) {
     projectiles: data.projectiles,
     units: data.units,
     vehicles: data.vehicles,
-    time: data.time
+    time: data.time,
+    request: data.request
   }
 }
 
 export function seekEvents (seek) {
   worker.postMessage({
     type: 'seek',
-    seek: seek
+    seek: seek,
+    request: seek
   })
+
+  return requestEvents(seek)
 }
 
-export function tickEvents (amount) {
+export function tickEvents (amount, request) {
   worker.postMessage({
     type: 'tick',
-    amount: amount
+    amount: amount,
+    request: request
   })
+
+  return requestEvents(request)
 }
 
 export function stopEvents () {
@@ -72,6 +80,6 @@ export function loadEvents (id) {
           break
       }
     }
-    return dispatch(requestEvents())
+    return dispatch(requestEvents(0))
   }
 }
