@@ -509,6 +509,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/tanoa/{z}/tanoa_{x}_{y}.png',
     zoom: [0, 6]
   },
+  tem_anizay: {
+    name: 'Anizay',
+    size: [10240, 10240],
+    tileUrl: 'https://maptiles.anrop.se/tem_anizay/{z}/tem_anizay_{x}_{y}.png',
+    zoom: [0, 6]
+  },
   tem_ihantala: {
     name: 'Ihantala',
     size: [4096, 4096],
