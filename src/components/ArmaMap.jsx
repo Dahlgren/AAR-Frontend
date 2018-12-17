@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Map, LayersControl, LayerGroup, TileLayer } from 'react-leaflet'
 import { LatLngBounds } from 'leaflet'
+import MiniMap from 'leaflet-minimap'
 import { ArmaMarkers } from './ArmaMarkers'
 import { ArmaProjectiles } from './ArmaProjectiles'
 
@@ -16,6 +17,9 @@ export default class ArmaMap extends Component {
     var southWest = map.unproject([0, 0], world.zoom[1])
     var northEast = map.unproject([world.size[0], world.size[1]], world.zoom[1])
     map.setMaxBounds(new LatLngBounds(southWest, northEast))
+
+    const tileLayer = new L.TileLayer(world.tileUrl, { bounds: tileLayerbounds });
+    new MiniMap(tileLayer, { autoToggleDisplay: true, zoomLevelFixed: 0 }).addTo(map)
   }
 
   getChildContext () {
