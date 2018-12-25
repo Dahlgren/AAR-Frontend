@@ -527,6 +527,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/tem_ihantalaw/{z}/tem_ihantalaw_{x}_{y}.png',
     zoom: [0, 4]
   },
+  tem_summa: {
+    name: 'Summa',
+    size: [6144, 6144],
+    tileUrl: 'https://maptiles.anrop.se/tem_summa/{z}/tem_summa_{x}_{y}.png',
+    zoom: [0, 5]
+  },
   thirsk: {
     name: 'Thirsk',
     size: [5120, 5120],
