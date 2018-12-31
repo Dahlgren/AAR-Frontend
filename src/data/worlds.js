@@ -335,6 +335,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/mountains_acr/{z}/mountains_acr_{x}_{y}.png',
     zoom: [0, 6]
   },
+  mske: {
+    name: 'MSKE 2017',
+    size: [25600, 25600],
+    tileUrl: 'https://maptiles.anrop.se/mske/{z}/mske_{x}_{y}.png',
+    zoom: [0, 8]
+  },
   namalsk: {
     name: 'Namalsk',
     size: [12800, 12800],
