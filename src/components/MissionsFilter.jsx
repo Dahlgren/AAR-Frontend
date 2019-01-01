@@ -10,8 +10,8 @@ const FILTER_LENGTH = [
     value: 0
   },
   {
-    title: '1 minute',
-    value: 60
+    title: '10 minutes',
+    value: 600
   },
   {
     title: '1 hour',

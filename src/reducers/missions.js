@@ -12,7 +12,7 @@ export function missions (state = {
   isFetching: false,
   didInvalidate: false,
   filter: {
-    length: 0,
+    length: 600,
     name: '',
     world: ''
   },
