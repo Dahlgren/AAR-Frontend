@@ -4,7 +4,7 @@ import { markerSize } from './marker_sizes'
 import { normalizeSimulation } from './marker_types'
 import { projectileWeight } from './projectile_weight'
 
-module.exports = function (events, world, deletedUnits, deletedVehicles) {
+module.exports = function (events, world) {
   var processedEvents = []
 
   events.forEach(function (event) {
@@ -20,7 +20,7 @@ module.exports = function (events, world, deletedUnits, deletedVehicles) {
       })
     }
 
-    if (event.unit && deletedUnits.indexOf(event.unit.id) === -1) {
+    if (event.unit) {
       processedEvents.push({
         id: event.unit.id,
         deleted: event.type === 'UnitDeleted',
@@ -35,7 +35,7 @@ module.exports = function (events, world, deletedUnits, deletedVehicles) {
       })
     }
 
-    if (event.vehicle && deletedVehicles.indexOf(event.vehicle.id) === -1 && normalizeSimulation(event.vehicle.simulation)) {
+    if (event.vehicle && normalizeSimulation(event.vehicle.simulation)) {
       processedEvents.push({
         id: event.vehicle.id,
         deleted: event.type === 'VehicleDeleted',
@@ -48,14 +48,6 @@ module.exports = function (events, world, deletedUnits, deletedVehicles) {
         timestamp: new Date(event.timestamp),
         type: 'vehicles'
       })
-    }
-
-    if (event.type === 'UnitDeleted') {
-      deletedUnits.push(event.unit.id)
-    }
-
-    if (event.type === 'VehicleDeleted') {
-      deletedVehicles.push(event.vehicle.id)
     }
   })
 
