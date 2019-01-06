@@ -12,6 +12,8 @@ const LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT = 10000
 var mission = null
 var runner = null
 var world = null
+var deletedUnits = []
+var deletedVehicles = []
 
 const limit = 10000
 var offset = 0
@@ -37,7 +39,7 @@ function loadEvents () {
       offset = json.length
 
       if (world) {
-        const events = processEvents(json, world)
+        const events = processEvents(json, world, deletedUnits, deletedVehicles)
         createRunner(events)
         loadMoreEvents()
       } else {
@@ -53,7 +55,7 @@ function loadMoreEvents () {
       if (runner) {
         if (json.length > 0) {
           offset = offset + json.length
-          runner.addEvents(processEvents(json, world))
+          runner.addEvents(processEvents(json, world, deletedUnits, deletedVehicles))
           setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_TIMEOUT)
         } else {
           setTimeout(loadMoreEvents, LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT)
