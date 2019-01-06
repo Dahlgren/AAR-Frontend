@@ -61,7 +61,11 @@ export default class Runner {
           y: currentEvent.y
         })
       } else {
-        this.currentState[currentEvent.type][currentEvent.id] = currentEvent
+        if (currentEvent.deleted) {
+          delete this.currentState[currentEvent.type][currentEvent.id]
+        } else {
+          this.currentState[currentEvent.type][currentEvent.id] = currentEvent
+        }
       }
 
       this.currentIndex++
