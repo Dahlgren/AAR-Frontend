@@ -84,21 +84,21 @@ export default {
     zoom: [0, 5]
   },
   chernarus: {
-    name: 'Chernarus',
-    size: [15361, 15361],
+    name: 'Chernarus (Autumn)',
+    size: [15360, 15360],
     tileUrl: 'https://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
     zoom: [0, 6]
   },
   chernarus_summer: {
     name: 'Chernarus (Summer)',
-    size: [15361, 15361],
-    tileUrl: 'https://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
+    size: [15360, 15360],
+    tileUrl: 'https://maptiles.anrop.se/chernarus_summer/{z}/chernarus_summer_{x}_{y}.png',
     zoom: [0, 6]
   },
   chernarus_winter: {
     name: 'Chernarus (Winter)',
-    size: [15361, 15361],
-    tileUrl: 'https://maptiles.anrop.se/chernarus/{z}/chernarus_{x}_{y}.png',
+    size: [15360, 15360],
+    tileUrl: 'https://maptiles.anrop.se/chernarus_winter/{z}/chernarus_winter_{x}_{y}.png',
     zoom: [0, 6]
   },
   clafghan: {
