@@ -42,8 +42,8 @@ export default class TimeControl extends Component {
             </dd>
           </dl>
           <div className='pull-right' style={{marginRight: '10px'}}>
-            <Button bsSize='small'>
-              <Glyphicon glyph={playButtonGlyph} onClick={this.props.togglePlaying.bind(this)} />
+            <Button bsSize='small' onClick={this.props.togglePlaying.bind(this)}>
+              <Glyphicon glyph={playButtonGlyph} />
             </Button>
             &nbsp;
             <ButtonGroup>
