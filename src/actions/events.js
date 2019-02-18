@@ -1,3 +1,4 @@
+import baseUrl from '../data/api'
 /* eslint import/no-webpack-loader-syntax: off */
 import Worker from 'worker!../worker'
 let worker
@@ -63,6 +64,7 @@ export function loadEvents (id) {
     worker = new Worker()
     worker.postMessage({
       type: 'load',
+      baseUrl: baseUrl,
       id: id
     })
     worker.onmessage = function (msg) {
