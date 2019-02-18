@@ -3,12 +3,12 @@
 import fetch from 'isomorphic-fetch'
 import processEvents from './process_events'
 import Runner from './runner'
-import apiEndpoint from '../data/api'
 import worlds from './../data/worlds'
 
 const LOAD_MORE_EVENTS_TIMEOUT = 1000
 const LOAD_MORE_EVENTS_EMPTY_RESULT_TIMEOUT = 10000
 
+var baseUrl
 var mission = null
 var runner = null
 var world = null
@@ -17,11 +17,12 @@ const limit = 10000
 var offset = 0
 
 function eventsUrl (limit, offset) {
-  return apiEndpoint + '/missions/' + mission.id + '/events?limit=' + limit + '&offset=' + offset
+  return baseUrl + '/missions/' + mission.id + '/events?limit=' + limit + '&offset=' + offset
 }
 
-function loadMission (id) {
-  fetch(apiEndpoint + '/missions/' + id)
+function loadMission (options) {
+  baseUrl = options.baseUrl
+  fetch(baseUrl + '/missions/' + options.id)
     .then(req => req.json())
     .then(json => {
       mission = json
@@ -77,7 +78,7 @@ function createRunner (events) {
 self.onmessage = function (msg) {
   switch (msg.data.type) {
     case 'load':
-      loadMission(msg.data.id)
+      loadMission(msg.data)
       break
     case 'seek':
       runner.seek(msg.data.seek)
