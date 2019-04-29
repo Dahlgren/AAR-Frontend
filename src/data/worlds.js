@@ -197,6 +197,18 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/fow_map_tarawa/{z}/fow_map_tarawa_{x}_{y}.png',
     zoom: [0, 5]
   },
+  gm_weferlingen_summer: {
+    name: 'Weferlingen (Summer)',
+    size: [20480, 20480],
+    tileUrl: 'https://maptiles.anrop.se/gm_weferlingen_summer/{z}/gm_weferlingen_summer_{x}_{y}.png',
+    zoom: [0, 7]
+  },
+  gm_weferlingen_winter: {
+    name: 'Weferlingen (Winter)',
+    size: [20480, 20480],
+    tileUrl: 'https://maptiles.anrop.se/gm_weferlingen_winter/{z}/gm_weferlingen_winter_{x}_{y}.png',
+    zoom: [0, 7]
+  },
   gridlock_optre: {
     name: 'Gridlock',
     size: [1024, 1030],
