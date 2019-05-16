@@ -101,6 +101,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/chernarus_winter/{z}/chernarus_winter_{x}_{y}.png',
     zoom: [0, 6]
   },
+  chongo: {
+    name: 'Chongo (Southwest Angola)',
+    size: [12288, 12288],
+    tileUrl: 'https://maptiles.anrop.se/chongo/{z}/chongo_{x}_{y}.png',
+    zoom: [0, 6]
+  },
   clafghan: {
     name: 'Clafghan',
     size: [20491, 20491],
@@ -441,6 +447,12 @@ export default {
     name: 'Southern Sahrani',
     size: [10241, 10241],
     tileUrl: 'https://maptiles.anrop.se/saralite/{z}/saralite_{x}_{y}.png',
+    zoom: [0, 6]
+  },
+  seangola: {
+    name: 'Southeast Angola',
+    size: [10240, 10240],
+    tileUrl: 'https://maptiles.anrop.se/seangola/{z}/seangola_{x}_{y}.png',
     zoom: [0, 6]
   },
   sfp_roso: {
