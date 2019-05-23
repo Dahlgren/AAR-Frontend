@@ -173,6 +173,12 @@ export default {
     tileUrl: 'https://maptiles.anrop.se/eden/{z}/eden_{x}_{y}.png',
     zoom: [0, 6]
   },
+  enoch: {
+    name: 'Livonia',
+    size: [12800, 12800],
+    tileUrl: 'https://maptiles.anrop.se/enoch/{z}/enoch_{x}_{y}.png',
+    zoom: [0, 6]
+  },
   esseker: {
     name: 'Esseker',
     size: [12288, 12288],
