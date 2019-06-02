@@ -8,7 +8,7 @@ export class ArmaProjectile extends React.Component {
     const { map, world } = this.context
 
     const projectedPositions = positions.slice(-2).map(function (position) {
-      return map.unproject([position.x, position.y], world.zoom[1])
+      return map.unproject([position.x, position.y], world.size.zoom)
     })
 
     return (

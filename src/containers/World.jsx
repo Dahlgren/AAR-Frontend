@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Grid } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ArmaMap from '../components/ArmaMap'
-import worlds from '../data/worlds'
 
 class World extends Component {
   render () {
@@ -32,11 +31,18 @@ class World extends Component {
 }
 
 World.propTypes = {
-  world: PropTypes.object
+  world: PropTypes.object,
+  dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps (state, ownProps) {
-  const world = worlds[ownProps.match.params.id]
+  const {
+    worldsByName
+  } = state.worlds || {
+    worldsByName: {}
+  }
+
+  const world = worldsByName[ownProps.match.params.id]
 
   return {
     world

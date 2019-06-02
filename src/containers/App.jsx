@@ -1,10 +1,33 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Nav, Navbar, NavItem } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Grid, Nav, Navbar, NavItem } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 
-export default class App extends Component {
+import { fetchWorldsIfNeeded } from '../actions/worlds'
+import Router from './Router'
+
+let router
+
+class App extends Component {
+  componentDidMount () {
+    const { dispatch } = this.props
+    dispatch(fetchWorldsIfNeeded())
+  }
+
   render () {
+    const { worlds, worldsByName } = this.props
+
+    let children = <Grid>Loading worlds</Grid>
+
+    if (worlds && worldsByName) {
+      if (!router) {
+        router = <Router />
+      }
+      children = router
+    }
+
     return (
       <div id='app'>
         <div id='navigation'>
@@ -27,8 +50,30 @@ export default class App extends Component {
             </Navbar.Collapse>
           </Navbar>
         </div>
-        {this.props.children}
+        {children}
       </div>
     )
   }
 };
+
+App.propTypes = {
+  worlds: PropTypes.array,
+  dispatch: PropTypes.func.isRequired
+}
+
+function mapStateToProps (state) {
+  const {
+    worlds,
+    worldsByName
+  } = state.worlds || {
+    worlds: [],
+    worldsByName: null
+  }
+
+  return {
+    worlds,
+    worldsByName
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App))

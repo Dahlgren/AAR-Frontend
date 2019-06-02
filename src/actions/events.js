@@ -1,4 +1,4 @@
-import baseUrl from '../data/api'
+import baseUrl from '../data/aar'
 /* eslint import/no-webpack-loader-syntax: off */
 import Worker from 'worker!../worker'
 let worker
@@ -55,7 +55,7 @@ export function stopEvents () {
   }
 }
 
-export function loadEvents (id) {
+export function loadEvents (mission, world) {
   return (dispatch, getState) => {
     if (worker) {
       worker.terminate()
@@ -64,8 +64,9 @@ export function loadEvents (id) {
     worker = new Worker()
     worker.postMessage({
       type: 'load',
-      baseUrl: baseUrl,
-      id: id
+      baseUrl,
+      mission,
+      world
     })
     worker.onmessage = function (msg) {
       switch (msg.data.type) {

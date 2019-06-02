@@ -12,7 +12,7 @@ export class ArmaMarker extends React.Component {
       <RotationMarker
         className={className}
         markerSize={markerSize}
-        position={map.unproject([x, y], world.zoom[1])}
+        position={map.unproject([x, y], world.size.zoom)}
         rotation={rotation}
         title={name}
       >

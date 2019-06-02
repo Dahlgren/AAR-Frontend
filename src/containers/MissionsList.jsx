@@ -42,7 +42,7 @@ class MissionsList extends Component {
   }
 
   render () {
-    const { filter, filteredMissions, page, isFetching, lastUpdated } = this.props
+    const { filter, filteredMissions, page, isFetching, lastUpdated, worlds, worldsByName } = this.props
 
     const refreshHeader = (
       <div>
@@ -64,7 +64,7 @@ class MissionsList extends Component {
     const missionsFilter = (
       <div>
         <h4>Filter</h4>
-        <MissionsFilter setFilter={this.setFilter.bind(this)} {...filter} />
+        <MissionsFilter setFilter={this.setFilter.bind(this)} worlds={worlds} {...filter} />
       </div>
     )
 
@@ -72,7 +72,7 @@ class MissionsList extends Component {
     const paginatedMissions = filteredMissions.slice((page - 1) * MISSIONS_PER_PAGE, page * MISSIONS_PER_PAGE)
     const missionsList = (
       <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-        <Missions missions={paginatedMissions} />
+        <Missions missions={paginatedMissions} worldsByName={worldsByName} />
 
         <div className='text-center'>
           <Pagination
@@ -107,6 +107,8 @@ MissionsList.propTypes = {
   filteredMissions: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
+  worlds: PropTypes.array.isRequired,
+  worldsByName: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
@@ -124,12 +126,22 @@ function mapStateToProps (state) {
     page: 1
   }
 
+  const {
+    worlds,
+    worldsByName
+  } = state.worlds || {
+    worlds: [],
+    worldsByName: {}
+  }
+
   return {
     filter,
     filteredMissions,
     isFetching,
     lastUpdated,
-    page
+    page,
+    worlds,
+    worldsByName
   }
 }
 

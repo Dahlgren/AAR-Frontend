@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 export default class Worlds extends Component {
   render () {
+    const { worlds } = this.props
+
     return (
       <Table striped>
         <thead>
@@ -13,11 +15,11 @@ export default class Worlds extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.worlds.map((world, i) =>
-            <tr key={world.id}>
+          {worlds.map((world, i) =>
+            <tr key={world.name}>
               <td>
-                <Link to={'/worlds/' + world.id}>
-                  {world.name}
+                <Link to={'/worlds/' + world.name}>
+                  {world.title}
                 </Link>
               </td>
             </tr>
