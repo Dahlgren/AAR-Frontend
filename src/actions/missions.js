@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import apiEndpoint from '../data/api'
+import apiEndpoint from '../data/aar'
 
 export const INVALIDATE_MISSIONS = 'INVALIDATE_MISSIONS'
 export const REQUEST_MISSIONS = 'REQUEST_MISSIONS'

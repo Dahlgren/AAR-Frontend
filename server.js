@@ -8,9 +8,14 @@ var staticPath = path.join(__dirname, 'build')
 var indexPath = path.join(staticPath, 'index.html')
 var indexFile = fs.readFileSync(indexPath, { encoding: 'utf-8' })
 
-var apiUrl = process.env.AAR_API_URL
-if (apiUrl) {
-  indexFile = indexFile.replace('AAR_API_URL = undefined', 'AAR_API_URL = \'' + apiUrl + '\'')
+var aarApiUrl = process.env.AAR_API_URL
+if (aarApiUrl) {
+  indexFile = indexFile.replace('AAR_API_URL = undefined', 'AAR_API_URL = \'' + aarApiUrl + '\'')
+}
+
+var worldsApiUrl = process.env.WORLDS_API_URL
+if (worldsApiUrl) {
+  indexFile = indexFile.replace('WORLDS_API_URL = undefined', 'WORLDS_API_URL = \'' + worldsApiUrl + '\'')
 }
 
 app.use(favicon(path.join(__dirname, 'favicon.ico')))

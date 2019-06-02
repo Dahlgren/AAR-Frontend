@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Button, ButtonGroup, Col, ControlLabel, FormGroup, Row } from 'react-bootstrap'
 import FieldGroup from './FieldGroup'
-import worlds from '../data/worldsList'
 
 const FILTER_LENGTH = [
   {
@@ -50,7 +49,7 @@ export default class MissionsFilter extends Component {
   }
 
   render () {
-    const { length, name, world } = this.props
+    const { length, name, world, worlds } = this.props
 
     const filterName = (
       <FieldGroup
@@ -72,7 +71,7 @@ export default class MissionsFilter extends Component {
         value={world}
       >
         <option value=''>Any</option>
-        {worlds.map(world => <option key={world.id} value={world.id}>{world.name}</option>)}
+        {worlds.map(world => <option key={world.name} value={world.name}>{world.title}</option>)}
       </FieldGroup>
     )
 

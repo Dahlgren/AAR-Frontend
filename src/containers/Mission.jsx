@@ -8,7 +8,6 @@ import TimeControl from '../components/TimeControl'
 import EventsTicker from '../components/EventsTicker'
 import { loadEvents, seekEvents, stopEvents } from '../actions/events'
 import { fetchMissionsIfNeeded } from '../actions/missions'
-import worlds from '../data/worlds'
 
 class Mission extends Component {
   constructor (props) {
@@ -21,14 +20,25 @@ class Mission extends Component {
   }
 
   componentDidMount () {
-    const { dispatch, match } = this.props
+    const { dispatch, mission, world } = this.props
+
+    if (mission && world) {
+      dispatch(loadEvents(mission, world))
+    }
+
     dispatch(fetchMissionsIfNeeded())
-    dispatch(loadEvents(match.params.id))
   }
 
   componentWillUnmount () {
     const { dispatch } = this.props
     dispatch(stopEvents())
+  }
+
+  componentDidUpdate (prevProps) {
+    const { dispatch, mission, world } = this.props
+    if (this.props.mission !== prevProps.mission) {
+      dispatch(loadEvents(mission, world))
+    }
   }
 
   render () {
@@ -109,7 +119,7 @@ Mission.propTypes = {
 }
 
 function mapStateToProps (state, ownProps) {
-  const { events } = state
+  const { events, missions, worlds } = state
   const {
     isFetching,
     projectiles,
@@ -123,13 +133,18 @@ function mapStateToProps (state, ownProps) {
     vehicles: [],
     time: null
   }
+  const {
+    worldsByName
+  } = worlds || {
+    worldsByName: {}
+  }
 
   const id = ownProps.match.params.id
   let mission = null
   let world = null
-  if (state.missions.missionsById && state.missions.missionsById[id]) {
-    mission = state.missions.missionsById[id]
-    world = worlds[mission.world.toLowerCase()]
+  if (missions.missionsById && missions.missionsById[id]) {
+    mission = missions.missionsById[id]
+    world = worldsByName[mission.world.toLowerCase()]
   }
 
   return {

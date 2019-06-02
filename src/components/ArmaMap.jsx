@@ -13,8 +13,8 @@ export default class ArmaMap extends Component {
   componentDidMount () {
     const { world } = this.props
     var map = this.refs.map.leafletElement
-    var southWest = map.unproject([0, 0], world.zoom[1])
-    var northEast = map.unproject([world.size[0], world.size[1]], world.zoom[1])
+    var southWest = map.unproject([0, 0], world.size.zoom)
+    var northEast = map.unproject([world.size.width, world.size.height], world.size.zoom)
     map.setMaxBounds(new LatLngBounds(southWest, northEast))
   }
 
@@ -29,28 +29,34 @@ export default class ArmaMap extends Component {
   render () {
     const { children, projectiles, units, vehicles, world } = this.props
 
+    const initialZoom = Math.floor(Math.log2(Math.min(window.innerWidth, window.innerHeight) / 256))
+
+    const tileLayers = world.layers.map((layer, idx) => {
+      return <BaseLayer checked key={idx} name={layer.title}>
+        <TileLayer
+          ref='tileLayer'
+          url={layer.url}
+          bounds={tileLayerbounds}
+          continuousWorld
+          noWrap
+          minZoom={0}
+          maxNativeZoom={world.size.zoom}
+          maxZoom={world.size.zoom + scaledZoom}
+        />
+      </BaseLayer>
+    })
+
     return (
       <Map
         id='map'
         ref='map'
         center={[0, 0]}
-        minZoom={world.zoom[0]}
-        maxZoom={world.zoom[1] + scaledZoom}
-        zoom={world.zoom[0]}
+        minZoom={0}
+        maxZoom={world.size.zoom + scaledZoom}
+        zoom={initialZoom}
       >
         <LayersControl position='topright'>
-          <BaseLayer checked name={world.name}>
-            <TileLayer
-              ref='tileLayer'
-              url={world.tileUrl}
-              bounds={tileLayerbounds}
-              continuousWorld
-              noWrap
-              minZoom={world.zoom[0]}
-              maxNativeZoom={world.zoom[1]}
-              maxZoom={world.zoom[1] + scaledZoom}
-            />
-          </BaseLayer>
+          {tileLayers}
 
           <Overlay checked name='Projectiles'>
             <LayerGroup key={'projectiles'}>

@@ -4,10 +4,11 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Glyphicon, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import worlds from '../data/worlds'
 
 export default class Missions extends Component {
   render () {
+    const { missions, worldsByName } = this.props
+
     return (
       <Table striped>
         <thead>
@@ -19,7 +20,7 @@ export default class Missions extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.missions.map((mission, i) =>
+          {missions.map((mission, i) =>
             <tr key={mission.id}>
               <td>
                 <Link to={'/missions/' + mission.id}>
@@ -27,8 +28,8 @@ export default class Missions extends Component {
                 </Link>
               </td>
               <td>
-                { worlds[mission.world.toLowerCase()]
-                  ? worlds[mission.world.toLowerCase()].name
+                { worldsByName[mission.world.toLowerCase()]
+                  ? worldsByName[mission.world.toLowerCase()].title
                   : <div>
                     <span>{ mission.world }</span>
                     &nbsp;
@@ -51,5 +52,6 @@ export default class Missions extends Component {
 }
 
 Missions.propTypes = {
-  missions: PropTypes.array.isRequired
+  missions: PropTypes.array.isRequired,
+  worldsByName: PropTypes.object.isRequired
 }
