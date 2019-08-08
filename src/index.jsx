@@ -1,4 +1,4 @@
-import 'leaflet_css'
+import 'leaflet/dist/leaflet.css'
 import './leaflet/index'
 import './css/markers.css'
 import './css/slider.css'
