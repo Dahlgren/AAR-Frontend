@@ -1,7 +1,8 @@
 /* global self */
+/* eslint no-restricted-globals: 1 */
 
 import fetch from 'isomorphic-fetch'
-import processEvents from './process_events'
+import { processEvents } from './process_events'
 import Runner from './runner'
 
 const LOAD_MORE_EVENTS_TIMEOUT = 1000

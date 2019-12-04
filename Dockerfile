@@ -4,9 +4,7 @@ COPY package.json /build/
 RUN npm install
 COPY index.html /build/
 COPY src/ /build/src/
-COPY webpack/ /build/webpack/
-COPY webpack.production.config.js /build/
-RUN npm run webpack
+RUN npm run build
 
 FROM node:lts-alpine
 WORKDIR /app/

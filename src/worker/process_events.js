@@ -4,7 +4,7 @@ import { markerSize } from './marker_sizes'
 import { normalizeSimulation } from './marker_types'
 import { projectileWeight } from './projectile_weight'
 
-module.exports = function (events, world) {
+export function processEvents (events, world) {
   var processedEvents = []
 
   events.forEach(function (event) {

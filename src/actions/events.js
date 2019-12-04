@@ -1,6 +1,6 @@
 import baseUrl from '../data/aar'
-/* eslint import/no-webpack-loader-syntax: off */
-import Worker from 'worker!../worker'
+/* eslint-disable-next-line import/no-webpack-loader-syntax */
+import Worker from 'worker-loader!../worker/events.worker'
 let worker
 
 export const REQUEST_EVENTS = 'REQUEST_EVENTS'
@@ -72,6 +72,8 @@ export function loadEvents (mission, world) {
       switch (msg.data.type) {
         case 'events':
           dispatch(receiveEvents(msg.data))
+          break
+        default:
           break
       }
     }
