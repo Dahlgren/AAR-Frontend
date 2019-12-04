@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Grid, Pagination } from 'react-bootstrap'
+import { Button, Grid, Pagination } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { invalidateMissions, fetchMissionsIfNeeded, setMissionsFilter, setMissionsPage } from '../actions/missions'
 import MissionsFilter from '../components/MissionsFilter'
@@ -46,17 +46,18 @@ class MissionsList extends Component {
 
     const refreshHeader = (
       <div>
+        <Button
+          bsSize='xsmall'
+          disabled={isFetching}
+          onClick={this.handleRefreshClick}>
+          Refresh
+        </Button>
+        &nbsp;
         {lastUpdated &&
           <span>
             Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
             {' '}
           </span>
-        }
-        {!isFetching &&
-          <a href='#'
-            onClick={this.handleRefreshClick}>
-            Refresh
-          </a>
         }
       </div>
     )
