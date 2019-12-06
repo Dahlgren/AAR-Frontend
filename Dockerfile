@@ -1,8 +1,8 @@
 FROM node:lts-alpine AS builder
 WORKDIR /build/
-COPY package.json /build/
+COPY package.json package-lock.json /build/
 RUN npm install
-COPY index.html /build/
+COPY public/ /build/public/
 COPY src/ /build/src/
 RUN npm run build
 
