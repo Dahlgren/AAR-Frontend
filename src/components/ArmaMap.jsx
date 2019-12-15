@@ -32,18 +32,20 @@ export default class ArmaMap extends Component {
     const initialZoom = Math.floor(Math.log2(Math.min(window.innerWidth, window.innerHeight) / 256))
 
     const tileLayers = world.layers.map((layer, idx) => {
-      return <BaseLayer checked key={idx} name={layer.title}>
-        <TileLayer
-          ref='tileLayer'
-          url={layer.url}
-          bounds={tileLayerbounds}
-          continuousWorld
-          noWrap
-          minZoom={0}
-          maxNativeZoom={world.size.zoom}
-          maxZoom={world.size.zoom + scaledZoom}
-        />
-      </BaseLayer>
+      return (
+        <BaseLayer checked key={idx} name={layer.title}>
+          <TileLayer
+            ref='tileLayer'
+            url={layer.url}
+            bounds={tileLayerbounds}
+            continuousWorld
+            noWrap
+            minZoom={0}
+            maxNativeZoom={world.size.zoom}
+            maxZoom={world.size.zoom + scaledZoom}
+          />
+        </BaseLayer>
+      )
     })
 
     return (
@@ -59,19 +61,19 @@ export default class ArmaMap extends Component {
           {tileLayers}
 
           <Overlay checked name='Projectiles'>
-            <LayerGroup key={'projectiles'}>
+            <LayerGroup key='projectiles'>
               <ArmaProjectiles projectiles={projectiles} />
             </LayerGroup>
           </Overlay>
 
           <Overlay checked name='Units'>
-            <LayerGroup key={'units'}>
+            <LayerGroup key='units'>
               <ArmaMarkers markers={units} />
             </LayerGroup>
           </Overlay>
 
           <Overlay checked name='Vehicles'>
-            <LayerGroup key={'vehicles'}>
+            <LayerGroup key='vehicles'>
               <ArmaMarkers markers={vehicles} />
             </LayerGroup>
           </Overlay>

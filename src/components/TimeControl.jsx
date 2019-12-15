@@ -17,7 +17,7 @@ export default class TimeControl extends Component {
     return (
       <div>
         <div>
-          <dl className='pull-left' style={{marginBottom: 0}}>
+          <dl className='pull-left' style={{ marginBottom: 0 }}>
             <dt>
               Mission
             </dt>
@@ -25,23 +25,23 @@ export default class TimeControl extends Component {
               {mission.name}
             </dd>
           </dl>
-          <dl className='pull-right' style={{marginBottom: 0}}>
+          <dl className='pull-right' style={{ marginBottom: 0 }}>
             <dt>
               Total Time
             </dt>
             <dd>
-              { moment.duration(length, 'seconds').format('h[h] mm[m] s[s]') }
+              {moment.duration(length, 'seconds').format('h[h] mm[m] s[s]')}
             </dd>
           </dl>
-          <dl className='pull-right' style={{marginBottom: 0, marginRight: '10px'}}>
+          <dl className='pull-right' style={{ marginBottom: 0, marginRight: '10px' }}>
             <dt>
               Current Time
             </dt>
             <dd>
-              { moment.duration(duration, 'seconds').format('h[h] mm[m] s[s]') }
+              {moment.duration(duration, 'seconds').format('h[h] mm[m] s[s]')}
             </dd>
           </dl>
-          <div className='pull-right' style={{marginRight: '10px'}}>
+          <div className='pull-right' style={{ marginRight: '10px' }}>
             <Button bsSize='small' onClick={this.props.togglePlaying.bind(this)}>
               <Glyphicon glyph={playButtonGlyph} />
             </Button>
@@ -53,7 +53,9 @@ export default class TimeControl extends Component {
                     active={desiredSpeed === speed}
                     bsSize='small'
                     onClick={this.props.setSpeed.bind(this, desiredSpeed)}
-                    key={desiredSpeed}>{desiredSpeed}x</Button>
+                    key={desiredSpeed}
+                  >{desiredSpeed}x
+                  </Button>
                 )
               })}
             </ButtonGroup>
@@ -66,8 +68,8 @@ export default class TimeControl extends Component {
             step={1}
             max={Math.max(time.start + mission.length * 1000, time.end)}
             min={time.start}
-            rangeHighlights={[{start: time.start, end: time.end}]}
-            tooltip={'hide'}
+            rangeHighlights={[{ start: time.start, end: time.end }]}
+            tooltip='hide'
           />
         </div>
       </div>

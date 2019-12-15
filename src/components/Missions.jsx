@@ -6,8 +6,25 @@ import { Glyphicon, Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default class Missions extends Component {
+  renderWorldName (mission) {
+    const { worldsByName } = this.props
+    const world = worldsByName[mission.world.toLowerCase()]
+
+    if (!world) {
+      return (
+        <div>
+          <span>{mission.world}</span>
+          &nbsp;
+          <Glyphicon className='text-danger' glyph='warning-sign' />
+        </div>
+      )
+    }
+
+    return world.title
+  }
+
   render () {
-    const { missions, worldsByName } = this.props
+    const { missions } = this.props
 
     return (
       <Table striped>
@@ -28,20 +45,13 @@ export default class Missions extends Component {
                 </Link>
               </td>
               <td>
-                { worldsByName[mission.world.toLowerCase()]
-                  ? worldsByName[mission.world.toLowerCase()].title
-                  : <div>
-                    <span>{ mission.world }</span>
-                    &nbsp;
-                    <Glyphicon className='text-danger' glyph='warning-sign' />
-                  </div>
-                }
+                {this.renderWorldName(mission)}
               </td>
               <td>
-                { moment.duration(mission.length, 'seconds').format('h[h] mm[m]') }
+                {moment.duration(mission.length, 'seconds').format('h[h] mm[m]')}
               </td>
               <td>
-                { moment(mission.created_at).format('YYYY-MM-DD HH:mm') }
+                {moment(mission.created_at).format('YYYY-MM-DD HH:mm')}
               </td>
             </tr>
           )}
