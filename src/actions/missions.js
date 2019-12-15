@@ -20,7 +20,7 @@ function requestMissions () {
 }
 
 function receiveMissions (missions) {
-  let missionsById = {}
+  const missionsById = {}
   missions.forEach(function (mission) {
     missionsById[mission.id] = mission
   })

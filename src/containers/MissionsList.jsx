@@ -49,7 +49,8 @@ class MissionsList extends Component {
         <Button
           bsSize='xsmall'
           disabled={isFetching}
-          onClick={this.handleRefreshClick}>
+          onClick={this.handleRefreshClick}
+        >
           Refresh
         </Button>
         &nbsp;
@@ -57,8 +58,7 @@ class MissionsList extends Component {
           <span>
             Last updated at {new Date(lastUpdated).toLocaleTimeString()}.
             {' '}
-          </span>
-        }
+          </span>}
       </div>
     )
 
@@ -81,7 +81,8 @@ class MissionsList extends Component {
             activePage={page}
             boundaryLinks
             maxButtons={10}
-            onSelect={this.handlePageSelect} />
+            onSelect={this.handlePageSelect}
+          />
         </div>
       </div>
     )
@@ -91,14 +92,11 @@ class MissionsList extends Component {
         {missionsFilter}
         {refreshHeader}
         {isFetching && filteredMissions.length === 0 &&
-          <h2>Loading...</h2>
-        }
+          <h2>Loading...</h2>}
         {!isFetching && filteredMissions.length === 0 &&
-          <h2>Empty.</h2>
-        }
+          <h2>Empty.</h2>}
         {filteredMissions.length > 0 &&
-          missionsList
-        }
+          missionsList}
       </Grid>
     )
   }

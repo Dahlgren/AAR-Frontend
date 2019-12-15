@@ -8,12 +8,14 @@ import WorldsList from './WorldsList'
 
 export default class Router extends Component {
   render () {
-    return <Switch>
-      <Route exact path='/missions' component={MissionsList} />
-      <Route exact path='/missions/:id' component={Mission} />
-      <Route exact path='/worlds' component={WorldsList} />
-      <Route exact path='/worlds/:id' component={World} />
-      <Redirect path='*' to='/missions' />
-    </Switch>
+    return (
+      <Switch>
+        <Route exact path='/missions' component={MissionsList} />
+        <Route exact path='/missions/:id' component={Mission} />
+        <Route exact path='/worlds' component={WorldsList} />
+        <Route exact path='/worlds/:id' component={World} />
+        <Redirect path='*' to='/missions' />
+      </Switch>
+    )
   }
 }

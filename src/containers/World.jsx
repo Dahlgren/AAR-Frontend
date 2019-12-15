@@ -13,8 +13,7 @@ class World extends Component {
         {!world &&
           <Grid>
             <h2>World {match.params.id} is not configured</h2>
-          </Grid>
-        }
+          </Grid>}
         {world &&
           <div className='flex'>
             <ArmaMap
@@ -23,8 +22,7 @@ class World extends Component {
               vehicles={[]}
               world={world}
             />
-          </div>
-        }
+          </div>}
       </div>
     )
   }

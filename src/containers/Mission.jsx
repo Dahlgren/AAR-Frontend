@@ -50,18 +50,15 @@ class Mission extends Component {
         {mission && !world &&
           <Grid>
             <h2>World {mission.world} is not configured</h2>
-          </Grid>
-        }
+          </Grid>}
         {world && isFetching &&
           <Grid>
             <h2>Loading...</h2>
-          </Grid>
-        }
+          </Grid>}
         {world && !isFetching && (projectiles.length + units.length + vehicles.length) === 0 &&
           <Grid>
             <h2>No events</h2>
-          </Grid>
-        }
+          </Grid>}
         {world && time &&
           <div className='flex'>
             <ArmaMap
@@ -86,19 +83,18 @@ class Mission extends Component {
               isPlaying={isPlaying}
               speed={speed}
             />
-          </div>
-        }
+          </div>}
       </div>
     )
   }
 
   setSpeed (speed) {
-    this.setState({speed: speed})
+    this.setState({ speed: speed })
   }
 
   togglePlaying () {
     const { isPlaying } = this.state
-    this.setState({isPlaying: !isPlaying})
+    this.setState({ isPlaying: !isPlaying })
   }
 
   seek (event) {

@@ -12,7 +12,7 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 import configureStore from './configureStore'
 
-let store = configureStore()
+const store = configureStore()
 
 render((
   <Provider store={store}>

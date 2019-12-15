@@ -78,14 +78,15 @@ export default class MissionsFilter extends Component {
     const filterLength = (
       <FormGroup controlId='length'>
         <ControlLabel>Minimum Length</ControlLabel>
-        <ButtonGroup justified className='form-control-static' style={{padding: 0}}>
-          {FILTER_LENGTH.map(({title, value}) => {
+        <ButtonGroup justified className='form-control-static' style={{ padding: 0 }}>
+          {FILTER_LENGTH.map(({ title, value }) => {
             return (
               <ButtonGroup key={value}>
                 <Button
                   active={value === length}
                   onClick={this.setLength.bind(this, value)}
-                >{title}</Button>
+                >{title}
+                </Button>
               </ButtonGroup>
             )
           })}

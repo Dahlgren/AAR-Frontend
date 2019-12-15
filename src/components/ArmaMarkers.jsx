@@ -36,7 +36,7 @@ export class ArmaMarkers extends React.Component {
       <ArmaMarker key={id} {...props} />
     ))
     return (
-      <div style={{display: 'none'}}>{items}</div>
+      <div style={{ display: 'none' }}>{items}</div>
     )
   }
 };

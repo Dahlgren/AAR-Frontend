@@ -6,7 +6,7 @@ import rootReducer from './reducers'
 const loggerMiddleware = createLogger()
 
 export default function configureStore (initialState) {
-  let middleware = [
+  const middleware = [
     thunkMiddleware
   ]
 

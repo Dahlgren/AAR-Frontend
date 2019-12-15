@@ -34,6 +34,6 @@ export class ArmaProjectiles extends React.Component {
       <ArmaProjectile key={id} {...props} />
     ))
 
-    return <div style={{display: 'none'}}>{items}</div>
+    return <div style={{ display: 'none' }}>{items}</div>
   }
 }
