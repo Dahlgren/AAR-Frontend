@@ -53,6 +53,11 @@
   -webkit-mask-size: contain;
 }
 
+.marker-simulation-submarine {
+  -webkit-mask-image: url(../images/marker_submarine.png);
+  -webkit-mask-size: contain;
+}
+
 .marker-simulation-tank {
   -webkit-mask-image: url(../images/marker_tank.png);
   -webkit-mask-size: contain;
