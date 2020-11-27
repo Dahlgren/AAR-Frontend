@@ -2,8 +2,9 @@ import moment from 'moment'
 import 'moment-duration-format'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Glyphicon, Table } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { BsExclamationTriangle } from 'react-icons/bs'
 
 export default class Missions extends Component {
   renderWorldName (mission) {
@@ -15,7 +16,7 @@ export default class Missions extends Component {
         <div>
           <span>{mission.world}</span>
           &nbsp;
-          <Glyphicon className='text-danger' glyph='warning-sign' />
+          <BsExclamationTriangle />
         </div>
       )
     }

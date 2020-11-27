@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Grid } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Control from 'react-leaflet-control'
 import { connect } from 'react-redux'
 import ArmaMap from '../components/ArmaMap'
@@ -48,17 +48,17 @@ class Mission extends Component {
     return (
       <div id='map-container'>
         {mission && !world &&
-          <Grid>
+          <Container>
             <h2>World {mission.world} is not configured</h2>
-          </Grid>}
+          </Container>}
         {world && isFetching &&
-          <Grid>
+          <Container>
             <h2>Loading...</h2>
-          </Grid>}
+          </Container>}
         {world && !isFetching && (projectiles.length + units.length + vehicles.length) === 0 &&
-          <Grid>
+          <Container>
             <h2>No events</h2>
-          </Grid>}
+          </Container>}
         {world && time &&
           <div className='flex'>
             <ArmaMap

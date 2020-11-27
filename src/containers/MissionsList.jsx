@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Button, Grid, Pagination } from 'react-bootstrap'
+import { Button, Container, Pagination } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { invalidateMissions, fetchMissionsIfNeeded, setMissionsFilter, setMissionsPage } from '../actions/missions'
 import MissionsFilter from '../components/MissionsFilter'
@@ -88,7 +88,7 @@ class MissionsList extends Component {
     )
 
     return (
-      <Grid>
+      <Container>
         {missionsFilter}
         {refreshHeader}
         {isFetching && filteredMissions.length === 0 &&
@@ -97,7 +97,7 @@ class MissionsList extends Component {
           <h2>Empty.</h2>}
         {filteredMissions.length > 0 &&
           missionsList}
-      </Grid>
+      </Container>
     )
   }
 };

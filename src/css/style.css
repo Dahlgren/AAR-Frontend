@@ -8,6 +8,7 @@ body, html, #content, #app {
 #app {
   display: flex;
   flex-direction: column;
+  padding-top: 76px;
 }
 
 #map-container, #map, .flex {

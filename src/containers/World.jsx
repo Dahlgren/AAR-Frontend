@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Grid } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import ArmaMap from '../components/ArmaMap'
 
@@ -11,9 +11,9 @@ class World extends Component {
     return (
       <div id='map-container'>
         {!world &&
-          <Grid>
+          <Container>
             <h2>World {match.params.id} is not configured</h2>
-          </Grid>}
+          </Container>}
         {world &&
           <div className='flex'>
             <ArmaMap

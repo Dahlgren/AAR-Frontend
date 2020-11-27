@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Button, ButtonGroup, Col, ControlLabel, FormGroup, Row } from 'react-bootstrap'
+import { Button, ButtonGroup, Col, Form, Row } from 'react-bootstrap'
 import FieldGroup from './FieldGroup'
 
 const FILTER_LENGTH = [
@@ -65,7 +65,7 @@ export default class MissionsFilter extends Component {
     const filterWorld = (
       <FieldGroup
         id='world'
-        componentClass='select'
+        as='select'
         label='World'
         onChange={this.setWorld.bind(this)}
         value={world}
@@ -76,8 +76,8 @@ export default class MissionsFilter extends Component {
     )
 
     const filterLength = (
-      <FormGroup controlId='length'>
-        <ControlLabel>Minimum Length</ControlLabel>
+      <Form.Group>
+        <Form.Label>Minimum Length</Form.Label>
         <ButtonGroup justified className='form-control-static' style={{ padding: 0 }}>
           {FILTER_LENGTH.map(({ title, value }) => {
             return (
@@ -91,11 +91,11 @@ export default class MissionsFilter extends Component {
             )
           })}
         </ButtonGroup>
-      </FormGroup>
+      </Form.Group>
     )
 
     return (
-      <form>
+      <Form>
         <Row>
           <Col sm={4}>
             {filterName}
@@ -107,7 +107,7 @@ export default class MissionsFilter extends Component {
             {filterLength}
           </Col>
         </Row>
-      </form>
+      </Form>
     )
   }
 }

@@ -2,8 +2,9 @@ import moment from 'moment'
 import 'moment-duration-format'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap'
+import { Button, ButtonGroup } from 'react-bootstrap'
 import ReactBootstrapSlider from 'react-bootstrap-slider'
+import { BsPause, BsPlay } from 'react-icons/bs'
 
 const speeds = [1, 10, 100]
 
@@ -12,7 +13,7 @@ export default class TimeControl extends Component {
     const { isPlaying, mission, seek, speed, time } = this.props
     const duration = (time.current - time.start) / 1000
     const length = Math.max(mission.length, (time.end - time.start) / 1000)
-    const playButtonGlyph = isPlaying ? 'pause' : 'play'
+    const playButtonIcon = isPlaying ? <BsPause /> : <BsPlay />
 
     return (
       <div>
@@ -43,7 +44,7 @@ export default class TimeControl extends Component {
           </dl>
           <div className='pull-right' style={{ marginRight: '10px' }}>
             <Button bsSize='small' onClick={this.props.togglePlaying.bind(this)}>
-              <Glyphicon glyph={playButtonGlyph} />
+              {playButtonIcon}
             </Button>
             &nbsp;
             <ButtonGroup>

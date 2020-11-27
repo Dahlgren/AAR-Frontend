@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Grid } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import Worlds from '../components/Worlds'
 
@@ -15,9 +15,9 @@ class WorldsList extends Component {
     )
 
     return (
-      <Grid>
+      <Container>
         {worldsList}
-      </Grid>
+      </Container>
     )
   }
 };

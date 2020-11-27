@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Grid, Nav, Navbar, NavItem } from 'react-bootstrap'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -19,7 +19,7 @@ class App extends Component {
   render () {
     const { worlds, worldsByName } = this.props
 
-    let children = <Grid>Loading worlds</Grid>
+    let children = <Container>Loading worlds</Container>
 
     if (worlds && worldsByName) {
       if (!router) {
@@ -31,23 +31,23 @@ class App extends Component {
     return (
       <div id='app'>
         <div id='navigation'>
-          <Navbar staticTop>
-            <Navbar.Header>
+          <Navbar bg="light" fixed="top">
+            <Container>
               <Navbar.Brand>
                 <Link to='/'>AAR</Link>
               </Navbar.Brand>
               <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
-              <Nav>
-                <LinkContainer to='/missions'>
-                  <NavItem eventKey={1}>Missions</NavItem>
-                </LinkContainer>
-                <LinkContainer to='/worlds'>
-                  <NavItem eventKey={2}>Worlds</NavItem>
-                </LinkContainer>
-              </Nav>
-            </Navbar.Collapse>
+              <Navbar.Collapse>
+                <Nav>
+                  <LinkContainer to='/missions'>
+                    <Nav.Link eventKey={1}>Missions</Nav.Link>
+                  </LinkContainer>
+                  <LinkContainer to='/worlds'>
+                    <Nav.Link eventKey={2}>Worlds</Nav.Link>
+                  </LinkContainer>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
           </Navbar>
         </div>
         {children}
