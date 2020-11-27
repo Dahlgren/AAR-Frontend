@@ -6,6 +6,7 @@ export const markerTypes = [
   'plane',
   'ship',
   'soldier',
+  'submarine',
   'tank'
 ]
 

@@ -5,6 +5,7 @@ const sizes = {
   helicopter: [32, 32],
   plane: [32, 32],
   ship: [24, 24],
+  submarine: [24, 24],
   tank: [32, 32]
 }
 
