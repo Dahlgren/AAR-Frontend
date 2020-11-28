@@ -20,6 +20,10 @@ function requestMissions () {
 }
 
 function receiveMissions (missions) {
+  missions.forEach((mission) => {
+    mission.world = mission.world.toLowerCase()
+  })
+
   const missionsById = {}
   missions.forEach(function (mission) {
     missionsById[mission.id] = mission
